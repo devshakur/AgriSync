@@ -2,34 +2,11 @@
 
 import { useState } from "react";
 import { Button } from "@/component/ui/button";
-import { NavMegaMenu} from "./NavMegaMenu";
+import { NavMegaMenu } from "./NavMegaMenu";
 import { navItems } from "@/constants/nav";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-
-const LeafIcon = () => (
-  <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4 20c8-1 13-6 14-14-8 1-13 6-14 14Z" />
-    <path d="M6.5 17.5c3-3.2 6-6.4 9-11" />
-  </svg>
-);
-
-
-
-const CloseIcon = () => (
-  <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="5" y1="5" x2="19" y2="19" />
-    <line x1="19" y1="5" x2="5" y2="19" />
-  </svg>
-);
-
-const MenuIcon = () => (
-  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="4" y1="7" x2="20" y2="7" />
-    <line x1="4" y1="12" x2="20" y2="12" />
-    <line x1="4" y1="17" x2="20" y2="17" />
-  </svg>
-);
+import { Leaf, X, Menu } from "lucide-react";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -38,7 +15,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-black/10 bg-background/90 backdrop-blur-md">
       <div className="flex items-center justify-between px-6 py-4">
         <a href="#" className="flex items-center gap-2 font-heading text-xl font-bold text-primary">
-          <LeafIcon />
+          <Leaf className="h-6 w-6" />
           Jambito
         </a>
 
@@ -56,7 +33,7 @@ const Header = () => {
           className="p-2 text-foreground md:hidden"
           onClick={() => setMobileOpen((prev) => !prev)}
         >
-          {mobileOpen ? <CloseIcon /> : <MenuIcon />}
+          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
       

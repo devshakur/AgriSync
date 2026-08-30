@@ -111,36 +111,8 @@ body {
     transform: translateY(0);
   }
 }
-
-.mega-panel-content {
-  animation: navPanelSlideIn 0.32s ease-out;
-}
-
-.nav-menu-card {
-  animation: navCardSlideIn 0.3s ease-out both;
-}
-
-.road-dash {
-  animation: dashmove 0.6s linear infinite;
-}
-@keyframes dashmove {
-  to { stroke-dashoffset: -30; }
-}
-
-.truck-bounce {
-  animation: truck-bounce 0.5s ease-in-out infinite;
-  transform-box: fill-box;
-}
-@keyframes truck-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-2px); }
-}
-
-.wheel {
-  animation: wheel-spin 0.4s linear infinite;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-@keyframes wheel-spin {
-  to { transform: rotate(360deg); }
-}
+/* @keyframes dash {
+  to {
+    stroke-dashoffset: -64;
+  }
+} */
