@@ -5,6 +5,7 @@ import InfoCard from "./InfoCard";
 
 const audienceCards = [
   {
+    id: "farmers",
     eyebrow: "For Farmers",
     title: "Sell more, chase less",
     items: [
@@ -19,6 +20,7 @@ const audienceCards = [
     onClick: () => console.log("Farmer signup"),
   },
   {
+    id: "drivers",
     eyebrow: "For Drivers",
     title: "Turn every trip into income",
     items: [
@@ -33,6 +35,7 @@ const audienceCards = [
     onClick: () => console.log("Driver signup"),
   },
   {
+    id: "buyers",
     eyebrow: "For Buyers",
     title: "Fresh produce, no market run",
     items: [
@@ -54,6 +57,7 @@ export function AudienceCards() {
       {audienceCards.map((card) => (
         <InfoCard
           key={card.eyebrow}
+          id={card.id}
           eyebrow={card.eyebrow}
           title={card.title}
           items={card.items}

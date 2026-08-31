@@ -1,9 +1,9 @@
 import { Button } from "@/component/ui/button";
 
-const CTASection = () => {
+const CTASection = ({ id }: { id?: string }) => {
   return (
-    <section className="w-full bg-[#F9F7F0] px-5 py-10 sm:px-8 lg:px-12">
-      <div className="mx-auto flex min-h-104 w-full max-w-7xl flex-col items-center justify-center rounded-[48px] bg-[#1B4633] px-6 py-16 text-center sm:px-10 lg:min-h-[18rem]">
+    <section id={id} className="w-full bg-[#F9F7F0] px-5 py-10 sm:px-8 lg:px-12">
+      <div className="mx-auto flex min-h-104 w-full max-w-7xl flex-col items-center justify-center rounded-[48px] bg-[#1B4633] px-6 py-16 text-center sm:px-10 lg:min-h-72">
         <h2 className="max-w-5xl text-4xl font-bold leading-[1.1] tracking-[-0.04em] text-white">
           Ready to move agriculture forward?
         </h2>

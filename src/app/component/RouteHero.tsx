@@ -52,7 +52,7 @@ const RouteHero = () => {
         </circle>
 
         <g transform="translate(80,95)">
-          <circle r="60" className="fill-white stroke-accent stroke-[2]" />
+          <circle r="60" className="fill-white stroke-accent stroke-2" />
           <circle r="56" fill="none" stroke="currentColor" strokeWidth="2" className="animate-pulse text-accent/20" />
 
           <g transform="translate(-14,-14)" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
@@ -62,7 +62,7 @@ const RouteHero = () => {
         </g>
 
         <g transform="translate(350,95)">
-          <circle r="60" className="fill-white stroke-accent stroke-[2]" />
+          <circle r="60" className="fill-white stroke-accent stroke-2" />
           <circle r="56" fill="none" stroke="currentColor" strokeWidth="2" className="animate-pulse text-accent/20" />
 
           <g transform="translate(-14,-14)" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
@@ -74,7 +74,7 @@ const RouteHero = () => {
         </g>
 
         <g transform="translate(620,95)">
-          <circle r="60" className="fill-white stroke-accent stroke-[2]" />
+          <circle r="60" className="fill-white stroke-accent stroke-2" />
           <circle r="56" fill="none" stroke="currentColor" strokeWidth="2" className="animate-pulse text-accent/20" />
 
           <g transform="translate(-14,-14)" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">

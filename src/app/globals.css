@@ -75,6 +75,16 @@ html {
   scroll-behavior: smooth;
 }
 
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 
 @media (prefers-color-scheme: dark) {
   :root {

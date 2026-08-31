@@ -46,7 +46,7 @@ function FeatureItem({ title, description, Icon }: FeatureItemProps) {
         {title}
       </h3>
 
-      <p className="mt-2 max-w-[18rem] text-14 leading-[1.5] text-[#3F4A45]">
+      <p className="mt-2 max-w-[18rem] text-14 leading-normal text-[#3F4A45]">
         {description}
       </p>
     </article>
@@ -64,7 +64,7 @@ const  TrustHighlights = ({
 }: TrustHighlightsProps) => {
   return (
     <section className={`w-full ${className}`}>
-      <div className="mx-auto grid max-w-[1400px] gap-10 px-6 md:grid-cols-2 xl:grid-cols-4">
+      <div className="mx-auto grid w-full gap-10 px-6 md:grid-cols-2 xl:grid-cols-4">
         {items.map((item) => (
           <FeatureItem
             key={item.title}

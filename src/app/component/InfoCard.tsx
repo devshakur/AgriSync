@@ -4,6 +4,7 @@ import { Button, type ButtonVariant } from "@/component/ui/button";
 import { ReactNode } from "react";
 
 type InfoCardProps = {
+  id?: string;
   icon: ReactNode;
   eyebrow?: string;
   title: string;
@@ -16,6 +17,7 @@ type InfoCardProps = {
 };
 
 export default function InfoCard({
+  id,
   icon,
   eyebrow,
   title,
@@ -28,6 +30,7 @@ export default function InfoCard({
 }: InfoCardProps) {
   return (
     <article
+      id={id}
       className={`w-full rounded-4xl border border-[#E9E8E2] bg-primary-foreground px-8 py-8 shadow-[0_8px_30px_rgba(0,0,0,0.04)] ${className}`}
     >
       <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#E3F2E7] text-[#1B5A3B]">

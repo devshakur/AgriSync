@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Leaf, ArrowUpRight, Mail, MapPin } from "lucide-react";
+import { Leaf, ArrowUpRight, Mail, MapPin, FlowerIcon } from "lucide-react";
 
 const productLinks = [
   { label: "How it works", href: "#how-it-works" },
@@ -9,9 +9,9 @@ const productLinks = [
 ];
 
 const companyLinks = [
-  { label: "About", href: "#about" },
-  { label: "Careers", href: "#careers" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "#problem" },
+  { label: "Careers", href: "#how-it-works" },
+  { label: "Contact", href: "mailto:devshakur23@gmail.com" },
 ];
 
 const legalLinks = [
@@ -21,8 +21,8 @@ const legalLinks = [
 
 const Footer = () =>  {
   return (
-    <footer className="bg-[#F9F7F0] pt-4 ">
-      <div className="w-full overflow-hidden  bg-[#173F2D] text-white ">
+    <footer className="w-full bg-[#F9F7F0] pt-4">
+      <div className="w-full overflow-hidden bg-[#173F2D] text-white">
         {/* Main footer */}
         <div className="px-6 py-12 sm:px-10 sm:py-14 lg:px-16 lg:py-16">
           <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-10">
@@ -57,10 +57,10 @@ const Footer = () =>  {
                 <div className="flex items-center gap-3 text-sm text-[#AFC7B8]">
                   <Mail className="h-4 w-4 shrink-0" />
                   <a
-                    href="mailto:hello@agrilink.ng"
+                    href="mailto:devshakur23@gmail.com"
                     className="transition-colors hover:text-white"
                   >
-                    hello@agrilink.ng
+                    devshakur23@gmail.com
                   </a>
                 </div>
               </div>
@@ -87,7 +87,7 @@ const Footer = () =>  {
             <div className="flex items-center gap-2 font-mono text-xs text-[#AFC7B8] sm:text-sm">
               <span>Built for Nigerian agriculture</span>
 
-              <span className="text-[#8FD49D]">🌱</span>
+              <span className="text-[#8FD49D]"><FlowerIcon /> </span>
             </div>
           </div>
         </div>

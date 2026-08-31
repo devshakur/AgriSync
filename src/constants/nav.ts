@@ -4,7 +4,7 @@ export const navItems: NavItem[] = [
   { label: "Problem", href: "#problem", summary: "Understand the bottlenecks slowing agriculture from field to market." },
   {
     label: "For Farmers",
-    href: "#for-roles",
+    href: "#farmers",
     summary: "Turn harvest plans into faster movement, stronger pricing, and better cash flow.",
     items: [
       {
@@ -35,7 +35,7 @@ export const navItems: NavItem[] = [
   },
   {
     label: "For Drivers",
-    href: "#for-roles",
+    href: "#drivers",
     summary: "Keep routes efficient, earnings transparent, and delivery windows dependable.",
     items: [
       {
@@ -67,7 +67,7 @@ export const navItems: NavItem[] = [
   },
   {
     label: "For Buyers",
-    href: "#for-roles",
+    href: "#buyers",
     summary: "Source fresh produce with confidence, visibility, and a cleaner purchasing experience.",
     items: [
       {

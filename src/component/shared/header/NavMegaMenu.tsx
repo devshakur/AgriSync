@@ -32,18 +32,18 @@ const NavMegaMenu = ({ items }: NavMegaMenuProps) => {
 
   return (
     <div
-      className="relative hidden md:block"
+      className="relative hidden md:flex md:items-center md:justify-center"
       onMouseEnter={() => setMenuOpen(true)}
       onMouseLeave={() => {
         setMenuOpen(false);
         setActiveItem(null);
       }}
     >
-      <nav className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
+      <nav className="flex items-center gap-6 whitespace-nowrap text-sm font-medium text-muted-foreground">
         {items.map((item) => (
           <div key={item.label} className="relative">
-            <button
-              type="button"
+            <a
+              href={item.href}
               aria-expanded={menuOpen && activeItem?.label === item.label}
               onMouseEnter={() => {
                 setMenuOpen(true);
@@ -53,6 +53,7 @@ const NavMegaMenu = ({ items }: NavMegaMenuProps) => {
                 setMenuOpen(true);
                 setActiveItem(item);
               }}
+              onClick={() => setMenuOpen(false)}
               className="flex items-center gap-1 rounded-full px-2 py-2 transition-colors duration-200 hover:text-primary focus-visible:outline-none"
             >
               <span>{item.label}</span>
@@ -63,14 +64,14 @@ const NavMegaMenu = ({ items }: NavMegaMenuProps) => {
                   }`}
                 />
               )}
-            </button>
+            </a>
           </div>
         ))}
       </nav>
 
       {activeItem?.items && (
         <div
-          className={`absolute left-1/2 top-full z-50 w-[680px] -translate-x-1/2 pt-3 transition-all duration-300 ${
+          className={`absolute left-1/2 top-full z-50 w-170 -translate-x-1/2 pt-3 transition-all duration-300 ${
             menuOpen
               ? "pointer-events-auto translate-y-0 opacity-100"
               : "pointer-events-none -translate-y-2 opacity-0"
@@ -88,7 +89,7 @@ const NavMegaMenu = ({ items }: NavMegaMenuProps) => {
                   Smart flow
                 </div>
 
-                <h3 className="text-xl font-semibold tracking-tight text-foreground">
+                <h3 className="text-xl font-semibold tracking-tight text-accent">
                   {activeItem.label}
                 </h3>
                 <p className="mt-2 text-xs leading-5 text-muted-foreground">
@@ -96,7 +97,7 @@ const NavMegaMenu = ({ items }: NavMegaMenuProps) => {
                     "Built to keep every handoff visible, coordinated, and easy to act on."}
                 </p>
 
-                <ul className="mt-3 space-y-2 text-xs text-foreground/80">
+                <ul className="mt-3 space-y-2 text-xs text-secondary">
                   {[
                     "Clear visibility from field to final delivery",
                     "Fewer check-ins and fewer missed handoffs",
@@ -133,7 +134,7 @@ const NavMegaMenu = ({ items }: NavMegaMenuProps) => {
                       <ArrowRight className="h-3.5 w-3.5 text-primary transition-transform duration-200 group-hover:translate-x-1" />
                     </div>
 
-                    <p className="text-sm font-semibold text-foreground">{subItem.label}</p>
+                    <p className="text-sm font-semibold text-accent">{subItem.label}</p>
                     <p className="mt-1.5 text-xs leading-5 text-muted-foreground">
                       {subItem.description}
                     </p>

@@ -13,17 +13,31 @@ const Header = () => {
   const currentPath = usePathname();
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-background/90 backdrop-blur-md">
-      <div className="flex items-center justify-between px-6 py-4">
-        <a href="#" className="flex items-center gap-2 font-heading text-xl font-bold text-primary">
+      <div className="flex items-center justify-between gap-4 px-6 py-4">
+        <a href="#top" className="flex shrink-0 items-center gap-2 font-heading text-xl font-bold text-primary">
           <Leaf className="h-6 w-6" />
           Jambito
         </a>
 
-        <NavMegaMenu items={navItems} />
+        <div className="hidden flex-1 justify-center md:flex">
+          <NavMegaMenu items={navItems} />
+        </div>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <Button label="Log in" onClick={() => {}} variant="outline" size="sm" />
-          <Button label="Get Started" onClick={() => {}} variant="primary" size="sm" />
+        <div className="hidden shrink-0 items-center gap-3 md:flex">
+          <Button
+            label="Log in"
+            onClick={() => {}}
+            variant="outline"
+            size="sm"
+            className="shrink-0"
+          />
+          <Button
+            label="Get Started"
+            onClick={() => {}}
+            variant="primary"
+            size="sm"
+            className="shrink-0"
+          />
         </div>
 
         <button
@@ -33,7 +47,7 @@ const Header = () => {
           className="p-2 text-foreground md:hidden"
           onClick={() => setMobileOpen((prev) => !prev)}
         >
-          {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-5 w-5" />}
+          {mobileOpen ? <X className="h-6 w-6 text-accent" /> : <Menu className="h-7 w-7 text-accent" />}
         </button>
       </div>
       
@@ -65,7 +79,7 @@ const Header = () => {
             >
               <span>{item.label}</span>
               {/* Subtle visual indicator for list items */}
-              <span className="text-muted-foreground/40 text-xs">→</span>
+              <span className="text-primary text-xs">→</span>
             </a>
           );
         })}
