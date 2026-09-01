@@ -1,11 +1,13 @@
 "use client";
 
 import { Leaf, ShoppingBasket, Truck } from "lucide-react";
+import { useRouter } from "next/navigation";
 import InfoCard from "./InfoCard";
 
 const audienceCards = [
   {
     id: "farmers",
+    role: "farmer",
     eyebrow: "For Farmers",
     title: "Sell more, chase less",
     items: [
@@ -17,10 +19,10 @@ const audienceCards = [
     buttonText: "Join as a Farmer",
     icon: <Leaf className="h-7 w-7" />,
     accent: "#E3F2E7",
-    onClick: () => console.log("Farmer signup"),
   },
   {
     id: "drivers",
+    role: "driver",
     eyebrow: "For Drivers",
     title: "Turn every trip into income",
     items: [
@@ -32,10 +34,10 @@ const audienceCards = [
     buttonText: "Become a Driver",
     icon: <Truck className="h-7 w-7" />,
     accent: "#F4E7D5",
-    onClick: () => console.log("Driver signup"),
   },
   {
     id: "buyers",
+    role: "buyer",
     eyebrow: "For Buyers",
     title: "Fresh produce, no market run",
     items: [
@@ -47,11 +49,12 @@ const audienceCards = [
     buttonText: "Join as a Buyer",
     icon: <ShoppingBasket className="h-7 w-7" />,
     accent: "#E8E5D8",
-    onClick: () => console.log("Buyer signup"),
   },
 ];
 
 export function AudienceCards() {
+  const router = useRouter();
+
   return (
     <div className="mx-auto grid max-w-6xl items-stretch gap-6 md:grid-cols-3 lg:gap-8">
       {audienceCards.map((card) => (
@@ -62,7 +65,7 @@ export function AudienceCards() {
           title={card.title}
           items={card.items}
           buttonText={card.buttonText}
-          onButtonClick={card.onClick}
+          onButtonClick={() => router.push(`/signup?role=${encodeURIComponent(card.role)}`)}
           icon={card.icon}
           className="min-h-107.5"
         />

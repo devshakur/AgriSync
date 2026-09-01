@@ -22,6 +22,12 @@ const Header = ({ page, route }: HeaderProps) => {
         </div>
         <Link
           href={route}
+          scroll={true}
+          onClick={() => {
+            if (route === "/") {
+              window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+            }
+          }}
           className="inline-flex items-center gap-2 text-sm font-medium text-[#1B5A3B] transition-opacity hover:opacity-80"
           aria-label="Going Back to previous page"
         >

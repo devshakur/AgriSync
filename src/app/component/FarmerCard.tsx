@@ -1,8 +1,11 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import InfoCard from "./InfoCard";
 
 const FarmerCard = () => {
+  const router = useRouter();
+
   return (
     <InfoCard
       eyebrow="For Farmers"
@@ -14,9 +17,7 @@ const FarmerCard = () => {
         "Transparent earnings, paid to your wallet",
       ]}
       buttonText="Join as a Farmer"
-      onButtonClick={() => {
-        console.log("Farmer signup");
-      }}
+      onButtonClick={() => router.push("/signup?role=farmer")}
       icon={
         <svg
           viewBox="0 0 24 24"
@@ -33,5 +34,6 @@ const FarmerCard = () => {
       }
     />
   );
-}
-export {FarmerCard};
+};
+
+export { FarmerCard };
