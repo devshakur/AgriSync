@@ -40,7 +40,9 @@ export default function Home() {
               src={"/assests/images/Agrisync-truck.png"}
               width={500}
               height={200}
-              alt="deleivery-truck"
+              alt="delivery-truck"
+              loading="eager"
+              className="h-auto w-full max-w-125"
             />
           </div>
         </div>
@@ -54,6 +56,7 @@ export default function Home() {
             label="Get Started"
             type="button"
             variant="primary"
+            
           />
           <Button label="Learn More" type="button" variant="outline" />
         </div>

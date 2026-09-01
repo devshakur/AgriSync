@@ -38,7 +38,7 @@ const Footer = () =>  {
                 </span>
 
                 <span className="text-2xl font-semibold tracking-[-0.03em]">
-                  AgriLink
+                  AgriSync
                 </span>
               </Link>
 
@@ -81,7 +81,7 @@ const Footer = () =>  {
         <div className="border-t border-white/10">
           <div className="flex flex-col gap-5 px-6 py-6 sm:px-10 lg:flex-row lg:items-center lg:justify-between lg:px-16">
             <p className="text-sm text-[#AFC7B8]">
-              © {new Date().getFullYear()} AgriLink. All rights reserved.
+              © {new Date().getFullYear()} AgriSync. All rights reserved.
             </p>
 
             <div className="flex items-center gap-2 font-mono text-xs text-[#AFC7B8] sm:text-sm">

@@ -1,8 +1,11 @@
+import Link from "next/link";
+
 type ButtonVariant = "primary" | "secondary" | "accent" | "outline" | "ghost";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps {
   label: string;
+  href?: string;
   onClick?: () => void;
   disabled?: boolean;
   type?: "button" | "submit" | "reset";
@@ -38,6 +41,7 @@ const sizeStyles: Record<ButtonSize, string> = {
 
 const Button = ({
   label,
+  href,
   onClick,
   disabled = false,
   type = "button",
@@ -45,7 +49,7 @@ const Button = ({
   size = "md",
   className = "",
 }: ButtonProps) => {
-  return (
+  const content = (
     <button
       type={type}
       onClick={onClick}
@@ -54,12 +58,19 @@ const Button = ({
         baseStyles,
         variantStyles[variant],
         sizeStyles[size],
+        disabled ? "cursor-not-allowed" : "cursor-pointer",
         className,
       ].join(" ")}
     >
       {label}
     </button>
   );
+
+  if (href) {
+    return <Link href={href}>{content}</Link>;
+  }
+
+  return content;
 };
 
 export { Button, type ButtonProps, type ButtonVariant, type ButtonSize };

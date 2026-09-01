@@ -16,7 +16,7 @@ const Header = () => {
       <div className="flex items-center justify-between gap-4 px-6 py-4">
         <a href="#top" className="flex shrink-0 items-center gap-2 font-heading text-xl font-bold text-primary">
           <Leaf className="h-6 w-6" />
-          Jambito
+          Agrisync
         </a>
 
         <div className="hidden flex-1 justify-center md:flex">
@@ -37,6 +37,7 @@ const Header = () => {
             variant="primary"
             size="sm"
             className="shrink-0"
+            href="/role"
           />
         </div>
 
