@@ -25,10 +25,9 @@ export default function Home() {
 
       <div id="top" className="flex min-h-screen flex-col gap-4 font-heading">
         <Header />
-        <main id="main-content" className="mx-auto flex w-full max-w-[1600px] flex-col items-center justify-center gap-4 px-6 pb-2.5 pt-10 text-center">
+        <main id="main-content" className="mx-auto flex w-full max-w-[1600px] flex-col items-center justify-center gap-4 px-6 pb-2.5 pt-8 text-center">
           <EyeBrow>
-            Nigerian Agri-Logistics · Abuja · Kano · Kaduna · Nasarawa · Niger ·
-            Plateau
+           Nigerian Agri-Logistics · Nationwide · Abuja · Kano · Kaduna · Nasarawa · Niger · Plateau & beyond
           </EyeBrow>
           <div className="flex flex-col items-center justify-center gap-4">
             <h1 className="text-4xl text-center text-green-950 font-bold leading-[1.1] sm:text-5xl md:text-6xl">
@@ -37,7 +36,7 @@ export default function Home() {
             </h1>
           <div>
             <Image
-              src={"/assests/images/Agrisync-truck.png"}
+              src={"/assests/images/Agricsync-truck.webp"}
               width={500}
               height={200}
               alt="delivery-truck"
@@ -56,9 +55,14 @@ export default function Home() {
             label="Get Started"
             type="button"
             variant="primary"
-            
+            href="/role"
           />
-          <Button label="Learn More" type="button" variant="outline" />
+          <Button
+            label="Learn More"
+            type="button"
+            variant="outline"
+            href="#how-it-works-steps"
+          />
         </div>
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-8 px-6 md:flex-row md:items-center md:gap-12 lg:gap-16">
           <div className="w-full md:w-1/2">

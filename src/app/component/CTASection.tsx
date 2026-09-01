@@ -19,6 +19,7 @@ const CTASection = ({ id }: { id?: string }) => {
             label="Join AgriLink"
             variant="primary"
             size="lg"
+            href="/role"
             className="bg-[#D5EAD9] text-[#1B4633] hover:brightness-100"
           />
 
@@ -27,6 +28,7 @@ const CTASection = ({ id }: { id?: string }) => {
             label="Become a Driver"
             variant="outline"
             size="lg"
+            href="/signup?role=driver"
             className="border border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
           />
         </div>

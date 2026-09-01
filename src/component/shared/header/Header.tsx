@@ -1,12 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { Button } from "@/component/ui/button";
 import { NavMegaMenu } from "./NavMegaMenu";
 import { navItems } from "@/constants/nav";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
-import { Leaf, X, Menu } from "lucide-react";
+import { X, Menu } from "lucide-react";
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -15,8 +16,14 @@ const Header = () => {
     <header className="sticky top-0 z-50 border-b border-black/10 bg-background/90 backdrop-blur-md">
       <div className="flex items-center justify-between gap-4 px-6 py-4">
         <a href="#top" className="flex shrink-0 items-center gap-2 font-heading text-xl font-bold text-primary">
-          <Leaf className="h-6 w-6" />
-          Agrisync
+          <Image
+            src="/assests/logo/Agrisync-new-logo.webp"
+            alt="Agrisync logo"
+            width={120}
+            height={40}
+            className="h-auto w-auto max-h-10 object-contain"
+            priority
+          />
         </a>
 
         <div className="hidden flex-1 justify-center md:flex">
@@ -26,14 +33,13 @@ const Header = () => {
         <div className="hidden shrink-0 items-center gap-3 md:flex">
           <Button
             label="Log in"
-            onClick={() => {}}
+            href="/login"
             variant="outline"
             size="sm"
             className="shrink-0"
           />
           <Button
             label="Get Started"
-            onClick={() => {}}
             variant="primary"
             size="sm"
             className="shrink-0"
