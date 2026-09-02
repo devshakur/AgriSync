@@ -1,24 +1,25 @@
-import { Header } from "@/component/shared/header";
-import { Button } from "@/component/ui/button";
-import { EyeBrow } from "@/component/ui/eyebrow";
+import { Header } from "@/shared/ui/header";
+import { Button } from "@/shared/ui/button";
+import { EyeBrow } from "@/shared/ui/eyebrow";
 import Image from "next/image";
-import { RouteHero } from "./component/RouteHero";
-import StatsSection from "./component/StatsSection";
-import { ExtraInfo } from "./component/ExtraInfo";
-import { HowItWorks } from "./component/HowItWorks";
-import { AudienceCards } from "./component/AudienceCards";
-import { FarmerCard } from "./component/FarmerCard";
-import { TransportationCard } from "./component/TransportationCard";
-import { TrustHighlights } from "./component/TrustHighlights";
-import { CTASection } from "./component/CTASection";
-import { Footer } from "./component/Footer";
+import {
+  AudienceCards,
+  ExtraInfo,
+  FarmerCard,
+  TransportationCard,
+  TrustHighlights,
+} from "@/widgets/landing/features";
+import { RouteHero, StatsSection } from "@/widgets/landing/hero";
+import { HowItWorks } from "@/widgets/landing/how-it-works";
+import { CTASection } from "@/widgets/landing/cta";
+import { Footer } from "@/widgets/landing";
 
 export default function Home() {
   return (
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary"
+        className="sr-only  focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary"
       >
         Skip to main content
       </a>

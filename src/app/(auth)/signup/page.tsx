@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { SignUp } from "@/features/auth/signup/Signup";
+import { SignUp } from "@/features/auth/signup";
 
 export default function RolePage() {
   return (

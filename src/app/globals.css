@@ -93,6 +93,7 @@ body {
   background: var(--backgroundbg);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 @keyframes navPanelSlideIn {

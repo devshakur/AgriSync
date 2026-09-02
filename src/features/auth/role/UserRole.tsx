@@ -3,9 +3,9 @@
 
 import { useRouter } from "next/navigation";
 import { Leaf, ShoppingBasket, Truck } from "lucide-react";
-import { ExtraInfo } from "@/app/component/ExtraInfo";
-import RoleCard from "../component/RoleCard";
-import { Header } from "../component/Header";
+import { ExtraInfo } from "@/widgets/landing/features/extra-info";
+import RoleCard from "./role-card/RoleCard";
+import { Header } from "../shared/header";
 
 const roles = [
   {
