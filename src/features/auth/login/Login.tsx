@@ -3,11 +3,9 @@
 import Link from "next/link";
 import { Leaf, LockKeyhole, UserRound } from "lucide-react";
 import { useState } from "react";
-import { Button } from "@/component/ui/button";
-import { FormField } from "@/component/ui/formfield/FormField";
-import { FormCard } from "../component/FormCard";
-import { Header } from "../component/Header";
-import { FormSubhead } from "../component/FormSubHead";
+import { Button } from "@/shared/ui/button";
+import { FormField } from "@/shared/ui/formfield";
+import { FormCard, Header, FormSubhead } from "../shared";
 
 const Login = () => {
   const [identifier, setIdentifier] = useState("");
@@ -23,7 +21,7 @@ const Login = () => {
                    description="Log in to manage your deliveries, orders, and produce."
                  />
       <div className="flex  items-center justify-center px-4 py-8">
-        <FormCard className="w-full max-w-[70vw] border border-[#D8D1C6] bg-[#F7F3EE] p-5 shadow-md">
+        <FormCard className="w-full p-5">
           <div className="space-y-6">
             <div className="space-y-2">
               <div>
@@ -81,7 +79,7 @@ const Login = () => {
 
             <div className="flex items-center gap-4 pt-2">
               <div className="h-px flex-1 bg-[#CFC8BE]" />
-              <span className="text-base text-[#5C5A57]">New to AgriLink?</span>
+              <span className="text-base text-[#5C5A57]">New to AgriSync?</span>
               <div className="h-px flex-1 bg-[#CFC8BE]" />
             </div>
 

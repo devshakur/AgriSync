@@ -1,1 +1,0 @@
-export { EyeBrow } from "./EyeBrow";

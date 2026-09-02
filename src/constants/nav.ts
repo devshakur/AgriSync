@@ -1,4 +1,4 @@
-import { type NavItem } from "@/component/shared/header/NavMegaMenu";
+import { type NavItem } from "@/shared/ui/header/nav-mega-menu";
 
 export const navItems: NavItem[] = [
   { label: "Problem", href: "#problem", summary: "Understand the bottlenecks slowing agriculture from field to market." },

@@ -2,8 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { FormCard } from "../component/FormCard";
-import { Header } from "../component/Header";
+import { FormCard, Header, FormSubhead } from "../shared";
 import {
   Leaf,
   LockKeyhole,
@@ -12,9 +11,8 @@ import {
   Phone,
   UserRound,
 } from "lucide-react";
-import { FormSubhead } from "../component/FormSubHead";
-import { FormField } from "@/component/ui/formfield/FormField";
-import { Button } from "@/component/ui/button";
+import { FormField } from "@/shared/ui/formfield";
+import { Button } from "@/shared/ui/button";
 import Link from "next/link";
 
 const SignUp = () => {
