@@ -1,54 +1,36 @@
 "use client";
 
 import { DashboardShell } from "@/widgets/dashboard";
-import { StatCardsCarousel } from "@/widgets/dashboard/ui/carousel/StatCardCarousel";
-import { Package, ShoppingBag, Truck, Wallet } from "lucide-react";
-
+import { StatCardsCarousel } from "@/widgets/dashboard/ui/statcard/StatCardCarousel";
+import { farmerStats, farmerProduce } from "../constant";
+import { ProduceSection } from "@/widgets/dashboard/ui/producecard/ProduceSection";
+import { DeliveryActivity } from "@/widgets/dashboard/ui/deliveryactivity";
 
 const FarmersDashboard = () => {
-    const farmerStats = [
-  {
-    label: "Produce Listed",
-    value: "12",
-    description: "4 active listings",
-    trend: "10% this month",
-    trendDirection: "up" as const,
-    icon: Package,
-    iconType: "green" as const,
-  },
-  {
-    label: "Active Orders",
-    value: "8",
-    description: "2 require action",
-    trend: "15% this month",
-    trendDirection: "up" as const,
-    icon: ShoppingBag,
-    iconType: "amber" as const,
-  },
-  {
-    label: "In Delivery",
-    value: "3",
-    description: "Currently on the road",
-    trend: "5% this month",
-    trendDirection: "up" as const,
-    icon: Truck,
-    iconType: "clay" as const,
-  },
-  {
-    label: "Total Earnings",
-    value: "₦284,500",
-    description: "This month",
-    trend: "12.8% vs last month",
-    trendDirection: "up" as const,
-    icon: Wallet,
-    iconType: "green" as const,
-  },
-];
+   
   return (
    <DashboardShell >
+     <p className="mb-3 text-sm text-gray-500">
+       Here&apos;s what&apos;s happening on your farm today.
+     </p>
      <article>
      <StatCardsCarousel cards={farmerStats} interval={3500} />
      </article>
+     <div>
+        <ProduceSection
+        products={farmerProduce.slice(0, 2)}
+        sideContent={<DeliveryActivity />}
+  onViewAll={() => {
+    console.log("View all produce");
+  }}
+  onEdit={(id) => {
+    console.log("Edit produce:", id);
+  }}
+  onMenuClick={(id) => {
+    console.log("Menu:", id);
+  }}
+/>
+     </div>
    </DashboardShell>
   )
 }

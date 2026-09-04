@@ -18,7 +18,6 @@ const  DashboardShell = ({ children }: DashboardShellProps) => {
       <div className="lg:pl-62.5">
         <DashboardHeader 
         name="Abdulshakur"
-        subtitle = "Here's what's happening on your farm today."
          notificationCount={3}
         onMenuOpen={() => setIsMobileSidebarOpen(true)}
         onListProduce={() => {
@@ -26,8 +25,8 @@ const  DashboardShell = ({ children }: DashboardShellProps) => {
         }}    
         />
 
-        <main className="px-4 py-6 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-7xl">{children}</div>
+        <main className="px-4 pb-6 pt-24 sm:px-6 lg:px-8 lg:pt-24">
+          <div className="w-full">{children}</div>
         </main>
       </div>
 

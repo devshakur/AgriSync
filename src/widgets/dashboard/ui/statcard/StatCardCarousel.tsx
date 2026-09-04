@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { LucideIcon } from "lucide-react";
-import { StatCard } from "../statcard";
+import { StatCard } from ".";
 
 export type DashboardStat = {
   label: string;

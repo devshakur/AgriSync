@@ -1,8 +1,10 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Bell, Plus, Search, TextAlignEnd } from "lucide-react";
 
 interface DashboardHeaderProps {
   name: string;
-  subtitle?: string;
   notificationCount?: number;
   onMenuOpen?: () => void;
   onListProduce?: () => void;
@@ -10,13 +12,25 @@ interface DashboardHeaderProps {
 
 const DashboardHeader = ({
   name,
-  subtitle = "Here's what's happening on your farm today.",
   notificationCount = 0,
   onMenuOpen,
   onListProduce,
 }: DashboardHeaderProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="flex w-full flex-col gap-4 px-4 py-4 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:px-7">
+    <header className={`fixed inset-x-0 top-0 z-50 flex w-full flex-col gap-4  px-4 py-4  transition-colors sm:px-6 lg:left-62.5 lg:w-auto lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:px-7 ${isScrolled ? "bg-[#F3EDDD]" : "bg-background"}`}>
       {/* Greeting */}
       <div className="flex w-full min-w-0 items-center justify-between gap-3 lg:w-auto">
         <div className="w-full min-w-0 lg:w-auto">
@@ -51,14 +65,11 @@ const DashboardHeader = ({
             </div>
           </div>
 
-          <p className="mt-1 text-sm text-gray-500">
-            {subtitle}
-          </p>
         </div>
       </div>
 
       {/* Mobile search */}
-      <div className="relative w-full md:w-69 md:self-end lg:hidden">
+      {/* <div className="relative w-full md:w-69 md:self-end lg:hidden">
         <Search
           size={20}
           strokeWidth={2}
@@ -70,7 +81,7 @@ const DashboardHeader = ({
           placeholder="Search anything..."
           className="h-11 w-full rounded-xl border-gray-200 bg-background pl-4 pr-12 text-sm text-gray-900 shadow-sm outline-none transition placeholder:text-gray-400 focus:border-gray-400"
         />
-      </div>
+      </div> */}
 
       {/* Right side */}
       <div className="hidden w-full items-center justify-end gap-3 lg:flex lg:w-auto lg:gap-8">
