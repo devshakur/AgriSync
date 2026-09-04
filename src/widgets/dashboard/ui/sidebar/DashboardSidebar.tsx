@@ -50,7 +50,7 @@ const navigation = [
 
 const DashboardSidebar = () => {
   return (
-    <aside className="fixed inset-y-0 left-0 z-40 hidden w-62.5  shadow-lg border-black/5 bg-[#FAF7EF] lg:flex lg:flex-col">
+    <aside className="fixed inset-y-0 left-0 z-40 hidden w-62.5 border-black/5 bg-background shadow-lg lg:flex lg:flex-col">
       {/* Logo */}
       <div className="flex h-20 items-center px-6">
         <div className="flex items-center gap-2.5">

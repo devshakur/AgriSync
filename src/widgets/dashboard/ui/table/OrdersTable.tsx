@@ -29,9 +29,9 @@ const OrdersTable = ({
   onOrderClick,
 }: OrdersTableProps) => {
   return (
-    <div className="w-full overflow-visible rounded-xl border-0  md:overflow-hidden md:border md:border-black/[0.07]">
-    
-      <div className="hidden md:block">
+    <div className="w-full overflow-visible rounded-xl border-0 bg-background md:overflow-hidden md:border md:border-black/[0.07]">
+
+      <div className="hidden bg-background md:block">
         {/* Table header */}
         <div className="grid grid-cols-[1fr_1.3fr_0.8fr_1.4fr_1fr_0.8fr_32px] items-center border-b border-black/[0.07]  px-4 py-3 text-[10px] font-medium uppercase tracking-[0.08em] text-muted-foreground lg:px-5">
           <span>Order ID</span>
@@ -49,7 +49,7 @@ const OrdersTable = ({
             key={order.id}
             type="button"
             onClick={() => onOrderClick?.(order)}
-            className="group grid w-full grid-cols-[1fr_1.3fr_0.8fr_1.4fr_1fr_0.8fr_32px] items-center border-b border-black/6 px-4 py-3.5 text-left transition last:border-0 hover:bg-[#FAF7EF]/60 lg:px-5"
+            className="group grid w-full grid-cols-[1fr_1.3fr_0.8fr_1.4fr_1fr_0.8fr_32px] items-center border-b border-black/6 bg-background px-4 py-3.5 text-left transition last:border-0 hover:bg-[#FAF7EF]/60 lg:px-5"
           >
             {/* Order ID */}
             <span className="font-mono text-[11px] font-medium text-muted-foreground">
@@ -98,7 +98,7 @@ const OrdersTable = ({
             key={order.id}
             type="button"
             onClick={() => onOrderClick?.(order)}
-            className="group flex w-full items-center gap-3 rounded-xl border border-black/[0.07] px-4 py-4 text-left shadow-sm transition hover:bg-[#FAF7EF]/60"
+            className="group flex w-full items-center gap-3 rounded-xl border border-black/[0.07] bg-background px-4 py-4 text-left shadow-sm transition hover:bg-[#FAF7EF]/60"
           >
             {/* Left indicator */}
             <div

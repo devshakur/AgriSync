@@ -98,7 +98,7 @@ const    MobileSidebar = ({
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-[88%] max-w-97.5 flex-col overflow-y-auto bg-[#FAF7EF] shadow-[10px_0_40px_rgba(33,31,26,0.12)] transition-transform duration-300 ease-out sm:w-92.5 lg:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 flex w-[88%] max-w-97.5 flex-col overflow-y-auto bg-background shadow-[10px_0_40px_rgba(33,31,26,0.12)] transition-transform duration-300 ease-out sm:w-92.5 lg:hidden ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -143,7 +143,7 @@ const    MobileSidebar = ({
         </div>
 
         {/* Account verification card */}
-        <div className="mx-5 mt-2 rounded-2xl border border-black/5 bg-white p-4 shadow-sm">
+        <div className="mx-5 mt-2 rounded-2xl border border-black/5 bg-background p-4 shadow-sm">
           <div className="flex items-center gap-3">
             <div className="relative">
               <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
@@ -210,10 +210,10 @@ const    MobileSidebar = ({
                     key={item.label}
                     href={item.href}
                     onClick={onClose}
-                    className={`group relative flex min-h-21.5 flex-col shadow-md justify-between rounded-2xl border p-4 transition duration-200 ${
+                    className={`group relative flex min-h-21.5 flex-col justify-between rounded-2xl border p-4 shadow-md transition duration-200 ${
                       active
                         ? "border-primary/10 bg-primary text-white shadow-[0_8px_20px_rgba(27,90,59,0.16)]"
-                        : "border-black/5 bg-white text-foreground shadow-mdhover:-translate-y-0.5 hover:border-primary/10 hover:shadow-md"
+                        : "border-black/5 bg-background text-foreground hover:-translate-y-0.5 hover:border-primary/10 hover:shadow-md"
                     }`}
                   >
                     <div className="flex items-start justify-between">
@@ -290,7 +290,7 @@ const    MobileSidebar = ({
                     className={`group flex items-center gap-4 rounded-2xl border px-4 py-3.5 transition ${
                       active
                         ? "border-primary/10 bg-[#E3F2E7] text-primary"
-                        : "border-black/5 bg-white text-foreground hover:bg-muted"
+                        : "border-black/5 bg-background text-foreground hover:bg-muted"
                     }`}
                   >
                     <div
