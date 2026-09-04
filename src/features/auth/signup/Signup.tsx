@@ -96,9 +96,9 @@ const SignUp = () => {
 
             <div className="md:col-span-2">
               <FormField
-                label="Farm location"
+                label="City"
                 icon={Leaf}
-                placeholder="e.g. Kuje, Abuja"
+                placeholder="e.g. Kuje, Gwagwalada, Zuba"
               />
             </div>
 

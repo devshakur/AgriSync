@@ -1,10 +1,10 @@
-# AgriLink
+# AgriSync
 
-AgriLink is a modern agricultural logistics platform designed to connect farmers, drivers, and buyers in a trusted, transparent, and efficient supply chain. The platform helps farmers move produce quickly, supports drivers with route-based jobs and earnings visibility, and gives buyers access to fresh, verified produce with delivery tracking and secure payments.
+AgriSync is a modern agricultural logistics platform designed to connect farmers, drivers, and buyers in a trusted, transparent, and efficient supply chain. The platform helps farmers move produce quickly, supports drivers with route-based jobs and earnings visibility, and gives buyers access to fresh, verified produce with delivery tracking and secure payments.
 
 ## Project Goal
 
-The core mission of AgriLink is to simplify the movement of agricultural produce from farms to markets and homes by reducing delays, improving trust, and creating a digital coordination layer between key participants in the value chain.
+The core mission of AgriSync is to simplify the movement of agricultural produce from farms to markets and homes by reducing delays, improving trust, and creating a digital coordination layer between key participants in the value chain.
 
 ## Current Product Direction
 
@@ -49,7 +49,7 @@ The app follows a component-driven structure using the App Router pattern from N
 
 ## Architecture Plan
 
-The long-term architecture for AgriLink will likely evolve in the following direction:
+The long-term architecture for AgriSync will likely evolve in the following direction:
 
 ### 1. Frontend
 - Next.js App Router for page structure and routing

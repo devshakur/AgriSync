@@ -43,8 +43,8 @@ const UserRole = () => {
      <Header page="Back to Home" route="/" />
       <section>
         <ExtraInfo
-          id="Agrilink usage"
-          heading="How will you use AgriLink?"
+          id="AgriSync usage"
+          heading="How will you use AgriSync?"
           description="Choose the role that fits you best — you can always add another account later."
         />
       </section>
