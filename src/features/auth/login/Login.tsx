@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Leaf, LockKeyhole, UserRound } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/shared/ui/button";
@@ -8,6 +9,7 @@ import { FormField } from "@/shared/ui/formfield";
 import { FormCard, Header, FormSubhead } from "../shared";
 
 const Login = () => {
+  const router = useRouter();
   const [identifier, setIdentifier] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
@@ -72,6 +74,9 @@ const Login = () => {
                 label="Log in"
                 type="button"
                 variant="primary"
+                onClick={() => {
+                  router.push("/farmers/dashboard");
+                }}
                 size="lg"
                 className="w-full rounded-full bg-primary  text-lg font-semibold text-white hover:bg-[#0a3328]"
               />

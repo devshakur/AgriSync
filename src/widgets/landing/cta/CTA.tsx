@@ -16,7 +16,7 @@ const CTASection = ({ id }: { id?: string }) => {
         <div className="mt-12 flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
           <Button
             type="button"
-            label="Join AgriLink"
+            label="Join AgriSync"
             variant="primary"
             size="lg"
             href="/role"

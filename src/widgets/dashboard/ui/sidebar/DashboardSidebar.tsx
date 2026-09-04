@@ -54,13 +54,20 @@ const DashboardSidebar = () => {
       {/* Logo */}
       <div className="flex h-20 items-center px-6">
         <div className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-white">
-            <Leaf className="h-5 w-5" />
-          </div>
+          
+                         <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
+                                  <Image
+                                    src="/assests/logo/Agricsync-short-logo.png"
+                                    alt="Farmer"
+                                    fill
+                                    className="object-cover"
+                                    sizes="40px"
+                                  />
+                                </div>
 
           <div>
-            <p className="font-heading text-lg font-bold text-foreground">
-              AgriLink
+            <p className="font-heading text-lg font-bold text-primary">
+              AgriSync
             </p>
 
             <p className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground">

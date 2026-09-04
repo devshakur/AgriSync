@@ -47,7 +47,7 @@ export default function Home() {
           </div>
         </div>
         <h4 className="max-w-175  text-center text-lg text-muted-foreground sm:text-xl">
-          AgriLink connects farmers, drivers, and buyers to move fresh produce
+          AgriSync connects farmers, drivers, and buyers to move fresh produce
           faster, sell directly, and earn more
         </h4>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -90,7 +90,7 @@ export default function Home() {
         </section>
         <ExtraInfo
           id="how-it-works"
-          heading="How AgriLink Works"
+          heading="How AgriSync Works"
           description="One coordinated network, three simple moves"
           info="Moving harvested produce from farms to storage, homes"
         />
@@ -101,7 +101,7 @@ export default function Home() {
           <ExtraInfo
             id="buyers"
             heading="Built For Every Stop On The Route"
-            description="Whichever seat you're in, AgriLink works for you"
+            description="Whichever seat you're in, AgriSync works for you"
             info="Buy directly from verified farmers"
           />
         </div>

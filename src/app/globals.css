@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* ---- AgriLink brand colors ---- */
+  /* ---- AgriSync brand colors ---- */
   --backgroundbg: #FAF7EF;      /* cream-50 */
   --foreground: #211F1A;      /* ink-900 */
 
@@ -127,6 +127,18 @@ body {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes promoCardIn {
+  0% {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 /* @keyframes dash {

@@ -75,3 +75,38 @@ export const farmerProduce = [
     updatedAt: "Updated yesterday",
   },
 ];
+
+export const recentOrders = [
+  {
+    id: "#AG-1048",
+    product: "Fresh Tomatoes",
+    quantity: "250 kg",
+    buyer: "Green Basket Market",
+    amount: "₦84,000",
+    status: "Pending" as const,
+  },
+  {
+    id: "#AG-1047",
+    product: "Yellow Maize",
+    quantity: "500 kg",
+    buyer: "Northern Foods Ltd.",
+    amount: "₦125,000",
+    status: "In Transit" as const,
+  },
+  {
+    id: "#AG-1046",
+    product: "Local Rice",
+    quantity: "300 kg",
+    buyer: "Arewa Supermarket",
+    amount: "₦210,000",
+    status: "Delivered" as const,
+  },
+  {
+    id: "#AG-1045",
+    product: "Green Pepper",
+    quantity: "100 kg",
+    buyer: "Veggie World",
+    amount: "₦45,000",
+    status: "Delivered" as const,
+  },
+];
