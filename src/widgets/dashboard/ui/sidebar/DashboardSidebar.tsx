@@ -6,7 +6,7 @@ import {
   Truck,
   Settings,
   LogOut,
-  Leaf,
+  
   Sprout,
   PaperBag,
   MessagesSquare,

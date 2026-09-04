@@ -2,7 +2,6 @@
 
 import {
   CalendarDays,
-  MoreHorizontal,
   Package,
   Pencil,
 } from "lucide-react";
