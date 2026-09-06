@@ -75,7 +75,7 @@ const Login = () => {
                 type="button"
                 variant="primary"
                 onClick={() => {
-                  router.push("/farmers/dashboard");
+                  router.push("/farmer");
                 }}
                 size="lg"
                 className="w-full rounded-full bg-primary  text-lg font-semibold text-white hover:bg-[#0a3328]"

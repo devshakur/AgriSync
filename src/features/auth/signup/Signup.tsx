@@ -21,6 +21,11 @@ const SignUp = () => {
   const role = searchParams.get("role") ?? "farmer";
 
   const roleLabel = role.charAt(0).toUpperCase() + role.slice(1);
+  const roleDescription = {
+    farmer: "Tell us about your farm so buyers and drivers can find you.",
+    buyer: "Tell us about your trade so farmers and drivers can find you.",
+    driver: "Tell us about your ride so farmers and buyers can reach you.",
+  }[role] ?? "Tell us about your work so the right people can find you.";
 
   return (
     <>
@@ -30,8 +35,8 @@ const SignUp = () => {
         <FormSubhead
           role={roleLabel}
           icon={Leaf}
-          title="Create your farmer account"
-          description="Tell us about your farm so buyers and drivers can find you."
+          title={`Create your ${roleLabel} account`}
+          description={roleDescription}
         />
       </div>
 

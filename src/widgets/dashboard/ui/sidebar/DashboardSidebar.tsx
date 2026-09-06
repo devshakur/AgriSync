@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 import {
   House,
@@ -17,38 +19,48 @@ import Image from "next/image";
 
 const navigation = [
   {
-    label: "Overview",
-    href: "/dashboard/farmer",
+      label: "Overview",
+      href: "/farmer",
     icon: House,
   },
   {
     label: "My Produce",
-    href: "/dashboard/farmer/produce",
+      href: "/farmer/produce",
     icon: Sprout,
   },
   {
     label: "Orders",
-    href: "/dashboard/farmer/orders",
+      href: "/farmer/orders",
     icon: PaperBag,
   },
   {
     label: "Deliveries",
-    href: "/dashboard/farmer/deliveries",
+      href: "/farmer/deliveries",
     icon: Truck,
   },
   {
     label: "Message",
-    href: "/dashboard/farmer/messages",
+      href: "/farmer/messages",
     icon: MessagesSquare,
   },
   {
     label: "Settings",
-    href: "/dashboard/farmer/settings",
+      href: "/farmer/settings",
     icon: Settings,
   },
 ];
 
 const DashboardSidebar = () => {
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/farmer") {
+      return pathname === href;
+    }
+
+    return pathname.startsWith(href);
+  };
+
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-62.5 border-black/5 bg-background shadow-lg lg:flex lg:flex-col">
       {/* Logo */}
@@ -84,22 +96,24 @@ const DashboardSidebar = () => {
         </p>
 
         <div className="space-y-1">
-          {navigation.map((item, index) => {
+          {navigation.map((item) => {
             const Icon = item.icon;
+            const active = isActive(item.href);
 
             return (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition ${
-                  index === 0
+                  active
                     ? "bg-[#E3F2E7] text-primary"
                     : "text-muted-foreground hover:bg-primary hover:text-foreground"
                 }`}
               >
                 <Icon className="h-4.5 w-4.5" />
                 {item.label}
-              </a>
+              </Link>
             );
           })}
         </div>

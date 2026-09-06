@@ -35,23 +35,23 @@ type MobileSidebarProps = {
 const navigation: NavItem[] = [
   {
     label: "Overview",
-    href: "/dashboard/farmer",
+    href: "/farmer",
     icon: LayoutDashboard,
   },
   {
     label: "My Produce",
-    href: "/dashboard/farmer/produce",
+    href: "/farmer/produce",
     icon: Package,
   },
   {
     label: "Orders",
-    href: "/dashboard/farmer/orders",
+    href: "/farmer/orders",
     icon: ShoppingBag,
     badge: "8",
   },
   {
     label: "Deliveries",
-    href: "/dashboard/farmer/deliveries",
+    href: "/farmer/deliveries",
     icon: Truck,
   },
 ];
@@ -59,26 +59,25 @@ const navigation: NavItem[] = [
 const accountNavigation: NavItem[] = [
   {
     label: "Messages",
-    href: "/dashboard/farmer/messages",
+    href: "/farmer/messages",
     icon: MessagesSquare,
   },
   {
     label: "Settings",
-    href: "/dashboard/farmer/settings",
+    href: "/farmer/settings",
     icon: Settings,
   },
 ];
 
-const    MobileSidebar = ({
+const MobileSidebar = ({
   open,
   onClose,
   role = "Farmer",
 }: MobileSidebarProps) => {
   const pathname = usePathname();
-
   const isActive = (href: string) => {
-    if (href === "/dashboard/farmer") {
-      return pathname === href;
+    if (href === "/farmer") {
+      return pathname === "/farmer";
     }
 
     return pathname.startsWith(href);
@@ -105,7 +104,7 @@ const    MobileSidebar = ({
         {/* Header */}
         <div className="flex items-center justify-between px-5 pb-4 pt-6">
           <Link
-            href="/dashboard/farmer"
+            href="/farmer"
             onClick={onClose}
             className="flex items-center gap-3"
           >
@@ -210,7 +209,7 @@ const    MobileSidebar = ({
                     key={item.label}
                     href={item.href}
                     onClick={onClose}
-                    className={`group relative flex min-h-21.5 flex-col justify-between rounded-2xl border p-4 shadow-md transition duration-200 ${
+                    className={`group relative flex  min-h-21.5 flex-col justify-between rounded-2xl border p-4 bg-[#FFF4DC] shadow-md transition duration-200 ${
                       active
                         ? "border-primary/10 bg-primary text-white shadow-[0_8px_20px_rgba(27,90,59,0.16)]"
                         : "border-black/5 bg-background text-foreground hover:-translate-y-0.5 hover:border-primary/10 hover:shadow-md"
