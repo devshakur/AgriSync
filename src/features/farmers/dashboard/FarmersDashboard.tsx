@@ -1,6 +1,5 @@
 "use client";
 
-import { DashboardShell } from "@/widgets/dashboard";
 import { StatCardsCarousel } from "@/widgets/dashboard/ui/statcard/StatCardCarousel";
 import { farmerStats, farmerProduce, recentOrders } from "../constant";
 import { ProduceSection } from "@/widgets/dashboard/ui/producecard/ProduceSection";
@@ -13,7 +12,7 @@ import {
 
 const FarmersDashboard = () => {
   return (
-    <DashboardShell>
+    <>
       <p className="mb-3 text-sm text-gray-500">
         Here&apos;s what&apos;s happening on your farm today.
       </p>
@@ -53,7 +52,7 @@ const FarmersDashboard = () => {
           }}
         />
       </div>
-    </DashboardShell>
+    </>
   );
 };
 

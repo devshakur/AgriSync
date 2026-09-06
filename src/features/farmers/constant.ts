@@ -1,4 +1,4 @@
- import { Package, ShoppingBag, Truck, Wallet } from "lucide-react";
+ import { BanknoteArrowUp, CircleArrowOutDownRight, CirclePile, Package, ShoppingBag, Sprout, Truck, Wallet } from "lucide-react";
  
  export const farmerStats = [
   {
@@ -108,5 +108,44 @@ export const recentOrders = [
     buyer: "Veggie World",
     amount: "₦45,000",
     status: "Delivered" as const,
+  },
+];
+
+ export const produceStats = [
+  {
+    label: "Total Listed",
+    value: "12",
+     description: "4 active listings",
+    trend: "10% this month",
+    trendDirection: "up" as const,
+    icon: Sprout,
+    iconType: "green" as const,
+  },
+  {
+    label: "Available Stock",
+    value: "8",
+    description: "Across all produce",
+    trend: "15% this month",
+    trendDirection: "up" as const,
+    icon: CirclePile,
+    iconType: "amber" as const,
+  },
+  {
+    label: "Low Stock",
+    value: "3",
+    description: "Listing",
+    trend: "5% this month",
+    trendDirection: "up" as const,
+    icon: CircleArrowOutDownRight,
+    iconType: "clay" as const,
+  },
+  {
+    label: "Sold This Month",
+    value: "2,850kg",
+    description: "This month",
+    trend: "12.8% vs last month",
+    trendDirection: "up" as const,
+    icon: BanknoteArrowUp,
+    iconType: "green" as const,
   },
 ];

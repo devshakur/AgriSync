@@ -1,6 +1,8 @@
 "use client";
 
 import { ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { TablePagination } from "./TablePagination";
 
 export type OrderStatus = "Pending" | "In Transit" | "Delivered";
 
@@ -16,6 +18,7 @@ export type Order = {
 type OrdersTableProps = {
   orders: Order[];
   onOrderClick?: (order: Order) => void;
+  pageSize?: number;
 };
 
 const statusStyles: Record<OrderStatus, string> = {
@@ -27,7 +30,16 @@ const statusStyles: Record<OrderStatus, string> = {
 const OrdersTable = ({
   orders,
   onOrderClick,
+  pageSize = 5,
 }: OrdersTableProps) => {
+  const [page, setPage] = useState(1);
+  const totalPages = Math.max(1, Math.ceil(orders.length / pageSize));
+  const currentPage = Math.min(page, totalPages);
+  const visibleOrders = orders.slice(
+    (currentPage - 1) * pageSize,
+    currentPage * pageSize,
+  );
+
   return (
     <div className="w-full overflow-visible rounded-xl border-0 bg-background md:overflow-hidden md:border md:border-black/[0.07]">
 
@@ -44,7 +56,7 @@ const OrdersTable = ({
         </div>
 
         {/* Rows */}
-        {orders.map((order) => (
+        {visibleOrders.map((order) => (
           <button
             key={order.id}
             type="button"
@@ -93,7 +105,7 @@ const OrdersTable = ({
 
       {/* ================= MOBILE ================= */}
       <div className="space-y-3 md:hidden">
-        {orders.map((order) => (
+        {visibleOrders.map((order) => (
           <button
             key={order.id}
             type="button"
@@ -166,6 +178,14 @@ const OrdersTable = ({
           </div>
         </div>
       )}
+
+      <TablePagination
+        page={currentPage}
+        pageSize={pageSize}
+        totalItems={orders.length}
+        itemLabel="orders"
+        onPageChange={setPage}
+      />
     </div>
   );
 };

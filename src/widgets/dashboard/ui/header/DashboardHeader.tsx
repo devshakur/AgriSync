@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Bell, Plus, Search, TextAlignEnd } from "lucide-react";
+import { AnimatedSearchPlaceholder } from "@/shared/ui";
 
 interface DashboardHeaderProps {
   name: string;
@@ -17,6 +18,7 @@ const DashboardHeader = ({
   onListProduce,
 }: DashboardHeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,13 +75,13 @@ const DashboardHeader = ({
         <Search
           size={20}
           strokeWidth={2}
-          className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-900"
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground"
         />
 
         <input
           type="search"
           placeholder="Search anything..."
-          className="h-11 w-full rounded-xl border-gray-200 bg-background pl-4 pr-12 text-sm text-gray-900 shadow-sm outline-none transition placeholder:text-gray-400 focus:border-gray-400"
+          className="h-11 w-full rounded-xl border-gray-200 bg-background pl-4 pr-12 text-sm text-muted-foreground shadow-sm outline-none transition placeholder:text-muted-foreground focus:border-gray-400"
         />
       </div> */}
 
@@ -90,13 +92,21 @@ const DashboardHeader = ({
           <Search
             size={20}
             strokeWidth={2}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-900"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground"
           />
 
+          <AnimatedSearchPlaceholder
+            value={search}
+            phrases={["Search for produce...", "Search for drivers...", "Search for orders..."]}
+            className="left-4 right-12 text-sm text-muted-foreground"
+          />
           <input
             type="search"
-            placeholder="Search anything..."
-            className="h-11 w-full rounded-xl border-gray-200 bg-background pl-4 pr-12 text-sm text-gray-900 shadow-md outline-none transition placeholder:text-gray-400 focus:border-gray-400"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+            placeholder=""
+            aria-label="Search dashboard"
+            className="relative z-10 h-11 w-full rounded-xl border-gray-200 bg-transparent pl-4 pr-12 text-sm text-muted-foreground shadow-md outline-none transition placeholder:text-muted-foreground focus:border-gray-400"
           />
         </div>
 

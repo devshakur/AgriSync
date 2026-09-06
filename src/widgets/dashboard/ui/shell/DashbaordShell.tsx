@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 import { useState } from "react";
 import { DashboardHeader } from "../header";
 import { DashboardSidebar, MobileSidebar } from "../sidebar";
+import { ProduceModal } from "../produce-modal";
 
 type DashboardShellProps = {
   children: ReactNode;
@@ -10,6 +11,7 @@ type DashboardShellProps = {
 
 const  DashboardShell = ({ children }: DashboardShellProps) => {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+  const [isProduceModalOpen, setIsProduceModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -21,8 +23,8 @@ const  DashboardShell = ({ children }: DashboardShellProps) => {
          notificationCount={3}
         onMenuOpen={() => setIsMobileSidebarOpen(true)}
         onListProduce={() => {
-          console.log("Open list produce");
-        }}    
+          setIsProduceModalOpen(true);
+        }}
         />
 
         <main className="px-4 pb-6 pt-24 sm:px-6 lg:px-8 lg:pt-24">
@@ -33,6 +35,12 @@ const  DashboardShell = ({ children }: DashboardShellProps) => {
       <MobileSidebar
         open={isMobileSidebarOpen}
         onClose={() => setIsMobileSidebarOpen(false)}
+      />
+
+      <ProduceModal
+        key={isProduceModalOpen ? "create-open" : "create-closed"}
+        open={isProduceModalOpen}
+        onClose={() => setIsProduceModalOpen(false)}
       />
     </div>
   );
