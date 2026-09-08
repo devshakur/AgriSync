@@ -6,8 +6,8 @@ import { StatCardsCarousel } from "@/widgets/dashboard/ui/statcard/StatCardCarou
 import { ProduceTable } from "@/widgets/dashboard/ui/table";
 import { ProduceModal } from "@/widgets/dashboard";
 import type { ProduceCardProps } from "@/widgets/dashboard/ui/producecard/ProduceCard";
-import { farmerProduce, produceStats } from "../constant";
-import { ProduceFilter } from "./ProduceFilter";
+import { farmerProduce, produceStats } from "@/features/farmers/constant";
+import { ProduceFilter } from "@/widgets/produce/produce-filter";
 
 const Produce = () => {
   const [search, setSearch] = useState("");

@@ -29,15 +29,16 @@ const navigation = [
     icon: Sprout,
   },
   {
+    label: "Request Driver",
+    href: "/farmer/request-driver",
+    icon: Truck,
+  },
+  {
     label: "Orders",
       href: "/farmer/orders",
     icon: PaperBag,
   },
-  {
-    label: "Deliveries",
-      href: "/farmer/deliveries",
-    icon: Truck,
-  },
+  
   {
     label: "Message",
       href: "/farmer/messages",
@@ -108,7 +109,7 @@ const DashboardSidebar = () => {
                 className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition ${
                   active
                     ? "bg-[#E3F2E7] text-primary"
-                    : "text-muted-foreground hover:bg-primary hover:text-foreground"
+                    : "text-muted-foreground hover:bg-primary hover:text-muted-foreground"
                 }`}
               >
                 <Icon className="h-4.5 w-4.5" />
@@ -143,7 +144,7 @@ const DashboardSidebar = () => {
             </p>
           </div>
 
-          <button className="text-muted-foreground transition hover:text-foreground">
+          <button className="text-muted-foreground transition hover:text-muted-foreground">
             <LogOut className="h-4 w-4" />
           </button>
         </div>

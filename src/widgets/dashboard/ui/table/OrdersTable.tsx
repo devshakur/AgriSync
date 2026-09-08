@@ -168,7 +168,7 @@ const OrdersTable = ({
       {orders.length === 0 && (
         <div className="flex min-h-45 items-center justify-center px-5">
           <div className="text-center">
-            <p className="text-sm font-medium text-foreground">
+            <p className="text-sm font-medium text-muted-foreground">
               No orders yet
             </p>
 

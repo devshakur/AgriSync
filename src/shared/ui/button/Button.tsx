@@ -30,7 +30,7 @@ const variantStyles: Record<ButtonVariant, string> = {
   outline:
     "bg-transparent border border-primary text-primary hover:bg-primary/10",
   ghost:
-    "bg-transparent text-foreground hover:text-primary hover:bg-muted",
+    "bg-transparent text-muted-foreground hover:text-primary hover:bg-muted",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

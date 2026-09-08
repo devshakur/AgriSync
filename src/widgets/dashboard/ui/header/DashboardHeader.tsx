@@ -32,7 +32,7 @@ const DashboardHeader = ({
   }, []);
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 flex w-full flex-col gap-4  px-4 py-4  transition-colors sm:px-6 lg:left-62.5 lg:w-auto lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:px-7 ${isScrolled ? "bg-[#F3EDDD]" : "bg-background"}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 flex w-full flex-col gap-4  px-4 py-4  transition-colors sm:px-6 lg:left-62.5 lg:w-auto lg:flex-row lg:items-center lg:justify-between lg:gap-6 lg:px-7 ${isScrolled ? "bg-[#f9f7f0]" : "bg-background"}`}>
       {/* Greeting */}
       <div className="flex w-full min-w-0 items-center justify-between gap-3 lg:w-auto">
         <div className="w-full min-w-0 lg:w-auto">

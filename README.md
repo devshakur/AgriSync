@@ -119,3 +119,29 @@ Planned milestones include:
 ## Notes
 
 This project is currently in active product and UI development. The architecture and documentation will be expanded over time as features are implemented and system boundaries become clearer.
+
+
+## Build
+
+Running Build use the following commands in Git Bash
+step 1 - rm -rf .next -> remove already cached build
+step 2 -> pnpm build -> Bundled your application
+step 3 -> du -sh .next -> gives you the total development bundled size note: this is not your browser bundle size
+step 4 -> du -ah .next/static | sort -h | tail -30 -> this gives you each files bundles size, including static, chunks, media, servers
+servers - all your bundles server component
+chunks - all your chunks total, chunks contains your components, and images and css
+376K  3-zhx9rh462iw.js files that ends with js are your components and routes files
+
+.next/
+│
+├── server/          ← server-side build
+├── cache/           ← build/cache artifacts
+├── static/          ← browser-delivered static assets
+│   ├── chunks/      ← JS
+│   ├── media/       ← fonts/images/etc.
+│   └── ...
+└── other metadata
+
+Now we use the nextjs Turbopack Bundle analyze to analyze each component using 👇
+
+pnpm next experimental-analyze
