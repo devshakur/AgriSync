@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
+
 type Stat = {
   target: number;
   prefix?: string;

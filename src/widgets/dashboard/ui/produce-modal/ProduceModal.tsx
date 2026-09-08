@@ -128,7 +128,7 @@ const ProduceModal = ({
             type="button"
             onClick={onClose}
             aria-label="Close produce modal"
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-muted hover:text-foreground"
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition hover:bg-muted hover:text-muted-foreground"
           >
             <X className="h-4 w-4" />
           </button>
@@ -208,7 +208,7 @@ const ProduceModal = ({
             </div>
 
             <div className="row-span-2">
-              <label className="block text-sm font-semibold text-foreground sm:text-xs">Product Image</label>
+              <label className="block text-sm font-semibold text-muted-foreground sm:text-xs">Product Image</label>
               <label className="mt-1.5 flex min-h-40 cursor-pointer flex-col items-center justify-center overflow-hidden rounded-lg border border-dashed border-black/15 bg-background px-4 py-4 text-center transition hover:border-primary/50 hover:bg-muted/40 sm:min-h-42">
                 {imagePreview ? (
                   <div className="relative h-36 w-full overflow-hidden rounded-md">
@@ -245,7 +245,7 @@ const ProduceModal = ({
 
             {isEditing && produce && (
               <div className="sm:col-span-1">
-                <p className="py-1 text-xs font-semibold text-foreground">Last Updated</p>
+                <p className="py-1 text-xs font-semibold text-muted-foreground">Last Updated</p>
                 <p className="rounded-xl bg-[#FAF8F2] px-4 py-3 text-sm text-muted-foreground">
                   {produce.updatedAt}
                 </p>

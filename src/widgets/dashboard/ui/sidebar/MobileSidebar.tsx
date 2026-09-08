@@ -43,17 +43,18 @@ const navigation: NavItem[] = [
     href: "/farmer/produce",
     icon: Package,
   },
+   {
+    label: "Request Driver",
+    href: "/farmer/request-driver",
+    icon: Truck,
+  },
   {
     label: "Orders",
     href: "/farmer/orders",
     icon: ShoppingBag,
     badge: "8",
   },
-  {
-    label: "Deliveries",
-    href: "/farmer/deliveries",
-    icon: Truck,
-  },
+ 
 ];
 
 const accountNavigation: NavItem[] = [
@@ -135,7 +136,7 @@ const MobileSidebar = ({
             type="button"
             onClick={onClose}
             aria-label="Close menu"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/5 bg-white text-foreground shadow-sm transition hover:bg-muted"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/5 bg-white text-muted-foreground shadow-sm transition hover:bg-muted"
           >
             <X className="h-5 w-5 text-gray-500" />
           </button>
@@ -212,7 +213,7 @@ const MobileSidebar = ({
                     className={`group relative flex  min-h-21.5 flex-col justify-between rounded-2xl border p-4 bg-[#FFF4DC] shadow-md transition duration-200 ${
                       active
                         ? "border-primary/10 bg-primary text-white shadow-[0_8px_20px_rgba(27,90,59,0.16)]"
-                        : "border-black/5 bg-background text-foreground hover:-translate-y-0.5 hover:border-primary/10 hover:shadow-md"
+                        : "border-black/5 bg-background text-muted-foreground hover:-translate-y-0.5 hover:border-primary/10 hover:shadow-md"
                     }`}
                   >
                     <div className="flex items-start justify-between">
@@ -249,7 +250,7 @@ const MobileSidebar = ({
                       <span
                         className={`text-sm font-semibold ${
                           active
-                            ? "text-green-800"
+                            ? "text-white"
                             : "text-gray-800"
                         }`}
                       >
@@ -289,7 +290,7 @@ const MobileSidebar = ({
                     className={`group flex items-center gap-4 rounded-2xl border px-4 py-3.5 transition ${
                       active
                         ? "border-primary/10 bg-[#E3F2E7] text-primary"
-                        : "border-black/5 bg-background text-foreground hover:bg-muted"
+                        : "border-black/5 bg-background text-muted-foreground hover:bg-muted"
                     }`}
                   >
                     <div

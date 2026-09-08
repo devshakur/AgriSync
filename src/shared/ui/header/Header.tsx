@@ -1,17 +1,12 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
+
 import { Button } from "@/shared/ui/button";
-import { NavMegaMenu } from "./nav-mega-menu";
 import { navItems } from "@/constants/nav";
-import { motion, AnimatePresence } from "framer-motion";
-import { usePathname } from "next/navigation";
-import { X, Menu } from "lucide-react";
+
+import { NavMegaMenu } from "./nav-mega-menu";
+import { MobileMenu } from "./MobileMenu";
 
 const Header = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const currentPath = usePathname();
   return (
     <header className="sticky top-0 z-50 border-b border-black/10 bg-background/90 backdrop-blur-md">
       <div className="flex items-center justify-between gap-4 px-6 py-4">
@@ -31,90 +26,12 @@ const Header = () => {
         </div>
 
         <div className="hidden shrink-0 items-center gap-3 md:flex">
-          <Button
-            label="Log in"
-            href="/login"
-            variant="outline"
-            size="sm"
-            className="shrink-0"
-          />
-          <Button
-            label="Get Started"
-            variant="primary"
-            size="sm"
-            className="shrink-0"
-            href="/role"
-          />
+          <Button label="Log in" href="/login" variant="outline" size="sm" className="shrink-0" />
+          <Button label="Get Started" variant="primary" size="sm" className="shrink-0" href="/role" />
         </div>
 
-        <button
-          type="button"
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          aria-expanded={mobileOpen}
-          className="p-2 text-foreground md:hidden"
-          onClick={() => setMobileOpen((prev) => !prev)}
-        >
-          {mobileOpen ? <X className="h-6 w-6 text-accent" /> : <Menu className="h-7 w-7 text-accent" />}
-        </button>
+        <MobileMenu />
       </div>
-      
-
-
-<AnimatePresence>
-  {mobileOpen && (
-    <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-      className="fixed inset-x-0 top-(--header-height,65px) z-50 border-b border-border/40 bg-background/95 backdrop-blur-md px-6 pb-6 pt-2 shadow-xl md:hidden"
-    >
-      {/* Links Container */}
-      <nav className="flex flex-col space-y-1">
-        {navItems.map((item) => {
-          const isActive = currentPath === item.href; // Optional: Pass active state check
-          return (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={() => setMobileOpen(false)}
-              className={`flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-all active:scale-[0.98] ${
-                isActive
-                  ? "bg-primary/10 text-primary font-semibold"
-                  : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
-              }`}
-            >
-              <span>{item.label}</span>
-              {/* Subtle visual indicator for list items */}
-              <span className="text-primary text-xs">→</span>
-            </a>
-          );
-        })}
-      </nav>
-
-      {/* Divider */}
-      <div className="my-4 h-px w-full bg-border/60" />
-
-      {/* Call to Action Buttons */}
-      <div className="flex flex-col gap-2.5">
-        <Button
-          label="Log in"
-          onClick={() => setMobileOpen(false)}
-          variant="outline"
-          href="/login"
-          className="w-full justify-center py-3 text-base font-medium active:scale-[0.98]"
-        />
-        <Button
-          label="Get Started"
-           onClick={() => setMobileOpen(false)}
-          href="/role"
-          variant="primary"
-          className="w-full justify-center py-3 text-base font-medium shadow-sm active:scale-[0.98]"
-        />
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
     </header>
   );
 };

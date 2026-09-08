@@ -1,4 +1,5 @@
  import { BanknoteArrowUp, CircleArrowOutDownRight, CirclePile, Package, ShoppingBag, Sprout, Truck, Wallet } from "lucide-react";
+ import type { ChatMessage, Driver, RequestValues } from "./request-driver/types";
  
  export const farmerStats = [
   {
@@ -147,5 +148,96 @@ export const recentOrders = [
     trendDirection: "up" as const,
     icon: BanknoteArrowUp,
     iconType: "green" as const,
+  },
+];
+
+//request-driver
+
+export const initialRequest: RequestValues = {
+  pickup: "Green Farm, Kano",
+  dropoff: "My House, Kano",
+  date: "Today",
+  time: "10:30 AM",
+  produce: "Fresh Tomatoes",
+  quantity: "500",
+  unit: "kg",
+  packaging: "Crates",
+  notes: "Please call when you arrive at the farm gate.",
+};
+
+export const drivers: Driver[] = [
+  {
+    id: "musa-bello",
+    name: "Musa Bello",
+    rating: "4.9",
+    trips: 124,
+    vehicle: "Pickup Truck",
+    capacity: "1.5 ton capacity",
+    distance: "2.3 km away",
+    eta: "10 min pickup",
+    price: "₦18,000",
+    verified: true,
+    image: "/assests/images/farmer.jpg",
+    bestMatch: true,
+  },
+  {
+    id: "ibrahim-yusuf",
+    name: "Ibrahim Yusuf",
+    rating: "4.7",
+    trips: 88,
+    vehicle: "Mini Truck",
+    capacity: "800 kg capacity",
+    distance: "4.8 km away",
+    eta: "18 min pickup",
+    price: "₦15,000",
+    verified: true,
+    image: "/assests/images/farmer.jpg",
+  },
+  {
+    id: "sani-mohammed",
+    name: "Sani Mohammed",
+    rating: "4.6",
+    trips: 76,
+    vehicle: "Pickup Truck",
+    capacity: "1.2 ton capacity",
+    distance: "9.1 km away",
+    eta: "25 min pickup",
+    price: "₦16,500",
+    verified: true,
+    image: "/assests/images/farmer.jpg",
+  },
+  {
+    id: "fatima-lawal",
+    name: "Fatima Lawal",
+    rating: "4.8",
+    trips: 94,
+    vehicle: "Van",
+    capacity: "1 ton capacity",
+    distance: "6.4 km away",
+    eta: "20 min pickup",
+    price: "₦16,500",
+    verified: true,
+    image: "/assests/images/farmer.jpg",
+  },
+];
+
+export const initialMessages: ChatMessage[] = [
+  {
+    id: "message-1",
+    sender: "driver",
+    text: "Hello! I am Musa, your driver. I am on my way to your farm.",
+    time: "9:15 AM",
+  },
+  {
+    id: "message-2",
+    sender: "farmer",
+    text: "Great! I will be waiting at the farm gate.",
+    time: "9:16 AM",
+  },
+  {
+    id: "message-3",
+    sender: "driver",
+    text: "I am here. I will call you when I arrive.",
+    time: "9:20 AM",
   },
 ];

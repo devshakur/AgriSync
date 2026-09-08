@@ -94,7 +94,7 @@ const ProduceTable = ({
               />
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-xs font-semibold text-foreground">{product.name}</p>
+              <p className="truncate text-xs font-semibold text-muted-foreground">{product.name}</p>
               <p className="mt-1 text-[10px] text-muted-foreground">
                 {product.quantity} · {product.price} / {product.unit}
               </p>
