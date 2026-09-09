@@ -8,6 +8,7 @@ interface ButtonProps {
   href?: string;
   onClick?: () => void;
   disabled?: boolean;
+  loading?: boolean;
   type?: "button" | "submit" | "reset";
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -44,25 +45,39 @@ const Button = ({
   href,
   onClick,
   disabled = false,
+  loading = false,
   type = "button",
   variant = "primary",
   size = "md",
   className = "",
 }: ButtonProps) => {
+  const isDisabled = disabled || loading;
+
   const content = (
     <button
       type={type}
       onClick={onClick}
-      disabled={disabled}
+      disabled={isDisabled}
+      aria-busy={loading}
       className={[
         baseStyles,
         variantStyles[variant],
         sizeStyles[size],
-        disabled ? "cursor-not-allowed" : "cursor-pointer",
+        isDisabled ? "cursor-not-allowed" : "cursor-pointer",
         className,
       ].join(" ")}
     >
       {label}
+      {loading && (
+        <span
+          className="inline-flex items-center gap-[3px]"
+          aria-hidden="true"
+        >
+          <span className="btn-loading-bar" style={{ animationDelay: "0ms" }} />
+          <span className="btn-loading-bar" style={{ animationDelay: "150ms" }} />
+          <span className="btn-loading-bar" style={{ animationDelay: "300ms" }} />
+        </span>
+      )}
     </button>
   );
 
