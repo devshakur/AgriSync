@@ -96,6 +96,30 @@ body {
   overflow-x: hidden;
 }
 
+/* ================================
+   Button loading bars (three vertical bars animating up and down)
+   ================================ */
+
+.btn-loading-bar {
+  display: inline-block;
+  width: 3px;
+  height: 14px;
+  border-radius: 9999px;
+  background-color: currentColor;
+  transform-origin: center;
+  animation: btnBarPulse 0.9s ease-in-out infinite;
+}
+
+@keyframes btnBarPulse {
+  0%,
+  100% {
+    transform: scaleY(0.35);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
 @keyframes navPanelSlideIn {
   0% {
     opacity: 0;

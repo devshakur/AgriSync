@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
-import {  Inter, Space_Grotesk, Space_Mono} from "next/font/google";
+import { Inter, Space_Grotesk, Space_Mono } from "next/font/google";
+
+import { QueryProvider } from "@/providers/QueryProvider";
+import { AuthProvider } from "@/features/auth/context";
 import "./globals.css";
 
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -17,7 +20,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${spaceMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <QueryProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </QueryProvider>
+      </body>
     </html>
   );
 }

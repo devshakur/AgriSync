@@ -1,6 +1,7 @@
 "use client";
 import { ReactNode } from "react";
 import { useState } from "react";
+import { useAuth } from "@/features/auth/context";
 import { DashboardHeader } from "../header";
 import { DashboardSidebar, MobileSidebar } from "../sidebar";
 import { ProduceModal } from "../produce-modal";
@@ -10,6 +11,7 @@ type DashboardShellProps = {
 };
 
 const  DashboardShell = ({ children }: DashboardShellProps) => {
+  const { user } = useAuth();
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [isProduceModalOpen, setIsProduceModalOpen] = useState(false);
 
@@ -19,7 +21,7 @@ const  DashboardShell = ({ children }: DashboardShellProps) => {
 
       <div className="lg:pl-62.5">
         <DashboardHeader 
-        name="Abdulshakur"
+        name={user?.fullName ?? ""}
          notificationCount={3}
         onMenuOpen={() => setIsMobileSidebarOpen(true)}
         onListProduce={() => {
