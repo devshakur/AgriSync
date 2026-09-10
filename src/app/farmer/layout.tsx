@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { DashboardShell } from "@/widgets/dashboard";
 import { RoleGuard } from "@/features/auth/guards";
+import { RequestDriverProvider } from "@/features/farmers/request-driver/context";
 
 type FarmerLayoutProps = {
   children: ReactNode;
@@ -9,7 +10,9 @@ type FarmerLayoutProps = {
 export default function FarmerLayout({ children }: FarmerLayoutProps) {
   return (
     <RoleGuard allowedRoles={["farmer"]}>
-      <DashboardShell>{children}</DashboardShell>
+      <RequestDriverProvider>
+        <DashboardShell>{children}</DashboardShell>
+      </RequestDriverProvider>
     </RoleGuard>
   );
 }

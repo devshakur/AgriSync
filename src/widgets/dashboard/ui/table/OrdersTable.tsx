@@ -10,8 +10,10 @@ export type Order = {
   id: string;
   product: string;
   quantity: string;
-  buyer: string;
-  amount: string;
+  route: string;
+  pickupDate: string;
+  /** Full backend request id */
+  requestId?: string;
   status: OrderStatus;
 };
 
@@ -46,11 +48,11 @@ const OrdersTable = ({
       <div className="hidden bg-background md:block">
         {/* Table header */}
         <div className="grid grid-cols-[1fr_1.3fr_0.8fr_1.4fr_1fr_0.8fr_32px] items-center border-b border-black/[0.07]  px-4 py-3 text-[10px] font-medium uppercase tracking-[0.08em] text-muted-foreground lg:px-5">
-          <span>Order ID</span>
+          <span>Request ID</span>
           <span>Produce</span>
           <span>Quantity</span>
-          <span>Buyer</span>
-          <span>Amount</span>
+          <span>Route</span>
+          <span>Pickup Date</span>
           <span>Status</span>
           <span />
         </div>
@@ -80,12 +82,12 @@ const OrdersTable = ({
 
             {/* Buyer */}
             <span className="truncate pr-2 text-xs text-muted-foreground">
-              {order.buyer}
+              {order.route}
             </span>
 
             {/* Amount */}
             <span className="font-mono text-[11px] font-semibold text-muted-foreground">
-              {order.amount}
+              {order.pickupDate}
             </span>
 
             {/* Status */}
@@ -149,12 +151,12 @@ const OrdersTable = ({
 
                 <span className="h-1 w-1 rounded-full bg-muted-foreground/40" />
 
-                <span className="truncate">{order.buyer}</span>
+                <span className="truncate">{order.route}</span>
               </div>
 
               {/* Amount */}
               <p className="mt-1.5 font-mono text-[11px] font-semibold text-primary">
-                {order.amount}
+                {order.pickupDate}
               </p>
             </div>
 
@@ -169,11 +171,11 @@ const OrdersTable = ({
         <div className="flex min-h-45 items-center justify-center px-5">
           <div className="text-center">
             <p className="text-sm font-medium text-muted-foreground">
-              No orders yet
+              No requests yet
             </p>
 
             <p className="mt-1 text-xs text-muted-foreground">
-              Your recent orders will appear here.
+              Your recent driver requests will appear here.
             </p>
           </div>
         </div>
@@ -183,7 +185,7 @@ const OrdersTable = ({
         page={currentPage}
         pageSize={pageSize}
         totalItems={orders.length}
-        itemLabel="orders"
+        itemLabel="requests"
         onPageChange={setPage}
       />
     </div>

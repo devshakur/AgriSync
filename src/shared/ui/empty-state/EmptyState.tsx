@@ -44,7 +44,7 @@ const EmptyState = ({
         </span>
       ) : null}
 
-      <p className="mt-6 text-base font-semibold text-gray-900">{title}</p>
+      <p className="text-base font-semibold text-gray-900">{title}</p>
 
       {description && (
         <p className="mt-1.5 max-w-xs text-sm text-muted-foreground">
@@ -53,7 +53,7 @@ const EmptyState = ({
       )}
 
       {actionLabel && (onAction || actionHref) && (
-        <div className="mt-5">
+        <div className="mt-2">
           <Button
             label={actionLabel}
             onClick={onAction}

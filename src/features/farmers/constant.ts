@@ -1,5 +1,5 @@
  import { BanknoteArrowUp, CircleArrowOutDownRight, CirclePile, Package, ShoppingBag, Sprout, Truck, Wallet } from "lucide-react";
- import type { ChatMessage, Driver, RequestValues } from "./request-driver/types";
+ import type { ChatMessage, Driver } from "./request-driver/types";
  
  export const farmerStats = [
   {
@@ -77,41 +77,6 @@ export const farmerProduce = [
   },
 ];
 
-export const recentOrders = [
-  {
-    id: "#AG-1048",
-    product: "Fresh Tomatoes",
-    quantity: "250 kg",
-    buyer: "Green Basket Market",
-    amount: "₦84,000",
-    status: "Pending" as const,
-  },
-  {
-    id: "#AG-1047",
-    product: "Yellow Maize",
-    quantity: "500 kg",
-    buyer: "Northern Foods Ltd.",
-    amount: "₦125,000",
-    status: "In Transit" as const,
-  },
-  {
-    id: "#AG-1046",
-    product: "Local Rice",
-    quantity: "300 kg",
-    buyer: "Arewa Supermarket",
-    amount: "₦210,000",
-    status: "Delivered" as const,
-  },
-  {
-    id: "#AG-1045",
-    product: "Green Pepper",
-    quantity: "100 kg",
-    buyer: "Veggie World",
-    amount: "₦45,000",
-    status: "Delivered" as const,
-  },
-];
-
  export const produceStats = [
   {
     label: "Total Listed",
@@ -152,18 +117,6 @@ export const recentOrders = [
 ];
 
 //request-driver
-
-export const initialRequest: RequestValues = {
-  pickup: "Green Farm, Kano",
-  dropoff: "My House, Kano",
-  date: "Today",
-  time: "10:30 AM",
-  produce: "Fresh Tomatoes",
-  quantity: "500",
-  unit: "kg",
-  packaging: "Crates",
-  notes: "Please call when you arrive at the farm gate.",
-};
 
 export const drivers: Driver[] = [
   {

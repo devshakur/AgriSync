@@ -28,7 +28,7 @@ type BaseProps = {
 };
 
 type InputFieldProps = BaseProps & {
-  type?: "text" | "email" | "tel" | "password" | "number" | "url";
+  type?: "text" | "email" | "tel" | "password" | "number" | "url" | "date" | "time";
   value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
@@ -89,7 +89,7 @@ const FormField = (props: FormFieldProps) => {
       {/* Label */}
       <label
         htmlFor={id}
-        className=" block text-base py-1 font-semibold text-[#111]"
+        className=" block text-base py-1 font-normal text-[#111]"
       >
         {label}
 

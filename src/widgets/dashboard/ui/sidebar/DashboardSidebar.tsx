@@ -109,7 +109,7 @@ const DashboardSidebar = () => {
                 className={`flex items-center gap-3 rounded-lg px-3 py-3 text-sm font-medium transition ${
                   active
                     ? "bg-[#E3F2E7] text-primary"
-                    : "text-muted-foreground hover:bg-primary hover:text-muted-foreground"
+                    : "text-muted-foreground hover:bg-primary hover:text-white"
                 }`}
               >
                 <Icon className="h-4.5 w-4.5" />
@@ -144,7 +144,7 @@ const DashboardSidebar = () => {
             </p>
           </div>
 
-          <button className="text-muted-foreground transition hover:text-muted-foreground">
+          <button className="text-muted-foreground transition hover:text-white">
             <LogOut className="h-4 w-4" />
           </button>
         </div>
