@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname,  } from "next/navigation";
 import {
   X,
   LayoutDashboard,
@@ -39,15 +39,16 @@ const navigation: NavItem[] = [
     icon: LayoutDashboard,
   },
   {
-    label: "My Produce",
-    href: "/farmer/produce",
-    icon: Package,
-  },
-   {
     label: "Request Driver",
     href: "/farmer/request-driver",
     icon: Truck,
   },
+  {
+    label: "My Produce",
+    href: "/farmer/produce",
+    icon: Package,
+  },
+   
   {
     label: "Orders",
     href: "/farmer/orders",
@@ -65,7 +66,7 @@ const accountNavigation: NavItem[] = [
   },
   {
     label: "Settings",
-    href: "/farmer/settings",
+    href: "/",
     icon: Settings,
   },
 ];
@@ -83,6 +84,7 @@ const MobileSidebar = ({
 
     return pathname.startsWith(href);
   };
+ 
 
   return (
     <>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 import {
   House,
@@ -24,14 +24,14 @@ const navigation = [
     icon: House,
   },
   {
-    label: "My Produce",
-      href: "/farmer/produce",
-    icon: Sprout,
-  },
-  {
     label: "Request Driver",
     href: "/farmer/request-driver",
     icon: Truck,
+  },
+  {
+    label: "My Produce",
+      href: "/farmer/produce",
+    icon: Sprout,
   },
   {
     label: "Orders",
@@ -61,6 +61,13 @@ const DashboardSidebar = () => {
 
     return pathname.startsWith(href);
   };
+  const router = useRouter();
+
+const handleLogout = () => {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken");
+  router.push("/");
+};
 
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-62.5 border-black/5 bg-background shadow-lg lg:flex lg:flex-col">
@@ -144,7 +151,7 @@ const DashboardSidebar = () => {
             </p>
           </div>
 
-          <button className="text-muted-foreground transition hover:text-white">
+          <button   onClick={handleLogout} className="text-muted-foreground cursor-pointer transition hover:text-white">
             <LogOut className="h-4 w-4" />
           </button>
         </div>

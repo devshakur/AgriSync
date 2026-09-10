@@ -50,7 +50,9 @@ const Login = () => {
             refreshToken: response.refreshToken,
           });
         }
-        router.push(`/${response.user?.role ?? "farmer"}`);
+        const role = response.user?.role?.toLowerCase?.() ?? "farmer";
+        if (role === "driver") router.push("/drivers");
+        else router.push("/farmer");
       },
     });
   };
