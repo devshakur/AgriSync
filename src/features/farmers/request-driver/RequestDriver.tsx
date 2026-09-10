@@ -73,9 +73,9 @@ const RequestDriver = () => {
           setActiveRequestId(response.transportRequest?._id ?? null);
           setStage("drivers");
           sourcingTimeoutRef.current = window.setTimeout(() => {
-            setSelectedDriver(drivers[0]);
-            setDeliveryStatus("Driver Accepted");
-            setStage("selected");
+            // setSelectedDriver(drivers[0]);
+            // setDeliveryStatus("Driver Accepted");
+            // setStage("selected");
           }, SOURCING_DELAY_MS);
         },
       },

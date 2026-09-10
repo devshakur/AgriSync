@@ -70,7 +70,7 @@ const Button = ({
       {label}
       {loading && (
         <span
-          className="inline-flex items-center gap-[3px]"
+          className="inline-flex items-center gap-0.75"
           aria-hidden="true"
         >
           <span className="btn-loading-bar" style={{ animationDelay: "0ms" }} />

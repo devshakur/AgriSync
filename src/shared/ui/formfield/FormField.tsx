@@ -89,7 +89,7 @@ const FormField = (props: FormFieldProps) => {
       {/* Label */}
       <label
         htmlFor={id}
-        className=" block text-base py-1 font-normal text-[#111]"
+        className=" block text-base py-1 font-semibold text-[#111]"
       >
         {label}
 
@@ -131,7 +131,7 @@ const FormField = (props: FormFieldProps) => {
             rows={props.rows ?? 4}
             disabled={props.disabled}
             style={{ WebkitAppearance: "none", appearance: "none", boxShadow: "none" }}
-            className={`w-full resize-none appearance-none border-0 bg-transparent text-base text-[#111] shadow-none outline-none ring-0 focus:border-0 focus:outline-none focus:ring-0 focus-visible:outline-none placeholder:text-[#7C7A73] disabled:cursor-not-allowed disabled:opacity-50 ${
+            className={`w-full resize-none appearance-none border-0 bg-transparent text-base text-[#111] shadow-none outline-none ring-0 focus:border-0 focus:outline-none focus:ring-0 focus-visible:outline-none placeholder:-[#7C7A73] disabled:cursor-not-allowed disabled:opacity-50 ${
               Icon ? "pl-10 pr-5" : "px-5"
             }`}
           />

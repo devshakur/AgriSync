@@ -1,6 +1,6 @@
 "use client";
 
-import { StatCardsCarousel } from "@/widgets/dashboard/ui/statcard/StatCardCarousel";
+import { StatCardsCarousel } from "@/widgets/dashboard/ui/statcard";
 import { farmerStats, farmerProduce } from "../constant";
 import { ProduceSection } from "@/widgets/dashboard/ui/producecard/ProduceSection";
 import { DeliveryActivity } from "@/widgets/dashboard/ui/deliveryactivity";

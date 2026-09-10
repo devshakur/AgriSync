@@ -18,6 +18,7 @@ import { getErrorMessage } from "@/lib/api";
 import { userRoles, type AuthRole } from "../types";
 import { signupSchema } from "../schemas";
 import Link from "next/link";
+import { NIGERIAN_STATES } from "../constants";
 
 const SignUp = () => {
   const router = useRouter();
@@ -167,14 +168,7 @@ const SignUp = () => {
                 icon={MapPin}
                 placeholder="Select your state"
                 error={fieldErrors.location}
-                options={[
-                  { label: "Abuja", value: "abuja" },
-                  { label: "Kano", value: "kano" },
-                  { label: "Kaduna", value: "kaduna" },
-                  { label: "Nasarawa", value: "nasarawa" },
-                  { label: "Niger", value: "niger" },
-                  { label: "Plateau", value: "plateau" },
-                ]}
+                options={NIGERIAN_STATES}
               />
             </div>
 
