@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import { ProduceCard, type ProduceCardProps } from "./ProduceCard";
+import { EmptyState } from "@/shared";
 
 type ProduceSectionProps = {
   title?: string;
@@ -58,7 +59,16 @@ const ProduceSection = ({
           </div>
 
           {/* Produce Cards */}
-          <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2">
+          <EmptyState
+            title="No produce available"
+            description="You haven't added any produce yet."
+            image="/assests/images/empty-produce.png"
+            imageAlt="Empty produce"
+            actionLabel="Add produce"
+            actionHref="/farmer/produce"
+          />
+          {/* when produce endpoint is available */}
+          {/* <div className="grid grid-cols-1 items-start gap-4 sm:grid-cols-2">
             {products.map((product) => (
               <ProduceCard
                 key={product.id ?? product.name}
@@ -67,7 +77,7 @@ const ProduceSection = ({
                 onMenuClick={onMenuClick}
               />
             ))}
-          </div>
+          </div> */}
         </div>
 
         {/* RIGHT — Starts at the same level as cards */}

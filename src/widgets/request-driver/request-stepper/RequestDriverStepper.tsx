@@ -7,8 +7,8 @@ type RequestDriverStepperProps = {
 
 const steps = [
   { key: "request", label: "Request" },
-  { key: "drivers", label: "Drivers" },
-  { key: "selected", label: "Select" },
+  { key: "drivers", label: "Matching" },
+  { key: "selected", label: "Driver" },
   { key: "chat", label: "Chat" },
   { key: "tracking", label: "Track" },
 ] as const;
