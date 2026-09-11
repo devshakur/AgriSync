@@ -1,8 +1,9 @@
 
 "use client";
+import { useAuth } from "@/features/auth/context/AuthContext";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   X,
   LayoutDashboard,
@@ -18,9 +19,11 @@ import {
   Phone,
   CircleDollarSign,
   ClipboardCheck,
+  LogOut,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
+import router from "next/dist/shared/lib/router/router";
 
 type NavItem = {
   label: string;
@@ -84,6 +87,8 @@ const accountNavigation: NavItem[] = [
 
 const MobileSidebar = ({ open, onClose }: MobileSidebarProps) => {
   const pathname = usePathname();
+  const {logout} = useAuth();
+  const router = useRouter();
 
   const isActive = (href: string) => {
     if (href === "/drivers") {
@@ -91,6 +96,11 @@ const MobileSidebar = ({ open, onClose }: MobileSidebarProps) => {
     }
 
     return pathname.startsWith(href);
+  };
+
+   const handleLogout = () => {
+    logout();
+    router.push("/");
   };
 
   return (
@@ -382,6 +392,25 @@ const MobileSidebar = ({ open, onClose }: MobileSidebarProps) => {
             </div>
           </div>
         </nav>
+
+                
+<div className="px-5 pb-6">
+  <button
+    type="button"
+    onClick={handleLogout}
+    className="group flex w-full items-center gap-4 rounded-2xl border border-black/5 bg-[#1B5A3B] px-4 py-3.5 text-left transition hover:border-red-100 hover:bg-red-50"
+  >
+    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted transition group-hover:bg-red-100">
+      <LogOut className="h-4.5 w-4.5 text-muted-foreground transition group-hover:text-red-600" />
+    </div>
+
+    <span className="flex-1 text-sm font-semibold text-white transition group-hover:text-red-600">
+      Log out
+    </span>
+
+    <LogOut className="h-4 w-4 text-white transition group-hover:translate-x-0.5 group-hover:text-red-500" />
+  </button>
+</div>
 
         {/* Help */}
         <div className="relative px-5 pb-5">

@@ -13,6 +13,7 @@ import {
   PhoneCall,
 } from "lucide-react";
 import Image from "next/image";
+import { useAuth } from "@/features/auth/context/AuthContext";
 
 const navigation = [
   { label: "Overview", href: "/drivers", icon: HomeIcon },
@@ -25,6 +26,7 @@ const navigation = [
 
 const DriversSidebar = () => {
   const pathname = usePathname();
+  const {logout} = useAuth();
 
   const isActive = (href: string) => {
     if (href === "/drivers") return pathname === href;
@@ -33,8 +35,7 @@ const DriversSidebar = () => {
     const router = useRouter();
   
   const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
+    logout();
     router.push("/");
   };
 
@@ -93,7 +94,7 @@ const DriversSidebar = () => {
         </div>
 
         <div className="mt-3">
-          <button onClick={handleLogout} className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-emerald-700 px-3 py-2 text-sm font-medium text-white">
+          <button  className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-md bg-emerald-700 px-3 py-2 text-sm font-medium text-white">
             <PhoneCall className="h-4 w-4" /> Contact Support
           </button>
         </div>

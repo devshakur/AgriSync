@@ -16,6 +16,8 @@ import {
   PhoneCall,
 } from "lucide-react";
 import Image from "next/image";
+import { useAuth } from "@/features/auth";
+
 
 const navigation = [
   {
@@ -62,12 +64,12 @@ const DashboardSidebar = () => {
     return pathname.startsWith(href);
   };
   const router = useRouter();
+  const {logout} = useAuth();
 
-const handleLogout = () => {
-  localStorage.removeItem("accessToken");
-  localStorage.removeItem("refreshToken");
-  router.push("/");
-};
+    const handleLogout = () => {
+      logout();
+      router.push("/");
+    };
 
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-62.5 border-black/5 bg-background shadow-lg lg:flex lg:flex-col">
