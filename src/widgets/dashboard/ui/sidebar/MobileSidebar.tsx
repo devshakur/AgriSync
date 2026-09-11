@@ -15,9 +15,11 @@ import {
   HelpCircle,
   Phone,
   MessagesSquare,
+  LogOut,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
+import { useAuth } from "@/features/auth/context/AuthContext";
 
 type NavItem = {
   label: string;
@@ -77,6 +79,7 @@ const MobileSidebar = ({
   role = "Farmer",
 }: MobileSidebarProps) => {
   const pathname = usePathname();
+  const {user, logout} = useAuth();
   const isActive = (href: string) => {
     if (href === "/farmer") {
       return pathname === "/farmer";
@@ -165,7 +168,7 @@ const MobileSidebar = ({
 
             <div className="min-w-0 flex-1">
               <p className="truncate font-heading text-sm font-semibold text-gray-800">
-              Abdulshakur Dauda
+             {user?.fullName}
               </p>
 
               <p className="mt-0.5 text-xs text-muted-foreground">
@@ -332,6 +335,27 @@ const MobileSidebar = ({
             <Phone className="h-4 w-4 text-white/60" />
           </div>
         </div>
+        {/* Logout */}
+<div className="px-5 pb-6">
+  <button
+    type="button"
+    onClick={() => {
+      logout();
+      onClose();
+    }}
+    className="group flex w-full items-center gap-4 rounded-2xl border border-black/5 bg-background px-4 py-3.5 text-left transition hover:border-red-100 hover:bg-red-50"
+  >
+    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted transition group-hover:bg-red-100">
+      <LogOut className="h-4.5 w-4.5 text-muted-foreground transition group-hover:text-red-600" />
+    </div>
+
+    <span className="flex-1 text-sm font-semibold text-gray-800 transition group-hover:text-red-600">
+      Log out
+    </span>
+
+    <ChevronRight className="h-4 w-4 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:text-red-500" />
+  </button>
+</div>
       </aside>
     </>
   );
