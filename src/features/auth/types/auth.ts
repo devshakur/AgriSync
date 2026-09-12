@@ -24,6 +24,21 @@ export type User = {
   phone: string;
   role: AuthRole;
   createdAt: string;
+  /** Optional fields — backend may add these over time */
+  location?: string | null;
+  city?: string | null;
+  dateOfBirth?: string | null;
+  gender?: string | null;
+  referralCode?: string | null;
+  avatarUrl?: string | null;
+  isVerified?: boolean;
+  isDeleted?: boolean;
+};
+
+/** Raw profile payload as returned by the API (may use `_id`). */
+export type ProfileUserPayload = Omit<User, "id"> & {
+  id?: string;
+  _id?: string;
 };
 
 export type SignupResponse = {
@@ -41,7 +56,7 @@ export type SigninResponse = {
 };
 
 export type MeResponse = {
-  user?: User;
+  user?: ProfileUserPayload | User;
   message?: string;
 };
 

@@ -81,19 +81,30 @@ html {
 }
 
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #123726;    /* green-900 */
-    --foreground: #ededed;
-  }
-}
+/* Dark theme — applied via ThemeProvider (class="dark" on <html>) */
+html.dark {
+  --backgroundbg: #0f1f17;
+  --foreground: #ededed;
 
+  --primary: #3d9b6a;
+  --primary-foreground: #ffffff;
+
+  --secondary: #E2911F;
+  --secondary-foreground: #211F1A;
+
+  --accent: #c4784a;
+  --accent-foreground: #ffffff;
+
+  --muted: #1a2e24;
+  --muted-foreground: #b8b5ab;
+}
 
 body {
   background: var(--backgroundbg);
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* ================================

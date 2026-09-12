@@ -47,8 +47,8 @@ const navigation = [
     icon: MessagesSquare,
   },
   {
-    label: "Settings",
-      href: "/farmer/settings",
+    label: "Profile",
+      href: "/farmer/profile",
     icon: Settings,
   },
 ];

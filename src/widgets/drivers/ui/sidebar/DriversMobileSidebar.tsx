@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import Image from "next/image";
-import router from "next/dist/shared/lib/router/router";
+import { DEFAULT_DRIVER_AVATAR } from "@/features/profile/lib/profile-utils";
 
 type NavItem = {
   label: string;
@@ -79,8 +79,8 @@ const accountNavigation: NavItem[] = [
     badge: "3",
   },
   {
-    label: "Settings",
-    href: "/drivers/settings",
+    label: "Profile",
+    href: "/drivers/profile",
     icon: Settings,
   },
 ];
@@ -173,7 +173,7 @@ const MobileSidebar = ({ open, onClose }: MobileSidebarProps) => {
             <div className="relative shrink-0">
               <div className="relative h-11 w-11 overflow-hidden rounded-full border-2 border-white/20">
                 <Image
-                  src="/assests/images/farmer.jpg"
+                  src={user?.avatarUrl || DEFAULT_DRIVER_AVATAR}
                   alt="Driver profile"
                   fill
                   className="object-cover"

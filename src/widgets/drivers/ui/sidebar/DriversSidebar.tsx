@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useAuth } from "@/features/auth/context/AuthContext";
+import { DEFAULT_DRIVER_AVATAR } from "@/features/profile/lib/profile-utils";
 
 const navigation = [
   { label: "Overview", href: "/drivers", icon: HomeIcon },
@@ -21,12 +22,12 @@ const navigation = [
   { label: "My Deliveries", href: "/drivers/deliveries", icon: Package },
   { label: "Earnings", href: "/drivers/earnings", icon: Wallet },
   { label: "Messages", href: "/drivers/messages", icon: MessageSquare },
-  { label: "Settings", href: "/", icon: Settings },
+  { label: "Profile", href: "/drivers/profile", icon: Settings },
 ];
 
 const DriversSidebar = () => {
   const pathname = usePathname();
-  const {logout} = useAuth();
+  const { logout, user } = useAuth();
 
   const isActive = (href: string) => {
     if (href === "/drivers") return pathname === href;
@@ -58,7 +59,7 @@ const DriversSidebar = () => {
 
         <div className="space-y-1">
           {navigation.map((item) => {
-            const Icon = item.icon as any;
+            const Icon = item.icon;
             const active = isActive(item.href);
 
             return (
@@ -80,11 +81,19 @@ const DriversSidebar = () => {
       <div className="px-3 pb-6">
         <div className="flex items-center gap-3 rounded-xl bg-emerald-900 p-3">
           <div className="relative h-10 w-10 overflow-hidden rounded-full">
-            <Image src="/assests/images/farmer.jpg" alt="Driver" fill className="object-cover" sizes="40px" />
+            <Image
+              src={user?.avatarUrl || DEFAULT_DRIVER_AVATAR}
+              alt="Driver"
+              fill
+              className="object-cover"
+              sizes="40px"
+            />
           </div>
 
           <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-mono font-medium text-white">Amina Yusuf</p>
+            <p className="truncate text-sm font-mono font-medium text-white">
+              {user?.fullName ?? "Driver"}
+            </p>
             <p className="truncate text-xs text-emerald-200">Online</p>
           </div>
 

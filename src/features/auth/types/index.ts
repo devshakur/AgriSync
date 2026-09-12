@@ -7,4 +7,5 @@ export {
   type SignupResponse,
   type MeResponse,
   type User,
+  type ProfileUserPayload,
 } from "./auth";
