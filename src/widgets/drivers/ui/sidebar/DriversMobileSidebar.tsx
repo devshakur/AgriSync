@@ -87,7 +87,7 @@ const accountNavigation: NavItem[] = [
 
 const MobileSidebar = ({ open, onClose }: MobileSidebarProps) => {
   const pathname = usePathname();
-  const {logout} = useAuth();
+  const {user,logout} = useAuth();
   const router = useRouter();
 
   const isActive = (href: string) => {
@@ -188,7 +188,7 @@ const MobileSidebar = ({ open, onClose }: MobileSidebarProps) => {
 
             <div className="min-w-0 flex-1">
               <p className="truncate font-heading text-sm font-semibold text-white">
-                Abdulshakur Dauda
+                {user?.fullName}
               </p>
 
               <div className="mt-0.5 flex items-center gap-1.5">
