@@ -19,6 +19,7 @@ import { userRoles, type AuthRole } from "../types";
 import { signupSchema } from "../schemas";
 import Link from "next/link";
 import { NIGERIAN_STATES } from "../constants";
+import { useAuth } from "../context";
 
 const SignUp = () => {
   const router = useRouter();
@@ -34,6 +35,7 @@ const SignUp = () => {
     Partial<Record<"fullName" | "phone" | "email" | "password" | "location" | "city", string>>
   >({});
   const { mutate: signup, isPending: loading } = useSignup();
+   const { register } = useAuth(); 
   const roleParam = searchParams.get("role");
   const role: AuthRole = userRoles.includes(roleParam as AuthRole)
     ? (roleParam as AuthRole)
@@ -85,9 +87,36 @@ const SignUp = () => {
 
     setFieldErrors({});
     signup(result.data, {
-      onSuccess: () => {
-        router.push(`/login?phone=${encodeURIComponent(phone.trim())}`);
-      },
+     onSuccess: (response) => {
+  if (!response.user) {
+    setError("Account created, but user information was not returned.");
+    return;
+  }
+
+  register(response.user, {
+    token: response.token,
+    refreshToken: response.refreshToken,
+  });
+
+  const role = response.user.role.toLowerCase();
+
+  switch (role) {
+    case "farmer":
+      router.push("/farmer");
+      break;
+
+    case "buyer":
+      router.push("/buyer");
+      break;
+
+    case "driver":
+      router.push("/drivers");
+      break;
+
+    default:
+      setError("Account created, but your account role is not recognized.");
+  }
+},
       onError: (signupError) => {
         setError(getErrorMessage(signupError));
       },

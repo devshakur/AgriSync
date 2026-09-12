@@ -23,13 +23,14 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<{ phone?: string; password?: string }>({});
+    const [signinError, setSigninError] = useState("");
   const { mutate: signin, isPending, isError, error } = useSignin();
 
   const isFormIncomplete = hasEmptyFields(phone, password);
 
   const handleLogin = () => {
     if (isFormIncomplete || isPending) return;
-
+  setSigninError("");
     const result = signinSchema.safeParse({ phone: phone.trim(), password });
 
     if (!result.success) {
@@ -43,16 +44,38 @@ const Login = () => {
 
     setFieldErrors({});
     signin(result.data, {
-      onSuccess: (response) => {
-        if (response.user) {
-          login(response.user, {
-            token: response.token,
-            refreshToken: response.refreshToken,
-          });
-        }
-        const role = response.user?.role?.toLowerCase?.() ?? "farmer";
-        if (role === "driver") router.push("/drivers");
-        else router.push("/farmer");
+     onSuccess: (response) => {
+  if (!response.user) {
+    setSigninError("Login successful, but user information was not returned.");
+    return;
+  }
+
+  login(response.user, {
+    token: response.token,
+    refreshToken: response.refreshToken,
+  });
+
+  const role = response.user.role.toLowerCase();
+
+  switch (role) {
+    case "farmer":
+      router.push("/farmer");
+      break;
+
+    case "buyer":
+      router.push("/buyer");
+      break;
+
+    case "driver":
+      router.push("/drivers");
+      break;
+
+    default:
+      setSigninError("Login successful, but your account role is not recognized.");
+  }
+},
+      onError: (signinError) => {
+        setSigninError(getErrorMessage(signinError));
       },
     });
   };

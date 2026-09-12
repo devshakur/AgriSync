@@ -23,6 +23,7 @@ type AuthContextValue = {
   isAuthenticated: boolean;
   isLoading: boolean;
   login: (user: User, tokens: AuthTokens) => void;
+  register: (user: User, tokens: AuthTokens) => void;
   logout: () => void;
 };
 
@@ -67,14 +68,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(nextUser);
   }, []);
 
+  const register = useCallback<AuthContextValue["register"]>((nextUser, tokens) => {
+    setTokens(tokens);
+    setUser(nextUser);
+  }, []);
+
   const logout = useCallback(() => {
     clearTokens();
     setUser(null);
   }, []);
 
   const value = useMemo<AuthContextValue>(
-    () => ({ user, isAuthenticated: Boolean(user), isLoading, login, logout }),
-    [user, isLoading, login, logout],
+    () => ({ user, isAuthenticated: Boolean(user), isLoading, login, register, logout }),
+    [user, isLoading, login, register, logout],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
