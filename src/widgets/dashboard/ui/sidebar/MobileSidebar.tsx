@@ -67,8 +67,8 @@ const accountNavigation: NavItem[] = [
     icon: MessagesSquare,
   },
   {
-    label: "Settings",
-    href: "/",
+    label: "Profile",
+    href: "/farmer/profile",
     icon: Settings,
   },
 ];

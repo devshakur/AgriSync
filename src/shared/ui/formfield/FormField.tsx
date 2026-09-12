@@ -25,6 +25,8 @@ type BaseProps = {
   error?: string;
   required?: boolean;
   className?: string;
+  /** Extra classes for the input/select control surface */
+  controlClassName?: string;
 };
 
 type InputFieldProps = BaseProps & {
@@ -46,6 +48,7 @@ type SelectFieldProps = BaseProps & {
   placeholder?: string;
   name?: string;
   disabled?: boolean;
+  menuClassName?: string;
 };
 
 type TextareaFieldProps = BaseProps & {
@@ -72,6 +75,7 @@ const FormField = (props: FormFieldProps) => {
     error,
     required = false,
     className = "",
+    controlClassName = "",
   } = props;
 
   const id = useId();
@@ -110,10 +114,12 @@ const FormField = (props: FormFieldProps) => {
           onChange={props.onChange}
           disabled={props.disabled}
           error={Boolean(error)}
+          triggerClassName={controlClassName}
+          menuClassName={props.menuClassName}
         />
       ) : props.type === "textarea" ? (
         <div
-          className={`relative rounded-xl bg-[#FAF8F2] px-4 py-3 transition-colors duration-200 ${borderClass}`}
+          className={`relative rounded-xl bg-[#FAF8F2] px-4 py-3 transition-colors duration-200 ${borderClass} ${controlClassName || "shadow-none"}`}
         >
           {Icon && (
             <Icon
@@ -138,7 +144,7 @@ const FormField = (props: FormFieldProps) => {
         </div>
       ) : (
         <div
-          className={`relative flex items-center rounded-xl bg-[#FAF8F2] px-4 py-3 shadow-none transition-colors duration-200 ${borderClass}`}
+          className={`relative flex items-center rounded-xl bg-[#FAF8F2] px-4 py-3 transition-colors duration-200 ${borderClass} ${controlClassName || "shadow-none"}`}
         >
           {Icon && (
             <Icon

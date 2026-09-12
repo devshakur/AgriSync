@@ -17,6 +17,7 @@ import {
   setTokens,
   type AuthTokens,
 } from "../lib/session";
+import { normalizeUser } from "../lib/normalize-user";
 
 type AuthContextValue = {
   user: User | null;
@@ -25,6 +26,8 @@ type AuthContextValue = {
   login: (user: User, tokens: AuthTokens) => void;
   register: (user: User, tokens: AuthTokens) => void;
   logout: () => void;
+  /** Merge/replace the in-memory user after profile updates */
+  updateUser: (user: User | null) => void;
 };
 
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
@@ -33,30 +36,32 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  // /auth/me is the single source of truth for the session. Call it once
+  // /auth/profile is the single source of truth for the session. Call it once
   // on app start/refresh only — login already returns the user, so it
   // must not be called again after a successful sign-in.
   useEffect(() => {
-    if (!hasStoredAccessToken()) {
-      setIsLoading(false);
-      return;
-    }
-
     let cancelled = false;
 
-    me()
-      .then((response) => {
-        if (!cancelled) setUser(response.user ?? null);
-      })
-      .catch(() => {
+    const restoreSession = async () => {
+      if (!hasStoredAccessToken()) {
+        if (!cancelled) setIsLoading(false);
+        return;
+      }
+
+      try {
+        const response = await me();
+        if (!cancelled) setUser(normalizeUser(response.user));
+      } catch {
         if (!cancelled) {
           clearTokens();
           setUser(null);
         }
-      })
-      .finally(() => {
+      } finally {
         if (!cancelled) setIsLoading(false);
-      });
+      }
+    };
+
+    void restoreSession();
 
     return () => {
       cancelled = true;
@@ -65,12 +70,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = useCallback<AuthContextValue["login"]>((nextUser, tokens) => {
     setTokens(tokens);
-    setUser(nextUser);
+    setUser(normalizeUser(nextUser) ?? nextUser);
   }, []);
 
   const register = useCallback<AuthContextValue["register"]>((nextUser, tokens) => {
     setTokens(tokens);
-    setUser(nextUser);
+    setUser(normalizeUser(nextUser) ?? nextUser);
   }, []);
 
   const logout = useCallback(() => {
@@ -78,9 +83,21 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(null);
   }, []);
 
+  const updateUser = useCallback((nextUser: User | null) => {
+    setUser(nextUser ? normalizeUser(nextUser) ?? nextUser : null);
+  }, []);
+
   const value = useMemo<AuthContextValue>(
-    () => ({ user, isAuthenticated: Boolean(user), isLoading, login, register, logout }),
-    [user, isLoading, login, register, logout],
+    () => ({
+      user,
+      isAuthenticated: Boolean(user),
+      isLoading,
+      login,
+      register,
+      logout,
+      updateUser,
+    }),
+    [user, isLoading, login, register, logout, updateUser],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
