@@ -64,7 +64,7 @@ const DashboardSidebar = () => {
     return pathname.startsWith(href);
   };
   const router = useRouter();
-  const {logout} = useAuth();
+  const {user, logout} = useAuth();
 
     const handleLogout = () => {
       logout();
@@ -144,7 +144,7 @@ const DashboardSidebar = () => {
 
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-mono font-medium text-gray-800">
-              Abdulshakur
+              {user?.fullName}
             </p>
 
             <p className="truncate text-xs flex items-center gap-2 text-muted-foreground">
