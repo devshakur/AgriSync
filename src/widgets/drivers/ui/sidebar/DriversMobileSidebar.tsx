@@ -9,7 +9,6 @@ import {
   LayoutDashboard,
   Route,
   Truck,
-  Wallet,
   Settings,
   MessagesSquare,
   Bell,

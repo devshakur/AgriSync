@@ -7,7 +7,7 @@ type ProfileSkeletonProps = {
 };
 
 const SkeletonBlock = ({ className = "" }: { className?: string }) => (
-  <div className={`animate-pulse rounded-lg bg-black/[0.06] dark:bg-white/10 ${className}`} />
+  <div className={`animate-pulse rounded-lg bg-black/6 dark:bg-white/10 ${className}`} />
 );
 
 const ProfileSkeleton = ({ theme }: ProfileSkeletonProps) => (
