@@ -1,5 +1,7 @@
 ---
-applyTo: "src/features/**/api/**/*.ts,src/features/**/hooks/**/*.ts,src/lib/api/**/*.ts"
+description: API and data-fetching conventions
+globs: src/features/**/api/**/*.ts, src/features/**/hooks/**/*.ts, src/lib/api/**/*.ts
+alwaysApply: false
 ---
 
 # AgriSync API & TanStack Query Instructions
@@ -50,3 +52,7 @@ export const farmersApi = {
     return response.data;
   },
 };
+
+
+
+// implement(function/class/endpoint) to (goal) using (lib/framework). work in (files/paths) only. Respect(style/tests/rules) provide(tests/docs/migration) if assumptions are needed, list them first.
