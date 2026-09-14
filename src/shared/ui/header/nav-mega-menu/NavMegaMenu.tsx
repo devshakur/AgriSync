@@ -39,7 +39,7 @@ const NavMegaMenu = ({ items }: NavMegaMenuProps) => {
         setActiveItem(null);
       }}
     >
-      <nav className="flex items-center gap-6 whitespace-nowrap text-sm font-medium text-muted-foreground">
+      <nav className="flex items-center gap-6 whitespace-nowrap text-sm font-medium text-green-950">
         {items.map((item) => (
           <div key={item.label} className="relative">
             <a

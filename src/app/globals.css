@@ -161,3 +161,52 @@ body {
     stroke-dashoffset: -64;
   }
 } */
+
+/* ================================
+   Testimonials marquee + center spotlight
+   ================================ */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Slow, steady drift. Duration is long so each card dwells in the
+   centre spotlight long enough to read it. */
+.animate-marquee {
+  animation: marquee 68s linear infinite;
+}
+
+@media (max-width: 640px) {
+  .animate-marquee {
+    animation-duration: 46s;
+  }
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Each card reads a single custom property --f ("focus"), written by JS:
+   0 = far from centre, 1 = exactly centred.
+   All visual scaling/elevation is derived from it here in CSS, so the
+   JS only ever writes one property per card per frame. */
+.tm-card {
+  --f: 0;
+  border-radius: 1rem;
+  transform: translateY(calc(var(--f) * -16px)) scale(calc(1 + var(--f) * 0.17));
+  opacity: calc(0.78 + var(--f) * 0.22);
+  z-index: calc(1 + var(--f) * 10);
+  box-shadow:
+    0 calc(2px + var(--f) * 26px) calc(8px + var(--f) * 50px) -8px
+    rgba(15, 23, 42, calc(0.07 + var(--f) * 0.2));
+  will-change: transform, opacity;
+}
+
+/* Reduced motion: no spotlight scaling, flat static strip. */
+@media (prefers-reduced-motion: reduce) {
+  .tm-card {
+    transform: none;
+    opacity: 1;
+  }
+}
