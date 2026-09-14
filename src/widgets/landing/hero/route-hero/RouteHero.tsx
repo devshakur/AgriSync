@@ -1,110 +1,89 @@
+import Image from "next/image";
+import { Button } from "@/shared/ui/button";
+
+// ─── Placeholder images — swap src values when real assets arrive ──────────────
+const storyImages = [
+  {
+    src: "/assests/images/delivery-bike.jpg",
+    alt: "A Nigerian farmer holding farm produce",
+    wrapperClass: "mt-8",
+    // Shorter portrait
+    aspectRatio: "2 / 3",
+  },
+  {
+    src: "/assests/images/male-farmer.jpg",
+    alt: "A driver on a delivery route across Nigeria",
+    wrapperClass: "mt-0",
+    // Tallest — noticeably longer than the flanking cards
+    aspectRatio: "2 / 4",
+  },
+  {
+    src: "/assests/images/produce-onions.jpg",
+    alt: "Fresh produce ready for market",
+    wrapperClass: "mt-4",
+    // Medium height
+    aspectRatio: "2 / 3.4",
+  },
+] as const;
+
 const RouteHero = () => {
   return (
-    <div className="w-full max-w-6xl px-4">
-      <svg
-        viewBox="0 0 700 200"
-        className="h-auto w-full overflow-visible"
-        role="img"
-        aria-label="Animated route from farmer to driver to buyer"
-      >
-        <defs>
-          <filter id="route-glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="1.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
+    <section className="w-full bg-background py-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 
-        <path
-          d="M80 95 C175 30 225 155 350 95 S525 30 620 95"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="5"
-          strokeLinecap="round"
-          strokeDasharray="10 10"
-          className="text-accent/25"
-        />
+        {/* ── Section title + decorative underline ── */}
+        <div className="mb-10 text-center lg:mb-14">
+          <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Our Story
+          </h2>
+          <div className="mx-auto mt-3 h-0.5 w-14 rounded-full bg-foreground" />
+        </div>
 
-        <path
-          d="M80 95 C175 30 225 155 350 95 S525 30 620 95"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeLinecap="round"
-          strokeDasharray="14 18"
-          className="animate-[dash_3s_linear_infinite] text-accent"
-        />
+        {/* ── Two-column body ── */}
+        <div className="flex flex-col gap-10 md:flex-row md:items-start md:gap-14 lg:gap-20">
 
-        <circle
-          r="7"
-          fill="currentColor"
-          filter="url(#route-glow)"
-          className="text-accent"
-        >
-          <animateMotion
-            dur="4s"
-            repeatCount="indefinite"
-            rotate="auto"
-            path="M80 95 C175 30 225 155 350 95 S525 30 620 95"
-          />
-        </circle>
+          {/* Left — quote + CTA */}
+          <div className="flex flex-col items-center text-center md:w-1/2 md:pt-4">
+            <blockquote className="font-sans text-lg font-medium leading-relaxed text-foreground sm:text-xl lg:text-2xl lg:leading-[1.55]">
+              &ldquo;Born on Nigerian soil, AgriSync connects smallholder
+              farmers directly to drivers and buyers across the country. We
+              believe in transparent supply chains, empowering local
+              communities, and moving fresh produce reliably — from field to
+              table.&rdquo;
+            </blockquote>
 
-        <g transform="translate(80,95)">
-          <circle r="60" className="fill-white stroke-accent stroke-2" />
-          <circle r="56" fill="none" stroke="currentColor" strokeWidth="2" className="animate-pulse text-accent/20" />
+            <div className="mt-8">
+              <Button
+                label="Explore AgriSync"
+                href="#how-it-works"
+                variant="primary"
+                size="md"
+              />
+            </div>
+          </div>
 
-          <g transform="translate(-14,-14)" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
-            <path d="M2 26c10-1 16-8 18-18-10 1-16 8-18 18Z" />
-            <path d="M5 22c4-4 8-8 13-15" />
-          </g>
-        </g>
+          {/* Right — three staggered portrait image cards */}
+          <div className="flex items-end gap-3 md:w-1/2 sm:gap-4">
+            {storyImages.map((img) => (
+              <div
+                key={img.src}
+                className={`relative flex-1 overflow-hidden rounded-3xl ${img.wrapperClass}`}
+                style={{ aspectRatio: img.aspectRatio }}
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(max-width: 768px) 33vw, 18vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            ))}
+          </div>
 
-        <g transform="translate(350,95)">
-          <circle r="60" className="fill-white stroke-accent stroke-2" />
-          <circle r="56" fill="none" stroke="currentColor" strokeWidth="2" className="animate-pulse text-accent/20" />
-
-          <g transform="translate(-14,-14)" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
-            <circle cx="7" cy="21" r="4" />
-            <circle cx="23" cy="21" r="4" />
-            <path d="M7 21h5l4-8h5l3 4" />
-            <path d="M16 13l3-4h4" />
-          </g>
-        </g>
-
-        <g transform="translate(620,95)">
-          <circle r="60" className="fill-white stroke-accent stroke-2" />
-          <circle r="56" fill="none" stroke="currentColor" strokeWidth="2" className="animate-pulse text-accent/20" />
-
-          <g transform="translate(-14,-14)" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent">
-            <path d="M4 12h24l-2 13a3 3 0 0 1-3 2H9a3 3 0 0 1-3-2L4 12Z" />
-            <path d="M10 12l3-8h6l3 8" />
-          </g>
-        </g>
-
-        <text x="80" y="165" textAnchor="middle" className="fill-accent text-[15px] font-bold font-heading">
-          Farmer
-        </text>
-        <text x="80" y="182" textAnchor="middle" className="fill-muted-foreground text-[11px]">
-          Produce
-        </text>
-
-        <text x="350" y="165" textAnchor="middle" className="fill-accent text-[15px] font-bold font-heading">
-          Driver
-        </text>
-        <text x="350" y="182" textAnchor="middle" className="fill-muted-foreground text-[11px]">
-          Delivery
-        </text>
-
-        <text x="620" y="165" textAnchor="middle" className="fill-accent text-[15px] font-bold font-heading">
-          Buyer
-        </text>
-        <text x="620" y="182" textAnchor="middle" className="fill-muted-foreground text-[11px]">
-          Destination
-        </text>
-      </svg>
-    </div>
+        </div>
+      </div>
+    </section>
   );
 };
 
