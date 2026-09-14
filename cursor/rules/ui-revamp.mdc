@@ -1,0 +1,122 @@
+---
+description: UI implementation and revamp rules based on reference screenshots
+globs:
+  - "src/app/**/*.tsx"
+  - "src/components/**/*.tsx"
+  - "src/features/**/components/**/*.tsx"
+  - "src/features/**/pages/**/*.tsx"
+alwaysApply: false
+---
+
+# UI Revamp Rules
+
+## Primary Objective
+
+When implementing or revamping UI, use the provided reference screenshot as the primary visual source of truth.
+
+The implementation should reproduce the screenshot as closely as possible.
+
+Do not redesign, reinterpret, simplify, or substitute the design unless explicitly instructed.
+
+## Screenshot Fidelity
+
+When a screenshot is provided:
+
+- Match the layout as closely as possible.
+- Match spacing, padding, margins, gaps, and alignment.
+- Match typography, font size, font weight, line height, and letter spacing.
+- Match colors, borders, border radius, shadows, and backgrounds.
+- Match component dimensions and proportions.
+- Match icon size, position, and visual weight.
+- Match image size, aspect ratio, cropping, and positioning.
+- Match responsive behavior based on the visual structure of the reference.
+- Preserve the visual hierarchy shown in the screenshot.
+
+The screenshot takes priority over existing UI styling.
+
+## Do Not Guess When Assets Exist
+
+Before creating a new visual asset:
+
+1. Check the existing assets in the project.
+2. Reuse the appropriate logo, image, icon, font, or illustration when available.
+3. Do not replace an existing project asset with a placeholder.
+4. Do not use emoji as a replacement for icons.
+5. Do not introduce a new icon library if an appropriate icon already exists in the project.
+
+## Existing Architecture
+
+Do not unnecessarily restructure the application.
+
+Preserve:
+
+- Existing routing
+- Existing API integration
+- Existing state management
+- Existing hooks
+- Existing business logic
+- Existing authentication/authorization
+- Existing data fetching
+- Existing component behavior
+
+The goal is to replace the presentation layer without breaking application functionality.
+
+## Componentization
+
+Build reusable components where the same UI pattern appears multiple times.
+
+Examples:
+
+- Buttons
+- Inputs
+- Cards
+- Navigation
+- Sidebar
+- Header
+- Modal
+- Table
+- Tabs
+- Status badges
+- Form sections
+- Empty states
+- Loading states
+
+Avoid creating unnecessary abstractions for one-off elements.
+
+Prefer clear, feature-oriented components over excessively generic components.
+
+ ## Responsive Design
+
+Do not implement the screenshot only for one viewport.
+
+Determine the likely responsive behavior from the reference and implement appropriate layouts for:
+
+Mobile
+Tablet
+Desktop
+
+Do not simply scale the desktop layout down.
+Where necessary:
+
+Stack elements
+Change grid columns
+Collapse navigation
+Resize typography
+Adjust spacing
+Change component positioning
+Hide or reveal secondary elements 
+
+## Tailwind CSS
+
+Use the project's existing Tailwind setup and design tokens.
+
+Prefer Tailwind utility classes over creating custom CSS when Tailwind can express the design accurately.
+
+Do not introduce arbitrary values unnecessarily.
+
+If an arbitrary value is required to reproduce the screenshot accurately, it is acceptable.
+
+Example:
+
+```tsx
+className="w-[318px]"
