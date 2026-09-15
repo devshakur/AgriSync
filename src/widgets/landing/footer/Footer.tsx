@@ -64,7 +64,7 @@ const aboutLinks = [
 ];
 
 // ─── Social icons ─────────────────────────────────────────────────────────────
-type SocialIconComponent = (props: SVGProps<SVGSVGElement>) => JSX.Element;
+type SocialIconComponent = (props: SVGProps<SVGSVGElement>) => React.ReactNode;
 
 const socials: { icon: SocialIconComponent; href: string; label: string }[] = [
   { icon: IconFacebook,  href: "#", label: "Facebook"  },
