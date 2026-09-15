@@ -4,5 +4,6 @@ export { FarmerCard } from "./farmer-card";
 export { FeatureCards } from "./feature-cards";
 export { InfoCard } from "./info-card";
 export { IndustryServices } from "./industry-services";
+export { MissionVision } from "./mission-vision";
 export { TransportationCard } from "./transportation-card";
 export { TrustHighlights } from "./trust-highlights";

@@ -70,8 +70,8 @@ function CropScoreCard() {
               <Sprout className="h-3.5 w-3.5 text-white" />
             </span>
             <div className="leading-tight">
-              <p className="text-[10px] font-medium uppercase tracking-wide text-white/60">Soil Health</p>
-              <p className="text-xs font-semibold">Good</p>
+              <p className="text-[10px] font-medium uppercase tracking-wide text-white/60">Route Status</p>
+              <p className="text-xs font-semibold">Active</p>
             </div>
           </div>
           <div className="flex items-center gap-2.5">
@@ -82,8 +82,8 @@ function CropScoreCard() {
               </svg>
             </span>
             <div className="leading-tight">
-              <p className="text-[10px] font-medium uppercase tracking-wide text-white/60">Moisture</p>
-              <p className="text-xs font-semibold">Optimal</p>
+              <p className="text-[10px] font-medium uppercase tracking-wide text-white/60">Deliveries</p>
+              <p className="text-xs font-semibold">On Track</p>
             </div>
           </div>
         </div>
@@ -105,8 +105,8 @@ function CropScoreCard() {
           />
         </svg>
         <div className="text-white leading-tight">
-          <p className="text-xl font-bold leading-none">78%</p>
-          <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-white/60">Crop Score</p>
+          <p className="text-xl font-bold leading-none">94%</p>
+          <p className="mt-0.5 text-[10px] font-medium uppercase tracking-wide text-white/60">Sync Rate</p>
         </div>
       </div>
     </div>

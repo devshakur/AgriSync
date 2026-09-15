@@ -27,10 +27,10 @@ const Header = () => {
             />
           </div> */}
           <div className="hidden flex-col sm:flex">
-            <span className="font-heading text-[15px] font-bold leading-tight tracking-tight text-green-800">
+            <span className="font-heading text-[15px] font-bold leading-tight tracking-tight text-white">
               AgriSync
             </span>
-            <span className="font-sans text-[10px] font-medium tracking-wide text-white">
+            <span className="font-sans text-[10px] font-medium tracking-wide text-white/70">
               Grow Better. Live Better.
             </span>
           </div>
@@ -43,7 +43,7 @@ const Header = () => {
 
         {/* Desktop CTA buttons */}
         <div className="hidden shrink-0 items-center gap-2.5 md:flex">
-          <Button label="Log in" href="/login" variant="ghost" size="sm" className="shrink-0 text-muted-foreground" />
+          <Button label="Log in" href="/login" variant="ghost" size="sm" className="shrink-0 text-white/80 hover:text-white" />
           <a
             href="/role"
             className="inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:brightness-110 hover:shadow-md active:scale-[0.97]"
