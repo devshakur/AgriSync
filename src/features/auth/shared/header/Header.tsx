@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
@@ -9,16 +9,16 @@ interface HeaderProps {
 
 const Header = ({ page, route }: HeaderProps) => {
   return (
-        <header className="flex items-center justify-between px-8 py-2">
+        <header className="flex items-center justify-between px-8 py-8">
         <div className="flex items-center gap-3">
-          <Image
+          {/* <Image
             src="/assests/logo/Agrisync-new-logo.webp"
             alt="Agrisync logo"
             width={100}
             height={100}
             loading="eager"
             className="h-auto w-auto object-contain"
-          />
+          /> */}
         </div>
         <Link
           href={route}
