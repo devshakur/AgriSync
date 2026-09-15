@@ -1,60 +1,62 @@
-import { ArrowRight, type LucideIcon } from "lucide-react";
+import { Check } from "lucide-react";
+import { type ReactNode } from "react";
 
 type RoleCardProps = {
-  icon: LucideIcon;
+  value: string;
   title: string;
   description: string;
-  actionText: string;
-  onClick?: () => void;
+  illustration: ReactNode;
+  selected?: boolean;
+  onSelect?: (value: string) => void;
   className?: string;
 };
 
 const RoleCard = ({
-  icon: Icon,
+  value,
   title,
   description,
-  actionText,
-  onClick,
+  illustration,
+  selected = false,
+  onSelect,
   className = "",
 }: RoleCardProps) => {
+  const borderClassName = selected
+    ? "border-primary shadow-[0_18px_48px_rgba(27,90,59,0.16)]"
+    : "border-[#E6EAF0] shadow-[0_12px_36px_rgba(15,23,42,0.08)] hover:border-primary/60 hover:shadow-[0_18px_48px_rgba(27,90,59,0.12)]";
+
   return (
-    <article
-      className={`w-full max-w-125 rounded-4xl border-2  bg-white px-8 py-5 shadow-[0_8px_30px_rgba(27,90,59,0.06)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[#1B5A3B] hover:shadow-[0_16px_40px_rgba(27,90,59,0.12)] ${className}`}
+    <button
+      type="button"
+      onClick={() => onSelect?.(value)}
+      aria-pressed={selected}
+      className={`group relative flex w-full flex-col rounded-4xl border-2 bg-white p-5 text-left transition-all duration-300 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary sm:p-6 ${borderClassName} ${className}`}
     >
-      {/* Icon */}
-      <div className="flex h-14.5 w-14.5 items-center justify-center rounded-full border-[3px] border-[#B35B25] text-[#1B5A3B]">
-        <Icon
-          className="h-7 w-7"
-          strokeWidth={1.8}
-        />
+      <span
+        className={`absolute right-4 top-4 inline-flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-300 ${
+          selected
+            ? "border-primary bg-primary text-white"
+            : "border-[#D7DEE8] bg-white text-transparent group-hover:border-primary/60"
+        }`}
+        aria-hidden="true"
+      >
+        <Check className="h-4.5 w-4.5" strokeWidth={2.5} />
+      </span>
+
+      <div className="flex min-h-52.5 items-center justify-center overflow-hidden rounded-3xl bg-[#F8FAFD] px-3 py-4 sm:min-h-57">
+        {illustration}
       </div>
 
-      {/* Content */}
-      <div className="mt-8">
-        <h3 className="text-[22px] font-semibold leading-[1.15] tracking-[-0.03em] text-[#101513]">
+      <div className="mt-6">
+        <h3 className="text-xl font-semibold tracking-[-0.03em] text-[#101513] sm:text-[1.7rem]">
           {title}
         </h3>
 
-        <p className="mt-3 max-w-112.5 text-[19px] leading-[1.35] text-[#4B514F] sm:text-xl">
+        <p className="mt-3 text-sm leading-6 text-[#55606F] sm:text-base">
           {description}
         </p>
       </div>
-
-      {/* Action */}
-      <button
-        type="button"
-        onClick={onClick}
-        className="group mt-6 cursor-pointer inline-flex items-center gap-3 text-[19px] font-semibold text-[#075B3C] transition-colors duration-200 hover:text-[#B35B25]"
-      >
-        <span>{actionText}</span>
-
-        <ArrowRight
-          className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1"
-          strokeWidth={2}
-        />
-      </button>
-    </article>
+    </button>
   );
-}
+};
 
 export default RoleCard;
