@@ -39,7 +39,7 @@ const NavMegaMenu = ({ items }: NavMegaMenuProps) => {
         setActiveItem(null);
       }}
     >
-      <nav className="flex items-center gap-6 whitespace-nowrap text-sm font-medium text-green-950">
+      <nav className="flex items-center gap-6 whitespace-nowrap text-sm font-medium text-white/90">
         {items.map((item) => (
           <div key={item.label} className="relative">
             <a
@@ -54,7 +54,7 @@ const NavMegaMenu = ({ items }: NavMegaMenuProps) => {
                 setActiveItem(item);
               }}
               onClick={() => setMenuOpen(false)}
-              className="flex items-center gap-1 rounded-full px-2 py-2 transition-colors duration-200 hover:text-primary focus-visible:outline-none"
+              className="flex items-center gap-1 rounded-full px-2 py-2 transition-colors duration-200 hover:text-white focus-visible:outline-none"
             >
               <span>{item.label}</span>
               {item.items && (

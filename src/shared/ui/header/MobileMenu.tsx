@@ -20,7 +20,7 @@ export function MobileMenu() {
         aria-label="Open menu"
         aria-expanded={mobileOpen}
         aria-controls="mobile-nav-overlay"
-        className="rounded-full p-2 text-foreground transition-colors hover:bg-muted md:hidden"
+        className="rounded-full p-2 text-white transition-colors hover:bg-white/15 md:hidden"
         onClick={() => setMobileOpen(true)}
       >
         <Menu className="h-6 w-6" />
