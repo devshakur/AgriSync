@@ -52,14 +52,14 @@ const RouteHero = () => {
               table.&rdquo;
             </blockquote>
 
-            <div className="mt-8">
+            {/* <div className="mt-8">
               <Button
                 label="Explore AgriSync"
                 href="#how-it-works"
                 variant="primary"
                 size="md"
               />
-            </div>
+            </div> */}
           </div>
 
           {/* Right — three staggered portrait image cards */}

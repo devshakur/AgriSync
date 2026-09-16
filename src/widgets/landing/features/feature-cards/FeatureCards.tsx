@@ -96,14 +96,13 @@ function FeatureCard({
         {description}
       </p>
 
-      {/* Explore link */}
-      <a
+      {/* <a
         href={linkHref}
         className={`mt-6 inline-flex items-center gap-1.5 text-sm font-semibold transition-colors ${linkClass}`}
       >
         {linkLabel}
         <ArrowRight className="h-4 w-4" />
-      </a>
+      </a> */}
 
       {/* Decorative bottom-right arc ── large circle partially clipped by overflow-hidden */}
       <div

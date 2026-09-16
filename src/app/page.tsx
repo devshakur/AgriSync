@@ -65,7 +65,6 @@ export default function Home() {
           />
         </div>
         <TrustHighlights />
-      <TeamSection />
       <TestimonialsSection />
       <div>
           <CTASection id="contact" />

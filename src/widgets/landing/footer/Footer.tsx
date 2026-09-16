@@ -141,16 +141,7 @@ const Footer = () => {
 
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <a href="#top" className="inline-block">
-              <Image
-                src="/assests/logo/Agrisync-new-logo.webp"
-                alt="AgriSync logo"
-                width={120}
-                height={40}
-                className="h-auto max-h-10 w-auto object-contain"
-                priority
-              />
-            </a>
+            
 
             <p className="mt-5 max-w-xs text-sm leading-6 text-[#C7D8CD]">
               Connecting farmers, drivers, and buyers across Nigeria — one
