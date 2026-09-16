@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Leaf, Truck, ShoppingBasket, Globe, Sprout, ArrowRight } from "lucide-react";
-import { type ReactNode } from "react";
+      import { Leaf, Truck, ShoppingBasket, Globe } from "lucide-react";
+      import { type ReactNode } from "react";
 
 // ─── Blade data ────────────────────────────────────────────────────────────────
 interface BladeData {
@@ -85,7 +85,6 @@ export function IndustryServices() {
 
         {/* ── Section title ── */}
         <div className="mb-10 flex items-center justify-center gap-2.5 lg:mb-12">
-          <Sprout className="h-6 w-6 text-primary" />
           <h2 className="font-heading text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             AgriSync{" "}
             <span className="text-primary">Platform</span>
@@ -131,16 +130,7 @@ export function IndustryServices() {
               </strong>
             </p>
 
-            {/* CTA — pill outline button matching screenshot */}
-            <div className="mt-8">
-              <a
-                href="#how-it-works"
-                className="inline-flex items-center gap-2 rounded-full border-2 border-primary px-6 py-3 font-heading text-sm font-semibold text-primary transition-all duration-150 hover:bg-primary hover:text-white active:scale-[0.97]"
-              >
-                Discover More
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
+          
 
           </div>
         </div>

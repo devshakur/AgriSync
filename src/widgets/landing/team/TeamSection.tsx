@@ -180,7 +180,7 @@ export function TeamSection() {
           <span className="h-1 w-2.5 rounded-full bg-primary/40" />
         </div>
         <p className="mx-auto mt-4 max-w-xl text-sm text-muted-foreground sm:text-base">
-          The people building the infrastructure that connects Nigeria's farms to
+          The people building the infrastructure that connects Nigeria smallholder farms to
           its tables.
         </p>
       </div>
@@ -194,11 +194,7 @@ export function TeamSection() {
         aria-label="Team members"
         role="region"
       >
-        {/*
-          w-max  → track is as wide as all pairs combined so translateX(-50%)
-                   equals exactly one full set, giving a seamless loop.
-          flex-nowrap → single horizontal strip, never wraps.
-        */}
+        
         <div
           className={`flex w-max flex-nowrap items-stretch gap-6 px-6 ${
             reduceMotion ? "" : "animate-marquee"

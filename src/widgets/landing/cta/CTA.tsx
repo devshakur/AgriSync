@@ -2,7 +2,7 @@ import { Button } from "@/shared/ui/button";
 
 const CTASection = ({ id }: { id?: string }) => {
   return (
-    <section id={id} className="w-full bg-[#F9F7F0]  py-10 sm:px-8 lg:px-12">
+    <section id={id} className="w-full bg-[#F9F7F0] px-3 py-10 sm:px-8 lg:px-12">
       <div className="mx-auto flex min-h-104 w-full max-w-7xl flex-col items-center justify-center rounded-[48px] bg-[#1B4633] px-6 py-16 text-center sm:px-10 lg:min-h-72">
         <h2 className="max-w-5xl text-4xl font-bold leading-[1.1] tracking-[-0.04em] text-white">
           Ready to move agriculture forward?
@@ -23,14 +23,14 @@ const CTASection = ({ id }: { id?: string }) => {
             className="bg-[#D5EAD9] text-[#1B4633] hover:brightness-100"
           />
 
-          <Button
+          {/* <Button
             type="button"
             label="Become a Driver"
             variant="outline"
             size="lg"
             href="/signup?role=driver"
             className="border border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
-          />
+          /> */}
         </div>
       </div>
     </section>

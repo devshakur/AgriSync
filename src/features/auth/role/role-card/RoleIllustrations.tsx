@@ -15,7 +15,7 @@ function RoleIllustration({ src, className = "" }: RoleIllustrationProps) {
       alt=""
       aria-hidden="true"
       width={360}
-      height={360}
+      height={260}
       className={`h-auto w-full max-w-55 object-contain ${className}`}
     />
   );
@@ -24,7 +24,7 @@ function RoleIllustration({ src, className = "" }: RoleIllustrationProps) {
 function FarmerIllustration({ className = "" }: IllustrationProps) {
   return (
     <RoleIllustration
-      src="/assests/images/role-farmer.jpg"
+      src="/assests/images/agrisync-farmer.webp"
       className={className}
     />
   );
@@ -33,7 +33,7 @@ function FarmerIllustration({ className = "" }: IllustrationProps) {
 function DriverIllustration({ className = "" }: IllustrationProps) {
   return (
     <RoleIllustration
-      src="/assests/images/role-driver.jpg"
+      src="/assests/images/agrisync-driver.webp"
       className={className}
     />
   );
@@ -42,7 +42,7 @@ function DriverIllustration({ className = "" }: IllustrationProps) {
 function BuyerIllustration({ className = "" }: IllustrationProps) {
   return (
     <RoleIllustration
-      src="/assests/images/role-buyer.jpg"
+      src="/assests/images/agrisync-buyer.webp"
       className={className}
     />
   );
