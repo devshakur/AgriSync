@@ -27,6 +27,7 @@ type BaseProps = {
   className?: string;
   /** Extra classes for the input/select control surface */
   controlClassName?: string;
+  compact?: boolean;
 };
 
 type InputFieldProps = BaseProps & {
@@ -76,6 +77,7 @@ const FormField = (props: FormFieldProps) => {
     required = false,
     className = "",
     controlClassName = "",
+    compact = false,
   } = props;
 
   const id = useId();
@@ -86,14 +88,18 @@ const FormField = (props: FormFieldProps) => {
 
   const borderClass = error
     ? "border-red-400 focus-within:border-red-500"
-    : "border-transparent";
+    : controlClassName
+      ? ""
+      : "border-transparent";
 
   return (
     <div className={`${widthClass} ${className}`}>
       {/* Label */}
       <label
         htmlFor={id}
-        className=" block text-base py-1 font-semibold text-[#111]"
+        className={`block font-semibold text-[#111] ${
+          compact ? "pb-1 text-sm" : "py-1 text-base"
+        }`}
       >
         {label}
 
@@ -119,7 +125,7 @@ const FormField = (props: FormFieldProps) => {
         />
       ) : props.type === "textarea" ? (
         <div
-          className={`relative rounded-xl bg-[#FAF8F2] px-4 py-3 transition-colors duration-200 ${borderClass} ${controlClassName || "shadow-none"}`}
+          className={`relative rounded-xl border px-4 transition-colors duration-200 ${compact ? "py-2" : "py-3"} ${controlClassName ? "" : "bg-[#FAF8F2]"} ${borderClass} ${controlClassName || "shadow-none"}`}
         >
           {Icon && (
             <Icon
@@ -144,7 +150,7 @@ const FormField = (props: FormFieldProps) => {
         </div>
       ) : (
         <div
-          className={`relative flex items-center rounded-xl bg-[#FAF8F2] px-4 py-3 transition-colors duration-200 ${borderClass} ${controlClassName || "shadow-none"}`}
+          className={`relative flex items-center rounded-xl border px-4 transition-colors duration-200 ${compact ? "py-2" : "py-3"} ${controlClassName ? "" : "bg-[#FAF8F2]"} ${borderClass} ${controlClassName || "shadow-none"}`}
         >
           {Icon && (
             <Icon

@@ -9,7 +9,6 @@ import {
 import { RouteHero, HeroSlider } from "@/widgets/landing/hero";
 import { HowItWorks } from "@/widgets/landing/how-it-works";
 import { CTASection } from "@/widgets/landing/cta";
-import { TeamSection } from "@/widgets/landing/team";
 import { TestimonialsSection } from "@/widgets/landing/testimonials";
 import { Footer } from "@/widgets/landing";
 

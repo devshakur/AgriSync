@@ -1,3 +1,4 @@
+export * from "./auth-shell";
 export * from "./dropdown-select";
 export * from "./form-card";
 export * from "./form-subhead";

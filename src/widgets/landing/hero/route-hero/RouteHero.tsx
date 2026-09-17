@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Button } from "@/shared/ui/button";
 
 // ─── Placeholder images — swap src values when real assets arrive ──────────────
 const storyImages = [

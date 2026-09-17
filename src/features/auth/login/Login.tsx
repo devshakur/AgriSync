@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { Leaf, LockKeyhole, UserRound } from "lucide-react";
+import { LockKeyhole, Phone } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/shared/ui/button";
 import { FormField } from "@/shared/ui/formfield";
 import { hasEmptyFields } from "@/lib/validation";
 import { getErrorMessage } from "@/lib/api";
-import { FormCard, Header, FormSubhead } from "../shared";
+import { AUTH_FIELD_CONTROL, AuthShell } from "../shared";
 import { useAuth } from "../context";
 import { useSignin } from "../hooks";
 import { signinSchema } from "../schemas";
@@ -16,21 +16,20 @@ import { signinSchema } from "../schemas";
 const Login = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { login } = useAuth(); 
-  const [phone, setPhone] = useState(
-    searchParams.get("phone") ?? "",
-  );
+  const { login } = useAuth();
+  const [phone, setPhone] = useState(searchParams.get("phone") ?? "");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<{ phone?: string; password?: string }>({});
-    const [signinError, setSigninError] = useState("");
+  const [signinError, setSigninError] = useState("");
   const { mutate: signin, isPending, isError, error } = useSignin();
 
   const isFormIncomplete = hasEmptyFields(phone, password);
+  const displayError = signinError || (isError ? getErrorMessage(error) : "");
 
   const handleLogin = () => {
     if (isFormIncomplete || isPending) return;
-  setSigninError("");
+    setSigninError("");
     const result = signinSchema.safeParse({ phone: phone.trim(), password });
 
     if (!result.success) {
@@ -44,36 +43,36 @@ const Login = () => {
 
     setFieldErrors({});
     signin(result.data, {
-     onSuccess: (response) => {
-  if (!response.user) {
-    setSigninError("Login successful, but user information was not returned.");
-    return;
-  }
+      onSuccess: (response) => {
+        if (!response.user) {
+          setSigninError("Login successful, but user information was not returned.");
+          return;
+        }
 
-  login(response.user, {
-    token: response.token,
-    refreshToken: response.refreshToken,
-  });
+        login(response.user, {
+          token: response.token,
+          refreshToken: response.refreshToken,
+        });
 
-  const role = response.user.role.toLowerCase();
+        const role = response.user.role.toLowerCase();
 
-  switch (role) {
-    case "farmer":
-      router.push("/farmer");
-      break;
+        switch (role) {
+          case "farmer":
+            router.push("/farmer");
+            break;
 
-    case "buyer":
-      router.push("/buyer");
-      break;
+          case "buyer":
+            router.push("/buyer");
+            break;
 
-    case "driver":
-      router.push("/drivers");
-      break;
+          case "driver":
+            router.push("/drivers");
+            break;
 
-    default:
-      setSigninError("Login successful, but your account role is not recognized.");
-  }
-},
+          default:
+            setSigninError("Login successful, but your account role is not recognized.");
+        }
+      },
       onError: (signinError) => {
         setSigninError(getErrorMessage(signinError));
       },
@@ -81,102 +80,80 @@ const Login = () => {
   };
 
   return (
-    <>
-      <Header page="Back to Home" route="/" />
-             <FormSubhead
-                   icon={Leaf}
-                   title="Welcome back"
-                   description="Log in to manage your deliveries, orders, and produce."
-                 />
-      <div className="flex  items-center justify-center px-4 py-8">
-        <FormCard className="w-full p-5">
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <div>
-                <FormField
-                  label="Phone number"
-                  type="text"
-                  inputMode="numeric"
-                  icon={UserRound}
-                  value={phone}
-                  onChange={(event) => setPhone(event.target.value)}
-                  placeholder="0803 456 7890"
-                  error={fieldErrors.phone}
-                />
-              </div>
+    <AuthShell
+      mode="login"
+      title="Welcome back"
+      description="Sign in to your account to continue"
+      footer={
+        <>
+          New to AgriSync?{" "}
+          <Link href="/role" className="font-semibold text-primary transition hover:text-[#143F2B]">
+            Create an account
+          </Link>
+        </>
+      }
+    >
+      <div className="space-y-3">
+        <FormField
+          label="Phone number"
+          type="text"
+          inputMode="numeric"
+          icon={Phone}
+          value={phone}
+          onChange={(event) => setPhone(event.target.value)}
+          placeholder="0803 456 7890"
+          error={fieldErrors.phone}
+          compact
+          controlClassName={AUTH_FIELD_CONTROL}
+        />
 
-              <div>
-                <FormField
-                  label="Password"
-                  type="password"
-                  icon={LockKeyhole}
-                  value={password}
-                  onChange={(event) => setPassword(event.target.value)}
-                  placeholder="Enter your password"
-                  error={fieldErrors.password}
-                />
-              </div>
-            </div>
+        <FormField
+          label="Password"
+          type="password"
+          icon={LockKeyhole}
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          placeholder="Enter your password"
+          error={fieldErrors.password}
+          compact
+          controlClassName={AUTH_FIELD_CONTROL}
+        />
 
-            <div className="flex items-center justify-between gap-3">
-              <label className="inline-flex cursor-pointer items-center gap-3 text-sm text-[#2E2B29]">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(event) => setRememberMe(event.target.checked)}
-                  className="h-4 w-4 rounded border-[#4F6F5D] bg-transparent text-[#1B5A3B] accent-[#1B5A3B]"
-                />
-                <span>Remember me</span>
-              </label>
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+          <label className="inline-flex min-w-0 cursor-pointer items-center gap-2.5 text-sm text-[#2E2B29]">
+            <input
+              type="checkbox"
+              checked={rememberMe}
+              onChange={(event) => setRememberMe(event.target.checked)}
+              className="h-4 w-4 shrink-0 rounded border-[#4F6F5D] bg-transparent text-primary accent-primary"
+            />
+            <span>Remember me</span>
+          </label>
 
-              <Link
-                href="/forgot-password"
-                className="text-sm font-semibold text-[#1B5A3B] transition hover:text-[#143F2B]"
-              >
-                Forgot password?
-              </Link>
-            </div>
+          <Link
+            href="/forgot-password"
+            className="text-sm font-semibold text-primary transition hover:text-[#143F2B]"
+          >
+            Forgot password?
+          </Link>
+        </div>
 
-            <div className="pt-1">
-              <Button
-                label="Log in"
-                type="button"
-                variant="primary"
-                disabled={isFormIncomplete || isPending}
-                loading={isPending}
-                onClick={handleLogin}
-                size="lg"
-                className="w-full rounded-full bg-primary  text-lg font-semibold text-white hover:bg-[#0a3328]"
-              />
-            </div>
+        <Button
+          label="Sign In"
+          type="button"
+          variant="primary"
+          disabled={isFormIncomplete || isPending}
+          loading={isPending}
+          onClick={handleLogin}
+          size="md"
+          className="w-full max-w-full rounded-full bg-primary font-semibold text-white hover:bg-[#0a3328]"
+        />
 
-            {isError && (
-              <p className="text-center text-sm text-red-500">
-                {getErrorMessage(error)}
-              </p>
-            )}
-
-            <div className="flex items-center gap-4 pt-2">
-              <div className="h-px flex-1 bg-[#CFC8BE]" />
-              <span className="text-base text-[#5C5A57]">New to AgriSync?</span>
-              <div className="h-px flex-1 bg-[#CFC8BE]" />
-            </div>
-
-            <div>
-              <Link href="/signup" className="block">
-                <Button
-                  label="Create an account"
-                  type="button"
-                  variant="outline"
-                  size="lg"
-                  className="w-full rounded-full border-[1.5px] border-[#0E3E2F] bg-transparent text-lg font-semibold text-[#0E3E2F] hover:bg-[#EAF4EE]"
-                />
-              </Link>
-            </div>
-          </div>
-        </FormCard>
+        {displayError ? (
+          <p className="text-center text-sm text-red-500">{displayError}</p>
+        ) : null}
       </div>
-    </>
+    </AuthShell>
   );
 };
 
