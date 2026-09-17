@@ -27,7 +27,7 @@ const FormSubhead = ({
     <div className="flex w-full flex-col gap-4 items-center text-center">
       {/* Progress Steps */}
       <div className="flex items-center gap-3 font-mono text-xs tracking-[0.12em]">
-        {/* Step 1 */}
+      
         <div className="flex items-center gap-2">
           <div
             className={`flex h-8 w-8 items-center justify-center rounded-full ${
@@ -54,7 +54,7 @@ const FormSubhead = ({
           </span>
         </div>
 
-        {/* Connector */}
+      
         <div
           className={`h-0.5 w-10 border-t-2 border-dashed sm:w-14 ${
             isFirstStepComplete
@@ -63,7 +63,6 @@ const FormSubhead = ({
           }`}
         />
 
-        {/* Step 2 */}
         <div className="flex items-center gap-2">
           <div
             className={`flex h-8 w-8 items-center justify-center rounded-full border-2 font-semibold ${

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight, ArrowRight, Mail, MapPin } from "lucide-react";
 import type { SVGProps } from "react";
 

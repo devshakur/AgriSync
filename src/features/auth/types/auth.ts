@@ -8,8 +8,8 @@ export type SignupPayload = {
   password: string;
   phone: string;
   role: AuthRole;
-  location: string;
-  city: string;
+  location?: string;
+  city?: string;
 };
 
 export type SigninPayload = {

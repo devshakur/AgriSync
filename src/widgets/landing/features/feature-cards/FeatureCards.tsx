@@ -1,4 +1,4 @@
-import { Leaf, Truck, ShoppingBasket, ArrowRight } from "lucide-react";
+import { Leaf, Truck, ShoppingBasket } from "lucide-react";
 import { type ReactNode } from "react";
 
 // ─── Card data ────────────────────────────────────────────────────────────────
@@ -66,12 +66,9 @@ function FeatureCard({
   icon,
   title,
   description,
-  linkLabel,
-  linkHref,
   bgClass,
   textClass,
   subTextClass,
-  linkClass,
   iconContainerClass,
   circleClass,
 }: FeatureCardData) {
