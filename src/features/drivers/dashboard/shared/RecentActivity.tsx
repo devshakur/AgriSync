@@ -1,93 +1,83 @@
 "use client";
 
-import React from "react";
-import { CheckCircle2, Clock, PlusCircle, CreditCard } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, History } from "lucide-react";
+import { EmptyState } from "@/shared/ui/empty-state";
 
 type Activity = {
   id: string;
   title: string;
-  subtitle?: string;
-  amount?: string;
+  subtitle: string;
+  amount: string;
   time: string;
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  iconBg: string;
+  image: string;
 };
 
 const activities: Activity[] = [
   {
     id: "A-001",
     title: "Delivery completed",
-    subtitle: "MTL STS added to your wallet",
-    amount: "",
+    subtitle: "Maize · #TRK-1036",
+    amount: "₦45,000",
     time: "2h ago",
-    icon: CheckCircle2,
-    iconBg: "bg-[#ECF8F3] text-[#1B5A3B]",
+    image: "/assests/images/produce-onions.jpg",
+    
   },
   {
     id: "A-002",
-    title: "New request",
-    subtitle: "Tomatoes • 120kg",
-    amount: "",
-    time: "3h ago",
-    icon: PlusCircle,
-    iconBg: "bg-[#FEF6E9] text-[#A36B00]",
-  },
-  {
-    id: "A-003",
-    title: "Delivery accepted",
-    subtitle: "Yams • 200kg",
-    amount: "",
-    time: "4h ago",
-    icon: Clock,
-    iconBg: "bg-[#F3EDDD] text-[#7A704F]",
-  },
-  {
-    id: "A-004",
-    title: "Payment received",
-    subtitle: "",
-    amount: "₦15,300",
-    time: "5h ago",
-    icon: CreditCard,
-    iconBg: "bg-[#EAF8F7] text-[#0F6B60]",
+    title: "Delivery completed",
+    subtitle: "Rice · #TRK-1037",
+    amount: "₦45,000",
+    time: "2h ago",
+    image: "/assests/images/produce-onions.jpg",
+    
   },
 ];
 
 const RecentActivity = () => {
   return (
-    <section className="w-full overflow-hidden rounded-xl border border-[#E7E2D7] bg-[#E3F2E7]">
-      <div className="flex items-center justify-between px-4 pb-2.5 pt-3.5 sm:px-5">
-        <h2 className="font-heading text-sm font-semibold tracking-tight text-[#211F1A] sm:text-base">
-          Recent Activity
-        </h2>
+    <section className="flex min-h-80 flex-col rounded-2xl border border-black/6 bg-white p-4 shadow-sm sm:p-5">
+      <div className="flex items-center justify-between gap-3">
+        <h2 className="font-heading text-sm font-semibold text-gray-900 sm:text-base">Recent Activity</h2>
+        {activities.length > 0 ? (
+          <Link href="/drivers" className="inline-flex items-center gap-1 text-xs font-semibold text-[#1B5A3B]">
+            View all
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
+        ) : null}
       </div>
 
-      <div className="mx-4 h-px bg-[#EAE6DC] sm:mx-5" />
-
-      <div className="divide-y divide-[#F1EEE7]">
-        {activities.map((act) => (
-          <div key={act.id} className="flex items-center justify-between px-4 py-3 sm:px-5">
-            <div className="flex items-center gap-3">
-              <div className={`flex h-9 w-9 items-center justify-center rounded-full ${act.iconBg}`}>
-                <act.icon className="h-4 w-4" />
+      {activities.length === 0 ? (
+        <EmptyState
+          icon={History}
+          title="No recent activity"
+          description="Completed deliveries, payments, and updates will show up here."
+          className="min-h-56 flex-1 py-8"
+        />
+      ) : (
+        <ul className="mt-3 divide-y divide-black/5">
+          {activities.map((act) => (
+            <li key={act.id} className="flex items-center gap-3 py-3 first:pt-2 last:pb-0">
+              <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
+                <Image src={act.image} alt="" fill className="object-cover" sizes="40px" />
               </div>
 
-              <div>
-                <p className="text-sm font-semibold text-[#211F1A]">{act.title}</p>
-                {act.subtitle ? (
-                  <p className="mt-0.5 text-[11px] text-[#777368]">{act.subtitle}</p>
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-sm font-semibold text-gray-900">{act.title}</p>
+                <p className="mt-0.5 truncate text-[11px] text-muted-foreground">{act.subtitle}</p>
+              </div>
+
+              <div className="shrink-0 text-right">
+                <p className="text-[11px] text-muted-foreground">{act.time}</p>
+                {act.amount ? (
+                  <p className="mt-0.5 text-sm font-semibold text-[#1B5A3B]">{act.amount}</p>
                 ) : null}
               </div>
-            </div>
-
-            <div className="flex flex-col items-end">
-              {act.amount ? (
-                <span className="text-sm font-semibold text-[#211F1A]">{act.amount}</span>
-              ) : null}
-              <span className="mt-0.5 text-[11px] text-[#777368]">{act.time}</span>
-            </div>
-          </div>
-        ))}
-      </div>
+            </li>
+          ))}
+        </ul>
+      )}
     </section>
   );
 };

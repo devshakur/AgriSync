@@ -45,7 +45,7 @@ const SecuritySettingsCard = ({ theme, className = "" }: SecuritySettingsCardPro
       Manage your password and security preferences.
     </p>
 
-    <ul className="mt-4 divide-y divide-black/[0.06] dark:divide-white/10">
+    <ul className="mt-4 divide-y divide-black/6 dark:divide-white/10">
       {securityItems.map((item) => {
         const Icon = item.icon;
         return (

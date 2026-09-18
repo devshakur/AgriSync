@@ -1,34 +1,34 @@
-import { Users, MapPin, Clock, CheckCircle2 } from "lucide-react";
-import type { DashboardStat } from "@/widgets/dashboard/ui/statcard/StatCardCarousel";
+export type DriverDashboardStat = {
+  label: string;
+  value: string;
+  hint: string;
+  delta?: string;
+  showTrend?: boolean;
+};
 
-const stats: DashboardStat[] = [
+const stats: DriverDashboardStat[] = [
   {
-    label: "Nearby Drivers",
-    value: "5",
-    description: "Within 5 km",
-    icon: Users,
-    iconType: "green",
+    label: "Today's Earnings",
+    value: "₦0.00",
+    hint: "vs. yesterday",
+    delta: "+0%",
   },
   {
-    label: "Sourcing",
-    value: "2",
-    description: "Requests being sourced",
-    icon: MapPin,
-    iconType: "amber",
+    label: "Completed Deliveries",
+    value: "0",
+    hint: "vs. yesterday",
+    delta: "+0",
   },
   {
-    label: "Pending Offers",
-    value: "1",
-    description: "Awaiting driver confirmation",
-    icon: Clock,
-    iconType: "clay",
+    label: "Active Deliveries",
+    value: "0",
+    hint: "in progress",
   },
   {
-    label: "Completed",
-    value: "24",
-    description: "Deliveries this month",
-    icon: CheckCircle2,
-    iconType: "green",
+    label: "Total Trips",
+    value: "0",
+    hint: "this week",
+    showTrend: true,
   },
 ];
 

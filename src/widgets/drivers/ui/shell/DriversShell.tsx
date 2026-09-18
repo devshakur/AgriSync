@@ -4,22 +4,23 @@ import { ReactNode, useState } from "react";
 import { DriversHeader } from "../header/DriversHeader";
 import { DriversSidebar } from "../sidebar/DriversSidebar";
 import { MobileSidebar } from "@/widgets/drivers/ui/sidebar/DriversMobileSidebar";
-import { useAuth } from "@/features/auth/context";
 
 type DriversShellProps = { children: ReactNode };
 
 const DriversShell = ({ children }: DriversShellProps) => {
-  const { user } = useAuth();
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-emerald-50">
+    <div className="flex h-dvh overflow-hidden bg-white">
       <DriversSidebar />
 
-      <div className="lg:pl-64">
-        <DriversHeader name={user?.fullName ?? ""} notificationCount={2} onMenuOpen={() => setIsMobileSidebarOpen(true)} />
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden">
+        <DriversHeader
+          notificationCount={2}
+          onMenuOpen={() => setIsMobileSidebarOpen(true)}
+        />
 
-        <main className="px-4 pb-6 pt-24 sm:px-6 lg:px-8 lg:pt-24">
+        <main className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-6 pt-0 sm:px-6 lg:px-8">
           <div className="w-full">{children}</div>
         </main>
       </div>
