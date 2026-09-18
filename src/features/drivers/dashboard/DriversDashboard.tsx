@@ -2,7 +2,7 @@
 
 import { stats } from "@/features/drivers/constant";
 import { useAuth } from "@/features/auth/context";
-import { DriversDashboardBanner } from "@/widgets/drivers/ui/header/DriversHeader";
+import { DriversDashboardBanner, DriversMobileGreeting } from "@/widgets/drivers/ui/header/DriversHeader";
 import { DriverStatCard } from "./shared/DriverStatCard";
 import { DriverStatsPromoCard } from "./shared/DriverStatsPromoCard";
 import { OngoingDeliveryCard } from "./shared/OngoingDeliveryCard";
@@ -16,6 +16,7 @@ const DriversDashboard = () => {
   return (
     <>
       <DriversDashboardBanner fullName={user?.fullName ?? ""} />
+      <DriversMobileGreeting fullName={user?.fullName ?? ""} />
       <div className="p-3">
         <section className="grid grid-cols-2 gap-3 lg:grid-cols-[1fr_1fr_1fr_1fr_1.35fr] lg:gap-4">
           {stats.map((stat) => (

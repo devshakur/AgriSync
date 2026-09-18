@@ -103,8 +103,8 @@ const DriversDashboardBanner = ({ fullName }: DriversDashboardBannerProps) => {
   }, []);
 
   return (
-    <header className="-mx-4 sm:-mx-6 lg:-mx-8">
-      <div className="relative h-30 w-full overflow-hidden lg:h-40">
+    <header className="-mx-4 hidden sm:-mx-6 lg:-mx-8 lg:block">
+      <div className="relative h-40 w-full overflow-hidden">
         {DRIVER_HEADER_BANNER_IMAGES.map((src, index) => (
           <Image
             key={src}
@@ -132,12 +132,12 @@ const DriversDashboardBanner = ({ fullName }: DriversDashboardBannerProps) => {
           className="pointer-events-none absolute inset-0 bg-linear-to-r from-black/50 via-black/15 to-transparent"
         />
 
-        <div className="relative z-10 flex h-full items-end px-4 pb-5 sm:px-6 lg:items-center lg:px-8 lg:pb-0">
+        <div className="relative z-10 flex h-full items-center px-8">
           <div className="min-w-0">
-            <h1 className="font-heading text-xl font-semibold tracking-tight text-white drop-shadow-md sm:text-2xl">
-              {greeting}, {firstName} <span className="hidden lg:inline" aria-hidden="true">👋</span>
+            <h1 className="font-heading text-2xl font-semibold tracking-tight text-white drop-shadow-md">
+              {greeting}, {firstName} <span aria-hidden="true">👋</span>
             </h1>
-            <p className="mt-1 hidden text-sm text-white/85 drop-shadow-sm lg:block">
+            <p className="mt-1 text-sm text-white/85 drop-shadow-sm">
               Here&apos;s what&apos;s happening with your deliveries today.
             </p>
           </div>
@@ -147,4 +147,17 @@ const DriversDashboardBanner = ({ fullName }: DriversDashboardBannerProps) => {
   );
 };
 
-export { DriversHeader, DriversDashboardBanner };
+const DriversMobileGreeting = ({ fullName }: DriversDashboardBannerProps) => {
+  const firstName = getFirstName(fullName);
+  const greeting = getTimeGreeting();
+
+  return (
+    <div className="rounded-b-2xl bg-[#0E4A38] px-4 pb-5 pt-0 sm:-mx-6 sm:px-6 lg:hidden">
+      <h1 className="font-heading text-xl font-semibold tracking-tight text-white">
+        {greeting}, {firstName}
+      </h1>
+    </div>
+  );
+};
+
+export { DriversHeader, DriversDashboardBanner, DriversMobileGreeting };
