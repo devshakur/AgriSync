@@ -152,7 +152,7 @@ const RequestActions = ({ request, onAccept, onReject }: RequestActionsProps) =>
               ref={menuRef}
               role="menu"
               style={{ top: menuPos.top, left: menuPos.left }}
-              className="fixed z-[80] w-32 overflow-hidden rounded-lg border border-black/8 bg-white p-1 shadow-[0_12px_30px_rgba(33,31,26,0.14)]"
+              className="fixed z-80 w-32 overflow-hidden rounded-lg border border-black/8 bg-white p-1 shadow-[0_12px_30px_rgba(33,31,26,0.14)]"
             >
               <button
                 type="button"

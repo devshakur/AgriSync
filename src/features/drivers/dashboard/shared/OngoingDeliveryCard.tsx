@@ -208,11 +208,11 @@ const OngoingDeliveryCard = () => {
         <div className="mt-7 px-1 sm:px-2">
           <div className="relative">
             {/* Base line */}
-            <div className="absolute left-0 right-0 top-[10px] h-1 rounded-full bg-[#E8EEE9]" />
+            <div className="absolute left-0 right-0 top-2.5 h-1 rounded-full bg-[#E8EEE9]" />
 
             {/* Completed / active line */}
             <div
-              className="absolute left-0 top-[10px] h-1 rounded-full bg-[#22A45D] transition-all duration-500"
+              className="absolute left-0 top-2.5 h-1 rounded-full bg-[#22A45D] transition-all duration-500"
               style={{ width: `${progress}%` }}
             />
 

@@ -6,7 +6,7 @@ type DriverStatsPromoCardProps = {
 };
 
 const DriverStatsPromoCard = ({ href = "/drivers/requests" }: DriverStatsPromoCardProps) => (
-  <article className="flex h-full items-center gap-3 rounded-2xl border border-black/[0.06] bg-white p-4 shadow-sm">
+  <article className="flex h-full items-center gap-3 rounded-2xl border border-black/6 bg-white p-4 shadow-sm">
     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#E3F2E7]">
       <Truck className="h-6 w-6 text-[#1B5A3B]" strokeWidth={1.75} />
     </div>
