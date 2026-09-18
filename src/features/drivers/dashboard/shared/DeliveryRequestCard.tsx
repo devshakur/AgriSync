@@ -14,9 +14,6 @@ import {
 
 import { RequestDetailsModal } from "./RequestDetailsModal";
 
-/* -------------------------------------------------------------------------- */
-/* Types                                                                      */
-/* -------------------------------------------------------------------------- */
 
 export type DeliveryRequest = {
   _id?: string;
@@ -86,9 +83,6 @@ type DeliveryRequestCardProps = {
   onAccept?: (request: DeliveryRequest) => void;
 };
 
-/* -------------------------------------------------------------------------- */
-/* Helpers                                                                    */
-/* -------------------------------------------------------------------------- */
 
 const getFarmerName = (request: DeliveryRequest) => {
   return (
@@ -119,22 +113,8 @@ const getFarmerReviews = (request: DeliveryRequest) => {
   );
 };
 
-/* -------------------------------------------------------------------------- */
-/* Request Status                                                             */
-/* -------------------------------------------------------------------------- */
 
 const getStatus = (request: DeliveryRequest) => {
-  /*
-   * The API does not return a `status` string.
-   *
-   * It returns:
-   *
-   * isAccepted
-   * isInTransit
-   * isDelivered
-   *
-   * We check the most advanced state first.
-   */
 
   if (request.isDelivered === true) {
     return {

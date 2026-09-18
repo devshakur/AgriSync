@@ -52,7 +52,7 @@ const SettingsNav = ({
     aria-label="Settings"
     className={`overflow-hidden rounded-2xl border shadow-sm ${theme.cardBg} ${theme.cardBorder} ${className}`}
   >
-    <ul className="divide-y divide-black/[0.06] dark:divide-white/10">
+    <ul className="divide-y divide-black/6 dark:divide-white/10">
       {items.map((item) => {
         const Icon = item.icon;
         const active = item.id === activeId;
@@ -62,7 +62,7 @@ const SettingsNav = ({
               type="button"
               onClick={() => onSelect(item.id)}
               className={`flex w-full items-center gap-3 px-4 py-3.5 text-left transition ${
-                active ? theme.activeNav : "text-foreground hover:bg-black/[0.03] dark:hover:bg-white/5"
+                active ? theme.activeNav : "text-foreground hover:bg-black/3 dark:hover:bg-white/5"
               }`}
               aria-current={active ? "page" : undefined}
             >
