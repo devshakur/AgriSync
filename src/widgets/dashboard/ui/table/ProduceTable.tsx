@@ -4,14 +4,18 @@ import { MoreHorizontal, Pencil, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { TablePagination } from "./TablePagination";
+import { TablePulse } from "./TablePulse";
 import type { ProduceCardProps, ProduceStatus } from "../producecard/ProduceCard";
 
 type ProduceTableProps = {
   produce: ProduceCardProps[];
   pageSize?: number;
+  isLoading?: boolean;
   onEdit?: (produce: ProduceCardProps) => void;
   onDelete?: (produce: ProduceCardProps) => void;
 };
+
+const SKELETON_ROWS = 5;
 
 const statusStyles: Record<ProduceStatus, string> = {
   Available: "bg-[#E3F2E7] text-primary",
@@ -22,6 +26,7 @@ const statusStyles: Record<ProduceStatus, string> = {
 const ProduceTable = ({
   produce,
   pageSize = 2,
+  isLoading = false,
   onEdit,
   onDelete,
 }: ProduceTableProps) => {
@@ -44,7 +49,23 @@ const ProduceTable = ({
           <span>Actions</span>
         </div>
 
-        {visibleProduce.map((product) => (
+        {isLoading
+          ? Array.from({ length: SKELETON_ROWS }, (_, index) => (
+              <div
+                key={`produce-skeleton-${index}`}
+                className="grid grid-cols-[minmax(180px,1.5fr)_1fr_1fr_1fr_44px] items-center border-b border-black/6 px-4 py-2.5 last:border-0 lg:px-5"
+              >
+                <div className="flex min-w-0 items-center gap-3">
+                  <TablePulse className="h-9 w-11 rounded-md" />
+                  <TablePulse className="h-3 w-24" />
+                </div>
+                <TablePulse className="h-3 w-12" />
+                <TablePulse className="h-3 w-16" />
+                <TablePulse className="h-5 w-16 rounded-md" />
+                <TablePulse className="h-7 w-7" />
+              </div>
+            ))
+          : visibleProduce.map((product) => (
           <div
             key={product.id ?? product.name}
             className="grid grid-cols-[minmax(180px,1.5fr)_1fr_1fr_1fr_44px] items-center border-b border-black/6 px-4 py-2.5 last:border-0 lg:px-5"
@@ -82,7 +103,18 @@ const ProduceTable = ({
       </div>
 
       <div className="divide-y divide-black/6 md:hidden">
-        {visibleProduce.map((product) => (
+        {isLoading
+          ? Array.from({ length: SKELETON_ROWS }, (_, index) => (
+              <div key={`produce-mobile-skeleton-${index}`} className="flex items-center gap-3 px-3 py-3">
+                <TablePulse className="h-10 w-12 rounded-md" />
+                <div className="min-w-0 flex-1 space-y-2">
+                  <TablePulse className="h-3 w-24" />
+                  <TablePulse className="h-3 w-20" />
+                </div>
+                <TablePulse className="h-5 w-14 rounded-md" />
+              </div>
+            ))
+          : visibleProduce.map((product) => (
           <div key={product.id ?? product.name} className="flex items-center gap-3 px-3 py-3">
             <div className="relative h-10 w-12 shrink-0 overflow-hidden rounded-md">
               <Image
@@ -111,19 +143,21 @@ const ProduceTable = ({
         ))}
       </div>
 
-      {produce.length === 0 && (
+      {!isLoading && produce.length === 0 && (
         <div className="flex min-h-32 items-center justify-center text-sm text-muted-foreground">
           No produce found.
         </div>
       )}
 
-      <TablePagination
-        page={currentPage}
-        pageSize={pageSize}
-        totalItems={produce.length}
-        itemLabel="produce"
-        onPageChange={setPage}
-      />
+      {!isLoading ? (
+        <TablePagination
+          page={currentPage}
+          pageSize={pageSize}
+          totalItems={produce.length}
+          itemLabel="produce"
+          onPageChange={setPage}
+        />
+      ) : null}
     </div>
   );
 };

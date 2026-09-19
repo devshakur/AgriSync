@@ -3,6 +3,7 @@
 import { ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { TablePagination } from "./TablePagination";
+import { TablePulse } from "./TablePulse";
 
 export type OrderStatus = "Pending" | "In Transit" | "Delivered";
 
@@ -21,7 +22,10 @@ type OrdersTableProps = {
   orders: Order[];
   onOrderClick?: (order: Order) => void;
   pageSize?: number;
+  isLoading?: boolean;
 };
+
+const SKELETON_ROWS = 5;
 
 const statusStyles: Record<OrderStatus, string> = {
   Pending: "bg-[#FFF4DC] text-[#9A6411]",
@@ -33,6 +37,7 @@ const OrdersTable = ({
   orders,
   onOrderClick,
   pageSize = 5,
+  isLoading = false,
 }: OrdersTableProps) => {
   const [page, setPage] = useState(1);
   const totalPages = Math.max(1, Math.ceil(orders.length / pageSize));
@@ -58,7 +63,22 @@ const OrdersTable = ({
         </div>
 
         {/* Rows */}
-        {visibleOrders.map((order) => (
+        {isLoading
+          ? Array.from({ length: SKELETON_ROWS }, (_, index) => (
+              <div
+                key={`orders-skeleton-${index}`}
+                className="grid grid-cols-[1fr_1.3fr_0.8fr_1.4fr_1fr_0.8fr_32px] items-center border-b border-black/6 px-4 py-3.5 last:border-0 lg:px-5"
+              >
+                <TablePulse className="h-3 w-14" />
+                <TablePulse className="h-3 w-20" />
+                <TablePulse className="h-3 w-10" />
+                <TablePulse className="h-3 w-28" />
+                <TablePulse className="h-3 w-16" />
+                <TablePulse className="h-5 w-14 rounded-md" />
+                <TablePulse className="h-4 w-4" />
+              </div>
+            ))
+          : visibleOrders.map((order) => (
           <button
             key={order.id}
             type="button"
@@ -107,7 +127,24 @@ const OrdersTable = ({
 
       {/* ================= MOBILE ================= */}
       <div className="space-y-3 md:hidden">
-        {visibleOrders.map((order) => (
+        {isLoading
+          ? Array.from({ length: SKELETON_ROWS }, (_, index) => (
+              <div
+                key={`orders-mobile-skeleton-${index}`}
+                className="flex w-full items-center gap-3 rounded-xl border border-black/[0.07] bg-background px-4 py-4"
+              >
+                <TablePulse className="h-9 w-1 rounded-full" />
+                <div className="min-w-0 flex-1 space-y-2">
+                  <div className="flex items-center justify-between gap-3">
+                    <TablePulse className="h-3 w-14" />
+                    <TablePulse className="h-5 w-14 rounded-md" />
+                  </div>
+                  <TablePulse className="h-3 w-24" />
+                  <TablePulse className="h-3 w-32" />
+                </div>
+              </div>
+            ))
+          : visibleOrders.map((order) => (
           <button
             key={order.id}
             type="button"
@@ -167,7 +204,7 @@ const OrdersTable = ({
       </div>
 
       {/* Empty state */}
-      {orders.length === 0 && (
+      {!isLoading && orders.length === 0 && (
         <div className="flex min-h-45 items-center justify-center px-5">
           <div className="text-center">
             <p className="text-sm font-medium text-muted-foreground">
@@ -181,13 +218,15 @@ const OrdersTable = ({
         </div>
       )}
 
-      <TablePagination
-        page={currentPage}
-        pageSize={pageSize}
-        totalItems={orders.length}
-        itemLabel="requests"
-        onPageChange={setPage}
-      />
+      {!isLoading ? (
+        <TablePagination
+          page={currentPage}
+          pageSize={pageSize}
+          totalItems={orders.length}
+          itemLabel="requests"
+          onPageChange={setPage}
+        />
+      ) : null}
     </div>
   );
 };
