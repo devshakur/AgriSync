@@ -11,6 +11,7 @@ type OrdersSectionProps = {
   title?: string;
   description?: string;
   orders: Order[];
+  isLoading?: boolean;
   onViewAll?: () => void;
   onOrderClick?: (order: Order) => void;
   sideContent?: ReactNode;
@@ -20,6 +21,7 @@ const OrdersSection = ({
   title = "Recent Orders",
   description,
   orders,
+  isLoading = false,
   onViewAll,
   onOrderClick,
   sideContent,
@@ -55,6 +57,7 @@ const OrdersSection = ({
 
           <OrdersTable
             orders={orders}
+            isLoading={isLoading}
             onOrderClick={onOrderClick}
           />
         </div>

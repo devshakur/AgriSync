@@ -107,11 +107,7 @@ const FarmersDashboard = () => {
         />
       </div>
       <div>
-        {isLoadingRequests ? (
-          <div className="flex min-h-45 items-center justify-center rounded-xl border border-black/[0.07] bg-white text-sm text-muted-foreground">
-            Loading recent requests...
-          </div>
-        ) : isRequestsError ? (
+        {isRequestsError ? (
           <div className="flex min-h-45 items-center justify-center rounded-xl border border-black/[0.07] bg-white text-sm text-red-500">
             {getErrorMessage(requestsError)}
           </div>
@@ -119,6 +115,7 @@ const FarmersDashboard = () => {
           <OrdersSection
             title="Recent Driver Requests"
             orders={recentOrders}
+            isLoading={isLoadingRequests}
             sideContent={
               <div className="flex h-full flex-col gap-4">
                 <EarningsOverview />
