@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-import { Star, X } from "lucide-react";
+import { LogOut, Star, X } from "lucide-react";
 import { useAuth } from "@/features/auth/context/AuthContext";
 import { DEFAULT_DRIVER_AVATAR } from "@/features/profile/lib/profile-utils";
 import { useAvailableTransportRequests } from "@/features/drivers/dashboard/hooks";
@@ -21,9 +21,16 @@ type DriversSidebarPanelProps = {
 
 const DriversSidebarPanel = ({ onNavigate, onClose }: DriversSidebarPanelProps) => {
   const pathname = usePathname();
-  const { user } = useAuth();
+  const router = useRouter();
+  const { user, logout } = useAuth();
   const { data: availableRequests } = useAvailableTransportRequests();
   const availableCount = availableRequests?.length ?? 0;
+
+  const handleLogout = () => {
+    logout();
+    onNavigate?.();
+    router.push("/login");
+  };
 
   return (
     <div className="flex h-full min-h-0 w-full flex-col overflow-hidden bg-[#0E4A38]">
@@ -126,14 +133,28 @@ const DriversSidebarPanel = ({ onNavigate, onClose }: DriversSidebarPanelProps) 
 
             <div className="min-w-0 flex-1">
               <p className="truncate text-sm font-semibold text-white">{user?.fullName ?? "Driver"}</p>
+              <div className="flex gap-2">
               <p className="text-xs text-emerald-100/80">Driver</p>
-            </div>
-
-            <div className="flex shrink-0 flex-col items-end gap-1">
-              <span className="flex items-center gap-1 text-xs font-medium text-white">
+                <span className="flex items-center gap-1 text-xs font-medium text-white">
                 <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
                 {DRIVER_RATING_PLACEHOLDER}
               </span>
+              </div>
+            </div>
+
+           
+
+            <div className="flex shrink-0 flex-col items-end gap-1">
+            
+               <button
+              type="button"
+              onClick={handleLogout}
+              aria-label="Log out"
+              title="Log out"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-emerald-100/90 transition hover:bg-white/10 hover:text-white"
+            >
+              <LogOut className="h-4 w-4" strokeWidth={1.75} />
+            </button>
               <span className="flex items-center gap-1.5 text-[11px] text-emerald-100">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#4ADE80]" />
                 Online
