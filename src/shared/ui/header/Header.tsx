@@ -43,7 +43,7 @@ const Header = () => {
 
         {/* Desktop CTA buttons */}
         <div className="hidden shrink-0 items-center gap-2.5 md:flex">
-          <Button label="Log in" href="/login" variant="ghost" size="sm" className="shrink-0 text-white/80 hover:text-white" />
+          <Button label="Login" href="/login" variant="ghost" size="sm" className="shrink-0 text-white/80 hover:text-white hover:bg-transparent" />
           <a
             href="/role"
             className="inline-flex items-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:brightness-110 hover:shadow-md active:scale-[0.97]"

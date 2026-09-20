@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname,  } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { useLockBodyScroll } from "@/shared/hooks";
 import {
   X,
   LayoutDashboard,
@@ -87,14 +88,15 @@ const MobileSidebar = ({
 
     return pathname.startsWith(href);
   };
- 
+
+  useLockBodyScroll(open);
 
   return (
     <>
       {/* Backdrop */}
       <div
         onClick={onClose}
-        className={`fixed inset-0 z-40 bg-black/20 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 overscroll-none bg-black/20 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${
           open
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -103,7 +105,7 @@ const MobileSidebar = ({
 
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-[88%] max-w-97.5 flex-col overflow-y-auto bg-background shadow-[10px_0_40px_rgba(33,31,26,0.12)] transition-transform duration-300 ease-out sm:w-92.5 lg:hidden ${
+        className={`fixed inset-y-0 left-0 z-50 flex h-dvh w-[88%] max-w-97.5 flex-col overflow-y-auto overscroll-none bg-background shadow-[10px_0_40px_rgba(33,31,26,0.12)] transition-transform duration-300 ease-out sm:w-92.5 lg:hidden ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >

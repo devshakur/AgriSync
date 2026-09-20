@@ -97,14 +97,14 @@ const FormField = (props: FormFieldProps) => {
       {/* Label */}
       <label
         htmlFor={id}
-        className={`block font-semibold text-[#111] ${
-          compact ? "pb-1 text-sm" : "py-1 text-base"
+        className={`block font-semibold text-[#4b4444] ${
+          compact ? "pb-1 text-sm" : "py-1 text-sm"
         }`}
       >
         {label}
 
         {required && (
-          <span className="ml-1 text-[#B35B25]">*</span>
+          <span className="ml-1 text-[#7a3b17]">*</span>
         )}
       </label>
 
@@ -116,7 +116,7 @@ const FormField = (props: FormFieldProps) => {
           value={props.value}
           placeholder={props.placeholder ?? "Select an option"}
           icon={Icon}
-          options={props.options}
+          options={props.options} 
           onChange={props.onChange}
           disabled={props.disabled}
           error={Boolean(error)}
@@ -125,7 +125,7 @@ const FormField = (props: FormFieldProps) => {
         />
       ) : props.type === "textarea" ? (
         <div
-          className={`relative rounded-xl border px-4 transition-colors duration-200 ${compact ? "py-2" : "py-3"} ${controlClassName ? "" : "bg-[#FAF8F2]"} ${borderClass} ${controlClassName || "shadow-none"}`}
+          className={`relative rounded-xl text-sm border px-4 transition-colors duration-200 ${compact ? "py-2" : "py-3"} ${controlClassName ? "" : "bg-[#FAF8F2]"} ${borderClass} ${controlClassName || "shadow-none"}`}
         >
           {Icon && (
             <Icon
@@ -143,7 +143,7 @@ const FormField = (props: FormFieldProps) => {
             rows={props.rows ?? 4}
             disabled={props.disabled}
             style={{ WebkitAppearance: "none", appearance: "none", boxShadow: "none" }}
-            className={`w-full resize-none appearance-none border-0 bg-transparent text-base text-[#111] shadow-none outline-none ring-0 focus:border-0 focus:outline-none focus:ring-0 focus-visible:outline-none placeholder:-[#7C7A73] disabled:cursor-not-allowed disabled:opacity-50 ${
+            className={`w-full resize-none appearance-none border-0 bg-transparent text-sm text-[#111] shadow-none outline-none ring-0 focus:border-0 focus:outline-none focus:ring-0 focus-visible:outline-none placeholder:-[#9CA3AF] disabled:cursor-not-allowed disabled:opacity-50 ${
               Icon ? "pl-10 pr-5" : "px-5"
             }`}
           />
@@ -176,7 +176,7 @@ const FormField = (props: FormFieldProps) => {
             inputMode={props.inputMode}
             disabled={props.disabled}
             style={{ WebkitAppearance: "none", appearance: "none", boxShadow: "none" }}
-            className={`w-full appearance-none border-0 bg-transparent py-0 text-base text-[#111] shadow-none placeholder:text-[#77756E] outline-none ring-0 focus:border-0 focus:outline-none focus:ring-0 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 ${
+            className={`w-full appearance-none border-0 bg-transparent py-0 text-sm text-[#111] shadow-none placeholder:text-[#b8b6b0] outline-none ring-0 focus:border-0 focus:outline-none focus:ring-0 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 ${
               Icon ? "pl-10" : "pl-5"
             } ${
               props.type === "password"

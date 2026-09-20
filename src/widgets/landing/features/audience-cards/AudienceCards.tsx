@@ -31,7 +31,7 @@ const audienceCards = [
       "Transparent, upfront pricing",
       "Track earnings and ratings in one place",
     ],
-    buttonText: "Become a Driver",
+    buttonText: "Join as a Driver",
     icon: <Truck className="h-7 w-7" />,
     accent: "#F4E7D5",
   },
