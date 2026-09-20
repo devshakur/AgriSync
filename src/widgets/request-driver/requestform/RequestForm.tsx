@@ -57,12 +57,12 @@ const RequestForm = ({
         <div>
           <p className="mb-3 text-[10px] font-normal uppercase tracking-[0.16em] text-muted-foreground">Load details</p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <FormField type="select" label="What are you transporting?" value={values.produce} onChange={(event: ChangeEvent<HTMLSelectElement>) => onChange("produce", event.target.value)} icon={Package} placeholder="Select produce" options={[{ label: "Fresh Tomatoes", value: "Fresh Tomatoes" }, { label: "Yellow Maize", value: "Yellow Maize" }, { label: "Local Rice", value: "Local Rice" }, { label: "Other produce", value: "Other produce" }]} />
+            <FormField type="select" label="What are you transporting?" value={values.produce} className="text-sm" onChange={(event: ChangeEvent<HTMLSelectElement>) => onChange("produce", event.target.value)} icon={Package} placeholder="Select produce" options={[{ label: "Fresh Tomatoes", value: "Fresh Tomatoes" }, { label: "Yellow Maize", value: "Yellow Maize" }, { label: "Local Rice", value: "Local Rice" }, { label: "Other produce", value: "Other produce" }]} />
             <div className="grid grid-cols-[minmax(0,1fr)_110px] gap-3">
               <FormField label="Approx. Quantity" type="number" value={values.quantity} onChange={(event: ChangeEvent<HTMLInputElement>) => onChange("quantity", event.target.value)} placeholder="e.g. 500" />
-              <FormField type="select" label="Unit" value={values.unit} onChange={(event: ChangeEvent<HTMLSelectElement>) => onChange("unit", event.target.value)} placeholder="Unit" options={[{ label: "kg", value: "kg" }, { label: "bags", value: "bags" }, { label: "crates", value: "crates" }]} />
+              <FormField type="select" className="text-sm" label="Unit" value={values.unit} onChange={(event: ChangeEvent<HTMLSelectElement>) => onChange("unit", event.target.value)} placeholder="Unit" options={[{ label: "kg", value: "kg" }, { label: "bags", value: "bags" }, { label: "crates", value: "crates" }]} />
             </div>
-            <FormField type="select" label="Packaging" value={values.packaging} onChange={(event: ChangeEvent<HTMLSelectElement>) => onChange("packaging", event.target.value)} placeholder="Select packaging" options={[{ label: "Crates", value: "Crates" }, { label: "Bags", value: "Bags" }, { label: "Loose load", value: "Loose load" }]} />
+            <FormField type="select" label="Packaging" className="text-sm" value={values.packaging} onChange={(event: ChangeEvent<HTMLSelectElement>) => onChange("packaging", event.target.value)} placeholder="Select packaging" options={[{ label: "Crates", value: "Crates" }, { label: "Bags", value: "Bags" }, { label: "Loose load", value: "Loose load" }]} />
             <FormField type="textarea" label="Additional notes (optional)" value={values.notes} onChange={(event: ChangeEvent<HTMLTextAreaElement>) => onChange("notes", event.target.value)} placeholder="e.g. Fragile items, special instructions..." rows={2} />
           </div>
         </div>

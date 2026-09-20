@@ -4,8 +4,8 @@
  export const farmerStats = [
   {
     label: "Produce Listed",
-    value: "12",
-    description: "4 active listings",
+    value: "0",
+    description: "0 active listings",
     trend: "10% this month",
     trendDirection: "up" as const,
     icon: Package,
@@ -13,8 +13,8 @@
   },
   {
     label: "Active Orders",
-    value: "8",
-    description: "2 require action",
+    value: "0",
+    description: "0 orders require action",
     trend: "15% this month",
     trendDirection: "up" as const,
     icon: ShoppingBag,
@@ -22,7 +22,7 @@
   },
   {
     label: "In Delivery",
-    value: "3",
+    value: "0",
     description: "Currently on the road",
     trend: "5% this month",
     trendDirection: "up" as const,
@@ -31,7 +31,7 @@
   },
   {
     label: "Total Earnings",
-    value: "₦284,500",
+    value: "₦0.00",
     description: "This month",
     trend: "12.8% vs last month",
     trendDirection: "up" as const,
@@ -80,7 +80,7 @@ export const farmerProduce = [
  export const produceStats = [
   {
     label: "Total Listed",
-    value: "12",
+    value: "0",
      description: "4 active listings",
     trend: "10% this month",
     trendDirection: "up" as const,
@@ -89,7 +89,7 @@ export const farmerProduce = [
   },
   {
     label: "Available Stock",
-    value: "8",
+    value: "0",
     description: "Across all produce",
     trend: "15% this month",
     trendDirection: "up" as const,
@@ -98,7 +98,7 @@ export const farmerProduce = [
   },
   {
     label: "Low Stock",
-    value: "3",
+    value: "0",
     description: "Listing",
     trend: "5% this month",
     trendDirection: "up" as const,
@@ -107,7 +107,7 @@ export const farmerProduce = [
   },
   {
     label: "Sold This Month",
-    value: "2,850kg",
+      value: "0kg",
     description: "This month",
     trend: "12.8% vs last month",
     trendDirection: "up" as const,
