@@ -1,6 +1,6 @@
 
 import { ArrowRight } from "lucide-react";
-
+import Image from "next/image";
 import { Button } from "@/shared/ui/button";
 import { navItems } from "@/constants/nav";
 
@@ -27,8 +27,8 @@ const Header = () => {
             />
           </div> */}
           <div className="hidden flex-col sm:flex">
-            <span className="font-heading text-[15px] font-bold leading-tight tracking-tight text-white">
-              AgriSync
+            <span className="font-heading flex items-center text-[15px] font-bold leading-tight tracking-tight text-white">
+               <Image src="/assests/logo/Agricsync_logo.png" alt="AgriSync" width={35} height={35} priority /> AgriSync
             </span>
             <span className="font-sans text-[10px] font-medium tracking-wide text-white/70">
               Grow Better. Live Better.

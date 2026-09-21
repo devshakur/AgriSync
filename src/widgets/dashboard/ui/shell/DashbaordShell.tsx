@@ -16,7 +16,7 @@ const  DashboardShell = ({ children }: DashboardShellProps) => {
   const [isProduceModalOpen, setIsProduceModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="h-dvh overflow-y-auto hide-scrollbar bg-background">
       <DashboardSidebar />
 
       <div className="lg:pl-62.5">

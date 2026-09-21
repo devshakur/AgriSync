@@ -17,7 +17,7 @@ const DriversDashboard = () => {
     <>
       <DriversDashboardBanner fullName={user?.fullName ?? ""} />
       <DriversMobileGreeting fullName={user?.fullName ?? ""} />
-      <div className="p-3">
+      <div className="p-3 ">
         <section className="grid grid-cols-2 gap-3 lg:grid-cols-[1fr_1fr_1fr_1fr_1.35fr] lg:gap-4">
           {stats.map((stat) => (
             <DriverStatCard key={stat.label} {...stat} />

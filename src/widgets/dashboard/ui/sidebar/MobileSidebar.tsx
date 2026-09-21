@@ -110,20 +110,20 @@ const MobileSidebar = ({
         }`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 pb-4 pt-6">
+        <div className="flex items-center justify-between px-5 pb-4 pt-5">
           <Link
             href="/farmer"
             onClick={onClose}
-            className="flex items-center gap-3"
+            className="flex items-center"
           >
            
                <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
                         <Image
-                          src="/assests/logo/Agricsync-short-logo.png"
-                          alt="Farmer"
+                          src="/assests/logo/Agricsync_logo.png"
+                          alt="AgriSync_logo"
                           fill
                           className="object-cover"
-                          sizes="40px"
+                          sizes="35px"
                         />
                       </div>
            
@@ -156,7 +156,7 @@ const MobileSidebar = ({
               <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
                           <Image
                             src="/assests/images/farmer.jpg"
-                            alt="Farmer"
+                            alt="Farmer_profile"
                             fill
                             className="object-cover"
                             sizes="40px"

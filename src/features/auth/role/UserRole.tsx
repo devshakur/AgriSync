@@ -115,7 +115,7 @@ const UserRole = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background pb-10">
+    <div className="h-dvh overflow-y-auto hide-scrollbar bg-background pb-10">
       <Header page="Back to Home" route="/" />
 
       <section className="px-4 pt-4 sm:px-6">
