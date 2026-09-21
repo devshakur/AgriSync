@@ -88,6 +88,19 @@ body {
 }
 
 /* ================================
+   Hidden scrollbar (scroll still works)
+   ================================ */
+
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ================================
    Button loading bars (three vertical bars animating up and down)
    ================================ */
 

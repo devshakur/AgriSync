@@ -74,13 +74,13 @@ const DashboardSidebar = () => {
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-62.5 border-black/5 bg-background shadow-lg lg:flex lg:flex-col">
       {/* Logo */}
-      <div className="flex h-20 items-center px-6">
-        <div className="flex items-center gap-2.5">
+      <div className="flex h-20 items-center px-3">
+        <div className="flex items-center">
           
                          <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-full">
                                   <Image
-                                    src="/assests/logo/Agricsync-short-logo.png"
-                                    alt="Farmer"
+                                    src="/assests/logo/Agricsync_logo.png"
+                                    alt="AgriSync"
                                     fill
                                     className="object-cover"
                                     sizes="40px"

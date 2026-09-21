@@ -9,6 +9,7 @@ export const DRIVER_HEADER_BANNER_IMAGES = [
   "/assests/images/driver-sidebar-truck.jpg",
   "/assests/images/delivery-bike.jpg",
   "/assests/images/hero-farm.jpg",
+  "/assests/images/Agrisync_produce.jpg"
 ] as const;
 
 const SLIDE_MS = 5000;
@@ -60,8 +61,8 @@ const DriversHeader = ({
       <Link href="/drivers" className="flex min-w-0 items-center gap-2">
         <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-lg bg-white">
           <Image
-            src="/assests/logo/Agricsync-short-logo.png"
-            alt="AgriSync"
+            src="/assests/logo/Agricsync_logo.png"
+            alt="AgriSync_logo"
             fill
             className="object-cover"
             sizes="32px"
@@ -135,7 +136,7 @@ const DriversDashboardBanner = ({ fullName }: DriversDashboardBannerProps) => {
         <div className="relative z-10 flex h-full items-center px-8">
           <div className="min-w-0">
             <h1 className="font-heading text-2xl font-semibold tracking-tight text-white drop-shadow-md">
-              {greeting}, {firstName} <span aria-hidden="true">👋</span>
+              {greeting}, {firstName}.
             </h1>
             <p className="mt-1 text-sm text-white/85 drop-shadow-sm">
               Here&apos;s what&apos;s happening with your deliveries today.

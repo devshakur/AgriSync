@@ -117,12 +117,6 @@ const SignUp = () => {
       description="Create an account to continue"
       banner={
         <div className="flex flex-wrap items-center justify-center gap-2.5 lg:justify-start">
-          {/* <div className="inline-flex items-center gap-2 rounded-full bg-[#E3F2E7] px-3 py-1">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-white text-primary">
-              <Leaf className="h-3 w-3" strokeWidth={1.8} />
-            </span>
-            <span className="text-sm font-semibold text-primary">{roleLabel}</span>
-          </div> */}
           <Link
             href="/role"
             className="text-sm font-semibold text-primary transition hover:text-[#143F2B]"

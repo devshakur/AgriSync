@@ -20,7 +20,7 @@ const DriversShell = ({ children }: DriversShellProps) => {
           onMenuOpen={() => setIsMobileSidebarOpen(true)}
         />
 
-        <main className="min-h-0 flex-1 overflow-y-auto overscroll-contain pb-6 pt-0 sm:px-6 lg:px-8">
+        <main className="min-h-0 flex-1 overflow-y-auto overscroll-contain hide-scrollbar pb-6 pt-0 sm:px-6 lg:px-8">
           <div className="w-full">{children}</div>
         </main>
       </div>

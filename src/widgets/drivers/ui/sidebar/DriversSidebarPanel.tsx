@@ -38,8 +38,8 @@ const DriversSidebarPanel = ({ onNavigate, onClose }: DriversSidebarPanelProps) 
         <Link href="/drivers" onClick={onNavigate} className="flex min-w-0 items-center gap-2.5">
           <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-xl bg-white">
             <Image
-              src="/assests/logo/Agricsync-short-logo.png"
-              alt="AgriSync"
+              src="/assests/logo/Agricsync_logo.png"
+              alt="AgriSync_logo"
               fill
               className="object-cover"
               sizes="36px"
