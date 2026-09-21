@@ -134,7 +134,7 @@ const MobileSidebar = ({
                 </h2>
 
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                {role} Dashboard
+                {role} Portal
               </p>
             </div>
           </Link>
