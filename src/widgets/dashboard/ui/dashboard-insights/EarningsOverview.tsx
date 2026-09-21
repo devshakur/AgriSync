@@ -18,7 +18,7 @@ type EarningsOverviewProps = {
 };
 
 const EarningsOverview = ({
-  amount = "₦284,500",
+  amount = "₦0.00",
   period = "This Month",
 }: EarningsOverviewProps) => {
   return (
