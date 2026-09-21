@@ -93,7 +93,7 @@ const DashboardSidebar = () => {
             </p>
 
             <p className="text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
-              Farmer
+              Farmer Portal
             </p>
           </div>
         </div>
